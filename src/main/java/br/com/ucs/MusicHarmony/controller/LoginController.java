@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class login {
+public class LoginController {
 
     @GetMapping("/login")
-    public String LoginController(Model model) {
-        model.addAttribute("nome", "Mundo");
+    public String Login() {
+       // model.addAttribute("nome", "Mundo");
         return "login";
     }
 }
