@@ -8,12 +8,16 @@ import lombok.Setter;
 
 // Detalhes sobre lombok: https://medium.com/collabcode/projeto-lombok-escrevendo-menos-c%C3%B3digo-em-java-8fc87b379209
 
-@Getter@Setter@AllArgsConstructor
+@Getter
+@Setter
+//@AllArgsConstructor
 public class Usuario {
 
     // @Id @GeneratedValue
     private int id;
-    private String senha;
     private String nome;
     private String email;
+    private String senha;
+
+
 }
