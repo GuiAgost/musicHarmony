@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!--Configuração de cabeçalho-->
-<head th:fragment="head">
+<head th:fragment="head"><!--Configuração de cabeçalho-->
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -32,61 +31,74 @@
     .space {
       padding-left: 70px;
     }
+    .subtitulo{
+      width: 400%;
+      text-align: right;
+    }
   </style>
 </head>
-<!--Titulo-->
-<div th:fragment="logo" class="logo-container mb-3 p-3 d-flex justify-content-between">
-  <header class="titulo">
-    <span class="logo">MusicHarmony</span>
-  </header>
-</div>
+  <div th:fragment="logo" class="logo-container mb-3 p-3 d-flex justify-content-between">
+      <header class="titulo"><!--Cabeçalho de Titulo-->
+          <span class="logo">MusicHarmony</span>
+      </header>
+  </div>
 <body>
-<!--    <div class="container h-100">-->
-<!--      <div class="d-flex justify-content-center h-100">-->
-<!--        <div class="user_card">-->
-          <div class="d-flex justify-content-center form_container form-border">
-            <form>
-                <div>
-                  <div class="form-group">
-                    <label class="control-label" for="Nome">Nome <h11>*</h11></label>
-                    <div class="col-md-15">
-                      <input id="Nome" name="Nome" placeholder="Digite seu nome" class="form-control input-md" required="" type="text">
-                    </div>
-                  </div>
-                  <!--  E-mail-->
-                  <div class="form-group">
-                    <label class="control-label" for="prependedtext">Email <h11>*</h11></label>
-                    <div class="col-md-15">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-                      </div>
-                    </div>
-                  </div>
-                  <!--Senha-->
-                  <label class="control-label" for="Nome">Senha<h11>*</h11></label>
-                  <div class="col-md-15">
-                    <input id="senha" name="dtnasc" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
-                  </div>
-                 <!--Button-->
-                  <div class="form-group">
-                    <label class="control-label" for="Cadastrar"></label>
-                    <div class="col-md-8">
-                        <div class="btn-group mr-5">
-                          <span class="space"></span>
-                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit ">Cadastrar</button>
-                          <span class="space"></span>
-                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset" ">Cancelar</button>
-                          <span class="space"></span>
-                        </div>
-                    </div>
+    <div><!--SubTitulo-->
+<!--        <header class="subtitulo">-->
+<!--            <p class="col-md-3"><h11>*</h11> Campo Obrigatório</p>-->
+<!--        </header>-->
+        <header class="titulo">
+            <span class="logo">
+                <h4>Cadastro de Conta</h4>
+            </span>
+        </header>
+    </div>
+      <div class="d-flex justify-content-center form_container form-border">
+        <form>
+            <div>
+              <div class="form-group">
+                <label class="control-label" for="nome">Nome <!--<h11>*</h11>--></label>
+                <div class="col-md-15">
+                  <input id="nome" name="nome" placeholder="Digite seu nome" class="form-control input-md" required="" type="text">
+                </div>
+              </div>
+              <!--  E-mail-->
+              <div class="form-group">
+                <label class="control-label" for="email">Email <!--<h11>*</h11>--></label>
+                <div class="col-md-15">
+                  <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input id="email" name="email" class="form-control rounded" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
                   </div>
                 </div>
-            </form>
-          </div>
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+              </div>
+              <!--Senha-->
+              <label class="control-label" for="senha">Senha<!--<h11>*</h11>--></label>
+              <div class="col-md-15">
+                <input id="senha" name="senha" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+              </div>
+              <!--Confirmar senha-->
+              <label class="control-label" for="confirmeSenha">Confirme a sua Senha<!--<h11>*</h11>--></label>
+              <div class="col-md-15">
+                <input id="senha" name="confirmeSenha" placeholder="Confirme sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+              </div>
+             <!--Button-->
+              <div class="form-group">
+                <label class="control-label" for="cadastrar"></label>
+                  <label class="control-label" for="cancelar"></label>
+                <div class="col-md-8">
+                    <div class="btn-group mr-5">
+                      <span class="space"></span>
+                    <button id="cadastrar" name="cadastrar" class="btn btn-success rounded" type="Submit ">Cadastrar</button>
+                      <span class="space"></span>
+                    <button id="cancelar" name="cancelar" class="btn btn-danger rounded" type="Reset">Cancelar</button>
+                      <span class="space"></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
 </body>
 </html>
 
