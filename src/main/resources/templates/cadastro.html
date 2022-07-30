@@ -29,6 +29,9 @@
       border: 2px solid #c0c0c0;
       padding: 20px;
     }
+    .space {
+      padding-left: 70px;
+    }
   </style>
 </head>
 <!--Titulo-->
@@ -38,22 +41,22 @@
   </header>
 </div>
 <body>
-    <div class="container h-100">
-      <div class="d-flex justify-content-center h-100">
-        <div class="user_card">
+<!--    <div class="container h-100">-->
+<!--      <div class="d-flex justify-content-center h-100">-->
+<!--        <div class="user_card">-->
           <div class="d-flex justify-content-center form_container form-border">
             <form>
                 <div>
                   <div class="form-group">
-                    <label class="col-md-1 control-label" for="Nome">Nome <h11>*</h11></label>
-                    <div class="col-md-5">
+                    <label class="control-label" for="Nome">Nome <h11>*</h11></label>
+                    <div class="col-md-15">
                       <input id="Nome" name="Nome" placeholder="Digite seu nome" class="form-control input-md" required="" type="text">
                     </div>
                   </div>
                   <!--  E-mail-->
                   <div class="form-group">
-                    <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
-                    <div class="col-md-5">
+                    <label class="control-label" for="prependedtext">Email <h11>*</h11></label>
+                    <div class="col-md-15">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
@@ -61,24 +64,29 @@
                     </div>
                   </div>
                   <!--Senha-->
-                  <label class="col-md-1 control-label" for="Nome">Senha<h11>*</h11></label>
-                  <div class="col-md-5">
+                  <label class="control-label" for="Nome">Senha<h11>*</h11></label>
+                  <div class="col-md-15">
                     <input id="senha" name="dtnasc" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
                   </div>
                  <!--Button-->
                   <div class="form-group">
-                    <label class="col-md-2 control-label" for="Cadastrar"></label>
+                    <label class="control-label" for="Cadastrar"></label>
                     <div class="col-md-8">
-                      <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
-                      <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                        <div class="btn-group mr-5">
+                          <span class="space"></span>
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit ">Cadastrar</button>
+                          <span class="space"></span>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset" ">Cancelar</button>
+                          <span class="space"></span>
+                        </div>
                     </div>
                   </div>
                 </div>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 </body>
 </html>
 
