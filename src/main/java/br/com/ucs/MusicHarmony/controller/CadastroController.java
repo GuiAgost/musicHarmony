@@ -11,10 +11,12 @@ public class CadastroController {
     @GetMapping("/cadastro")
     public String cadastro(Model model){
         Usuario usuario = new Usuario();
+        usuario.setId(1);
         usuario.setNome("Guilherme");
         usuario.setEmail("gui.agostini@hotmail.com");
         usuario.setSenha("12345");
-        usuario.setId(1);
+        usuario.setConfirmeSenha("12345");
+
 
         // ===========================================//
         //List<Usuario> usuarios = Arrays.asList(usuario);
