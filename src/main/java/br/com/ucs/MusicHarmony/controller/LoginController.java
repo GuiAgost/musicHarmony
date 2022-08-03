@@ -1,13 +1,9 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.model.Usuario;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 public class LoginController {
@@ -18,5 +14,10 @@ public class LoginController {
     public String Login(Model model) {
         return "login";
     }
+
+//    @GetMapping("/menu")
+//    public String menu(Model model) {
+//        return "redirect:/cadastro/menu";
+//    }
 }
 // http://localhost:8080/login
