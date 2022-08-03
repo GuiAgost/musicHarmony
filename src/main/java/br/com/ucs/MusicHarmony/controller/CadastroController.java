@@ -1,30 +1,33 @@
 package br.com.ucs.MusicHarmony.controller;
 
+import br.com.ucs.MusicHarmony.dto.RequisicaoCadastro;
 import br.com.ucs.MusicHarmony.model.Usuario;
+import br.com.ucs.MusicHarmony.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("cadastro")
 public class CadastroController {
 
-    @GetMapping("/cadastro")
-    public String cadastro(Model model){
-        Usuario usuario = new Usuario();
-        usuario.setId(1);
-        usuario.setNome("Guilherme");
-        usuario.setEmail("gui.agostini@hotmail.com");
-        usuario.setSenha("12345");
-        usuario.setConfirmeSenha("12345");
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
+    @GetMapping("formulario")
+    public String formulario(){
+        return "cadastro/formulario";
+    }
 
-        // ===========================================//
-        //List<Usuario> usuarios = Arrays.asList(usuario);
-        //List<Usuario> usuarios = List.of(usuario); // Busca a lista de usuários (opcional)
-        //model.addAttribute("usuarios", usuarios); // Adiciona a lista de usuários (opcional)
-        // ===========================================//
+    @PostMapping("novo")
+    public String menu(RequisicaoCadastro requisicao){
 
-        return "cadastro";
+        Usuario usuario = requisicao.toUsuario();
+        usuarioRepository.save(usuario);
+
+        return "redirect:/login";
     }
 }
 

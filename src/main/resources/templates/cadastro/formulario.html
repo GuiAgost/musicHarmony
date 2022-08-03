@@ -55,7 +55,9 @@
     </div>
     <div class="container">
       <div class="d-flex justify-content-center form_container form-border">
-        <form>
+
+        <form action="/cadastro/novo" method="POST"> <!---?????---->
+
             <div>
               <div class="form-group">
                 <label class="control-label" for="nome">Nome <!--<h11>*</h11>--></label>
@@ -74,21 +76,24 @@
                 </div>
               </div>
               <!--Senha-->
-              <label class="control-label" for="senha">Senha<!--<h11>*</h11>--></label>
-              <div class="col-md-15">
-                <input id="senha" name="senha" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+              <div class="form-group">
+                  <label class="control-label" for="senha">Senha<!--<h11>*</h11>--></label>
+                  <div class="col-md-15">
+                    <input id="senha" name="senha" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+                  </div>
               </div>
               <!--Confirmar senha-->
-              <label class="control-label" for="confirmeSenha">Confirme a sua Senha<!--<h11>*</h11>--></label>
-              <div class="col-md-15">
-                <input id="confirmeSenha" name="confirmeSenha" placeholder="Confirme sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+              <div class="form-group">
+                  <label class="control-label" for="confirmeSenha">Confirme a sua Senha<!--<h11>*</h11>--></label>
+                  <div class="col-md-15">
+                    <input id="confirmeSenha" name="confirmeSenha" placeholder="Confirme sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+                  </div>
               </div>
              <!--Button-->
-              <div class="form-group">
-                <label class="control-label" for="cadastrar"></label>
-                  <label class="control-label" for="cancelar"></label>
-                <div class="col-md-8">
-                    <div class="btn-group mr-5">
+<!--                <label class="control-label" for="cadastrar"></label>-->
+<!--                  <label class="control-label" for="cancelar"></label>-->
+                <div class="col-md-5">
+                    <div class="btn-group mr-3">
                       <span class="space"></span>
                     <button id="cadastrar" name="cadastrar" class="btn btn-success rounded" type="Submit">Cadastrar</button>
                       <span class="space"></span>
@@ -96,7 +101,6 @@
                       <span class="space"></span>
                     </div>
                 </div>
-              </div>
             </div>
         </form>
       </div>

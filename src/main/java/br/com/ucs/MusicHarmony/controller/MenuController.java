@@ -8,7 +8,6 @@ public class MenuController {
 
     @GetMapping("/menu")
     public String Menu() {
-        // model.addAttribute("nome", "Mundo");
         return "menu";
     }
 }

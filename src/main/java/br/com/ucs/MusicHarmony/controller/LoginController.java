@@ -16,10 +16,6 @@ public class LoginController {
 
     @GetMapping("/login")
     public String Login(Model model) {
-
-//        Query query = entityManager.createQuery("select u from Usuario u", Usuario.class);
-//        List<Usuario> usuarios = query.getResultList();
-//        model.addAttribute("usuarios", usuarios);
         return "login";
     }
 }
