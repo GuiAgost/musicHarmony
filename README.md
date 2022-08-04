@@ -11,7 +11,3 @@ Este é o projeto da disciplina TCC II, será desenvolvido em web abordando sobr
 ## Objetivo:
 Sistema web a ser desenvolvido tem por finalidade de auxiliar no aprendizado de
 conceitos da teoria musical.
-
-
-
-

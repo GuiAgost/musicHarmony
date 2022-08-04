@@ -1,5 +1,5 @@
 <!--Configuração de cabeçalho-->
-<head th:fragment="head">
+<head th:fragment="head" xmlns:sec="http://www.w3.org/1999/xhtml">
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -51,9 +51,11 @@
             </span>
     </header>
 </div>
+
 <div th:fragment="logo2" class="logo-container mb-5 p-3 d-flex justify-content-between">
-        <span class="mt-3">Voltar</span>
+    <span class="mt-3"><a class="text-light" href="/">Voltar</a></span>
         <span class="logo">MusicHarmony</span>
-        <span class="mt-3">Sair</span>
+        <span class="mt-3"><a onclick="document.querySelector('#form-login').submit()" class="text-light" sec:authorize="isAuthenticated()" href="#">Logout</a></span>
+        <form id="form-login" th:action="@{logout}" method="post"></form>
 </div>
 

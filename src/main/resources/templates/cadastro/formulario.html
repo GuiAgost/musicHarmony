@@ -13,38 +13,17 @@
         <form action="/cadastro/novo" method="POST">
             <div>
               <div class="form-group">
-                <label class="control-label" for="nome">Nome <!--<h11>*</h11>--></label>
+                <label class="control-label" for="username">Nome<!--<h11>*</h11>--></label>
                 <div class="col-md-15">
-                  <input id="nome" name="nome" placeholder="Digite seu nome" class="form-control input-md" required="" type="text">
+                  <input id="username" name="username" placeholder="Digite seu nome" class="form-control input-md" required="" type="text">
                 </div>
               </div>
-              <!--  E-mail-->
               <div class="form-group">
-                <label class="control-label" for="email">Email <!--<h11>*</h11>--></label>
-                <div class="col-md-15">
-                  <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <input id="email" name="email" class="form-control rounded" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-                  </div>
-                </div>
-              </div>
-              <!--Senha-->
-              <div class="form-group">
-                  <label class="control-label" for="senha">Senha<!--<h11>*</h11>--></label>
+                  <label class="control-label" for="password">Senha<!--<h11>*</h11>--></label>
                   <div class="col-md-15">
-                    <input id="senha" name="senha" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
+                    <input id="password" name="password" placeholder="Digite sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
                   </div>
               </div>
-              <!--Confirmar senha-->
-              <div class="form-group">
-                  <label class="control-label" for="confirmeSenha">Confirme a sua Senha<!--<h11>*</h11>--></label>
-                  <div class="col-md-15">
-                    <input id="confirmeSenha" name="confirmeSenha" placeholder="Confirme sua senha" class="form-control input-md" required="" type="password" maxlength="10" onBlur="showhide()">
-                  </div>
-              </div>
-             <!--Button-->
-<!--                <label class="control-label" for="cadastrar"></label>-->
-<!--                  <label class="control-label" for="cancelar"></label>-->
                 <div class="col-md-5">
                     <div class="btn-group mr-3">
                       <span class="space"></span>

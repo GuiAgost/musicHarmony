@@ -21,9 +21,8 @@ public class CadastroController {
         return "cadastro/formulario";
     }
 
-    @PostMapping("novo")
+    @PostMapping("novoUsuario")
     public String menu(RequisicaoCadastro requisicao){
-
         Usuario usuario = requisicao.toUsuario();
         usuarioRepository.save(usuario);
 
