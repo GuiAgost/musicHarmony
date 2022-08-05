@@ -10,6 +10,7 @@ public class HomeController {
 
     @GetMapping
     public String home() {
+        System.out.println("Estou no home (HomeController)");
         return "home";
     }
 }

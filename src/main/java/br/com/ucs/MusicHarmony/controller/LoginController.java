@@ -8,11 +8,14 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        System.out.println("Entrei login");
+        return "/login";
+
     }
 
     @RequestMapping("/home")
     public String home() {
+        System.out.println("Estou no home");
         return "home";
     }
 }

@@ -3,9 +3,9 @@
 <!--Configuração de cabeçalho-->
 <head th:replace="~{base :: head}"><title></title></head>
 <!--Titulo-->
-<div th:replace="~{base :: logo2}"></div>
+<div th:replace="~{base :: logo3}"></div>
 <!--Subtitulo-->
-<div th:replace="~{base :: titulo('O que deseja fazer?')}"></div>
+<div th:replace="~{base :: titulo('Aulas')}"></div>
 <style>
     button {
         margin: 20px 0;
@@ -51,21 +51,16 @@
     }
 </style>
 <body>
-    <div class="container">
-       <div class="d-flex justify-content-center form_container form-border">
-           <div class="row">
-               <div class="col-md-6">
-                   <button type="button" class="btn btn-info ribbon">Aulas</button>
-                   <button type="button" class="btn btn-info ribbon">Consultar Tríade</button>
-                   <button type="button" class="btn btn-info ribbon">Consultar Tétrade</button>
-               </div>
-               <div class="col-md-6">
-                   <button type="button" class="btn btn-info ribbon">Transposição de Acordes/Notas</button>
-                   <button type="button" class="btn btn-info ribbon">Questionários</button>
-                   <button type="button" class="btn btn-info ribbon">Dicionário de Acordes</button>
-               </div>
-           </div>
-       </div>
+<div class="container">
+    <div class="form_container form-border">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-info ribbon">Módulo Conceito Musical</button>
+                <button type="button" class="btn btn-info ribbon">Módulo Tríade</button>
+                <button type="button" class="btn btn-info ribbon">Módulo Tétrade</button>
+                <button type="button" class="btn btn-info ribbon">Módulo Transposição</button>
+            </div>
+        </div>
     </div>
+</div>
 </body>
-</html>

@@ -52,10 +52,14 @@
     </header>
 </div>
 
-<div th:fragment="logo2" class="logo-container mb-5 p-3 d-flex justify-content-between">
-    <span class="mt-3"><a class="text-light" href="/">Voltar</a></span>
-        <span class="logo">MusicHarmony</span>
-        <span class="mt-3"><a onclick="document.querySelector('#form-login').submit()" class="text-light" sec:authorize="isAuthenticated()" href="#">Logout</a></span>
-        <form id="form-login" th:action="@{logout}" method="post"></form>
+<div th:fragment="logo2" class="logo-container mb-5 p-3 d-flex justify-content-center">
+    <span class="logo">MusicHarmony</span>
+    <span class="mt-3"><a onclick="document.querySelector('#form-login').submit()" class="text-light" sec:authorize="isAuthenticated()" href="#">Logout</a></span>
+    <form id="form-login" th:action="@{logout}" method="post"></form>
 </div>
 
+<div th:fragment="logo3" class="logo-container mb-5 p-3 d-flex justify-content-between">
+    <span class="mt-3">Voltar</span>
+    <span class="logo">MusicHarmony</span>
+    <span class="mt-3">Sair</span>
+</div>
