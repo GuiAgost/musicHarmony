@@ -21,6 +21,7 @@ public class LoginController {
        System.out.println("Estou no home");
 
        // Implementar a logica do login
+        // https://www.devmedia.com.br/java-web-criando-uma-tela-de-login-com-jpa-jsf-primefaces-e-mysql/32456
 
        return "redirect:/home";
     }
