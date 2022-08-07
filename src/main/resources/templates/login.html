@@ -21,29 +21,20 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="user_card">
 			<div class="d-flex justify-content-center form_container form-border">
-				<form th:action="@{login}" method="post">
-					<div class="mb-3">
-						<label for="username" class="form-label"><span
-								style="vertical-align: inherit;"><span
-								style="vertical-align: inherit;">Seu Nome</span></span></label>
-						<input name="username" class="form-control input-md" id="username" placeholder="Username">
+				<form action="home" method="post">
+					<div class="form-group">
+						<label for="username">Seu Nome</label>
+						<input name="username" class="form-control" id="username" placeholder="Username">
 					</div>
-					<div class="mb-3">
-						<label for="password" class="form-label"><span
-								style="vertical-align: inherit;"><span
-								style="vertical-align: inherit;">Sua Senha</span></span></label>
+					<div class="form-group">
+						<label for="password">Sua Senha</label>
 						<input type="password" class="form-control input-md" id="password" placeholder="Password">
 					</div>
-					<div class="mb-3">
-						<div class="ui-button text-center" style="width: 18rem;">
-							<div class="ui-button">
-								<button class="btn btn-primary" type="submit">Login</button>
-							</div>
-						</div>
+					<div class="ui-button text-center" style="width: 18rem;">
+						<button class="btn btn-primary" type="submit">Login</button>
 					</div>
-					<a class="btn btn-link titulo" href="cadastro/formulario"><span style="vertical-align: inherit;"><span
-							style="vertical-align: inherit;">Novo
-						por aqui? </span><span style="vertical-align: inherit;">Cadastre-se</span></span></a>
+					<a class="btn btn-link titulo" href="cadastro/formulario">Novo
+						por aqui? Cadastre-se</a>
 				</form>
 			</div>
 		</div>

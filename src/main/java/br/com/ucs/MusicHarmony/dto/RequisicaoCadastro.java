@@ -13,6 +13,7 @@ public class RequisicaoCadastro {
 
         @NotBlank
         private String username;
+        @NotBlank
         private String password;
 
     public Usuario toUsuario() {

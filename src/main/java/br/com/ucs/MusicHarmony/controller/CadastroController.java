@@ -23,12 +23,16 @@ public class CadastroController {
 
     @PostMapping("/novoUsuario")
     public String salvar(RequisicaoCadastro requisicao){
+
         System.out.println("Método salvar");
+
         Usuario usuario = requisicao.toUsuario();
         usuarioRepository.save(usuario);
+
         System.out.println("Salvou");
         System.out.println("Estou aqui no CadastroController");
-        return "/home";
+
+        return "redirect:/login";
 
     }
 }
