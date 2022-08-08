@@ -14,23 +14,23 @@ public class AulasController {
         return "aulas";
     }
 
-    @GetMapping("/moduloConceito")
+    @GetMapping("moduloConceito")
     public String moduloConceito(){
-        return "/moduloConceito";
+        return "aulas/moduloConceito";
     }
 
-    @GetMapping("/moduloTetrade")
+    @GetMapping("moduloTetrade")
     public String moduloTetrade(){
-        return "/moduloTetrade";
+        return "aulas/moduloTetrade";
     }
 
-    @GetMapping("/moduloTriade")
+    @GetMapping("moduloTriade")
     public String moduloTriade(){
-        return "/moduloTriade";
+        return "aulas/moduloTriade";
     }
 
     @GetMapping("moduloTransposicao")
     public String moduloTransposicao(){
-        return "/moduloTransposicao";
+        return "aulas/moduloTransposicao";
     }
 }
