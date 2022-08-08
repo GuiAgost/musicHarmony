@@ -11,18 +11,14 @@ public class LoginController {
     @RequestMapping("/login")
     public String login() {
         System.out.println("Entrei login");
-
         return "login";
-
     }
 
     @RequestMapping("/home")
     public String home() {
-       System.out.println("Estou no home");
-
+       System.out.println("Estou no home loginController");
        // Implementar a logica do login
         // https://www.devmedia.com.br/java-web-criando-uma-tela-de-login-com-jpa-jsf-primefaces-e-mysql/32456
-
        return "redirect:/home";
     }
 }

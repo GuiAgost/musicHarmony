@@ -10,6 +10,7 @@ public class AulasController {
 
     @GetMapping
     public String aulas(){
+        System.out.println("Entrei na aula");
         return "aulas";
     }
 

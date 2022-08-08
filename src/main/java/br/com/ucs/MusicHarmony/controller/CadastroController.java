@@ -18,6 +18,7 @@ public class CadastroController {
 
     @GetMapping("formulario")
     public String formulario(){
+        System.out.println("Estou no CadastroController");
         return "cadastro/formulario";
     }
 

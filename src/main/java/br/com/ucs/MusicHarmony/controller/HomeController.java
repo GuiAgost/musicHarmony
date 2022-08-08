@@ -10,13 +10,7 @@ public class HomeController {
 
     @GetMapping
     public String home() {
-        System.out.println("Estou no home");
+        System.out.println("Estou no homeController");
         return "home";
-    }
-
-    @GetMapping("aulas")
-    public String aulas() {
-        System.out.println("Estou na Aulas (HomeController)");
-        return "/aulas";
     }
 }
