@@ -1,4 +1,4 @@
-package br.com.ucs.MusicHarmony.dto;
+package br.com.ucs.MusicHarmony.model.dto;
 
 
 import br.com.ucs.MusicHarmony.model.Usuario;

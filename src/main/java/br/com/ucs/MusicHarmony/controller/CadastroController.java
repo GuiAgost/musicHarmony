@@ -1,8 +1,8 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.dto.RequisicaoCadastro;
+import br.com.ucs.MusicHarmony.model.dto.RequisicaoCadastro;
 import br.com.ucs.MusicHarmony.model.Usuario;
-import br.com.ucs.MusicHarmony.repository.UsuarioRepository;
+import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +24,13 @@ public class CadastroController {
 
     @PostMapping("/novoUsuario")
     public String salvar(RequisicaoCadastro requisicao){
-
-        System.out.println("Método salvar");
+        System.out.println("Estou aqui no CadastroController");
+        System.out.println("Salvando o usuário...");
 
         Usuario usuario = requisicao.toUsuario();
         usuarioRepository.save(usuario);
 
         System.out.println("Salvou");
-        System.out.println("Estou aqui no CadastroController");
 
         return "redirect:/login";
 

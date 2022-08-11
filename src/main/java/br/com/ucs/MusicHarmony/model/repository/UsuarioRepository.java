@@ -1,4 +1,4 @@
-package br.com.ucs.MusicHarmony.repository;
+package br.com.ucs.MusicHarmony.model.repository;
 
 import br.com.ucs.MusicHarmony.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -31,7 +31,9 @@
 //                .defaultSuccessUrl("/home", true)
 //                .permitAll()
 //                )
-//                .logout(logout -> logout.logoutUrl("/logout"));
+//                .logout(logout -> logout.logoutUrl("/logout"))
+//                .invalidateHttpSession(true)
+//                .deleteCookies("JSESSIONID");
 //    }
 //
 //    @Override
