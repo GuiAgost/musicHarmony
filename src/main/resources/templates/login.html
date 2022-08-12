@@ -7,9 +7,6 @@
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Login')}"></div>
 <!-- Formulário de login -->
-<div class='alert alert-danger titulo' th:if="${param.error}">
-	Usuário ou senha Inválido!
-</div>
 <div class='alert alert-sucess titulo' th:if="${param.sucess} ">
 	Usuario cadastrado!
 </div>
@@ -21,6 +18,12 @@
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center form_container form-border">
+					<div class='alert alert-danger titulo' th:if="${param.error}">
+						Usuário ou senha Inválido!
+					</div>
+					<div th:if="${param.logout}">
+						Você foi desconectado!
+					</div>
 					<form action="home" method="post">
 						<div class="form-group">
 							<label for="username">Seu Nome</label>

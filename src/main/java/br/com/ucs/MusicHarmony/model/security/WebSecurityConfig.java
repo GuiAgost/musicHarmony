@@ -13,6 +13,7 @@
 //
 //@Configuration
 //@EnableWebSecurity
+//@EnableWebMvcSecurity
 //@EnableAutoConfiguration
 //@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

@@ -2,6 +2,7 @@ package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.model.Usuario;
 import br.com.ucs.MusicHarmony.model.db.UsuarioDAO;
+import br.com.ucs.MusicHarmony.model.dto.RequisicaoCadastro;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +60,7 @@ public class LoginController {
             return "redirect:/home";
         } else {
             System.out.println("Usuario não encontrado: " + usuario.getUsername());
-            return "redirect:/login";
+            return "redirect:/home";
         }
 
 //        return "redirect:/home";
