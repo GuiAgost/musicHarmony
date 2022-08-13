@@ -29,8 +29,6 @@ public class UsuarioDAO {
 
     public Usuario existeUsuario(String usuarioCadastrado, String senhaCadastrado){
         System.out.println("Antes da comparação: UsuarioDAO: " + usuarioCadastrado);
-
-
         for (Usuario login :  listaUsuarios) {
             if (login.isEquals(usuarioCadastrado, senhaCadastrado)){
                 System.out.println("Comparado com sucesso: UsuarioDAO: " + login);
