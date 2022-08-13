@@ -3,6 +3,8 @@ package br.com.ucs.MusicHarmony.controller;
 import br.com.ucs.MusicHarmony.model.Usuario;
 import br.com.ucs.MusicHarmony.model.db.UsuarioDAO;
 import br.com.ucs.MusicHarmony.model.dto.RequisicaoCadastro;
+import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,24 +23,18 @@ public class LoginController {
         return "login";
     }
 
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
     @RequestMapping("/home")
     public String home(HttpServletRequest request) {
         // Implementar a logica do login
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuario = new Usuario();
 
-        System.out.println("Estou no loginController");
+        System.out.println(usuarioRepository.count());
 
-//        Usuario usuarioCadastrado = usuarioDAO.getUsuario(usuario.getUsername(), usuario.getPassword());
-//        if ( (usuario.getUsername() == null && usuario.getPassword() == null) ||
-//                (usuario.getUsername() != usuarioCadastrado.getUsername() &&
-//                        usuario.getPassword() != usuarioCadastrado.getPassword())) {
-//            System.out.println("Usuário não encontrado!");
-//            return "redirect:/login";
-//        } else {
-//            System.out.println("Usuário encontrado!");
-//            return "redirect:/home";
-//        }
+        System.out.println("Estou no loginController");
 
 //        Usuario usuarioCadastrado = usuarioDAO.getUsuario(usuario.getUsername(), usuario.getPassword());
 //        if ( (usuario.getUsername().equals(null) && usuario.getPassword().equals(null)) ||
@@ -62,7 +58,6 @@ public class LoginController {
             System.out.println("Usuario não encontrado: " + usuario.getUsername());
             return "redirect:/home";
         }
-
 //        return "redirect:/home";
     }
 }

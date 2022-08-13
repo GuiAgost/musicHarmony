@@ -4,14 +4,15 @@ import br.com.ucs.MusicHarmony.model.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-    private final EntityManagerFactory factory = Persistence
-            .createEntityManagerFactory("users");
-    private final EntityManager em = factory.createEntityManager();
+//    private final EntityManagerFactory factory = Persistence
+//            .createEntityManagerFactory("users");
+//    private final EntityManager em = factory.createEntityManager();
 
     private static List<Usuario> listaUsuarios = new ArrayList<>();
 
@@ -28,6 +29,8 @@ public class UsuarioDAO {
 
     public Usuario existeUsuario(String usuarioCadastrado, String senhaCadastrado){
         System.out.println("Antes da comparação: UsuarioDAO: " + usuarioCadastrado);
+
+
         for (Usuario login :  listaUsuarios) {
             if (login.isEquals(usuarioCadastrado, senhaCadastrado)){
                 System.out.println("Comparado com sucesso: UsuarioDAO: " + login);

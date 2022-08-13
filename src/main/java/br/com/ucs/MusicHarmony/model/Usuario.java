@@ -14,7 +14,7 @@ public class Usuario {
     private String username;
     @Column(name="password", nullable=false)
     private String password;
-    private boolean enabled;
+//    private boolean enabled;
 
     public Long getId() {
         return id;
@@ -40,13 +40,13 @@ public class Usuario {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+//    public boolean isEnabled() {
+//        return enabled;
+//    }
+//
+//    public void setEnabled(boolean enabled) {
+//        this.enabled = enabled;
+//    }
 
     public boolean isEquals(String usuarioCadastrado, String senhaCadastrado) {
         System.out.println("Segunda comparação: Usuario");

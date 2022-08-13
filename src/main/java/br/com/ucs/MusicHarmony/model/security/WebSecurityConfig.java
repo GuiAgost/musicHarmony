@@ -34,7 +34,9 @@
 //                )
 //                .logout(logout -> logout.logoutUrl("/logout"))
 //                .invalidateHttpSession(true)
-//                .deleteCookies("JSESSIONID");
+//                .deleteCookies("JSESSIONID")
+//                .logoutSuccessHandler(logoutSuccessHandler());
+
 //    }
 //
 //    @Override
