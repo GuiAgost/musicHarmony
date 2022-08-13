@@ -24,14 +24,14 @@
 					<div th:if="${param.logout}">
 						Você foi desconectado!
 					</div>
-					<form action="home" method="post">
+					<form th:action="${login}" method="post">
 						<div class="form-group">
 							<label for="username">Seu Nome</label>
 							<input name="username" class="form-control" id="username" placeholder="Username">
 						</div>
 						<div class="form-group">
 							<label for="password">Sua Senha</label>
-							<input type="password" class="form-control input-md" id="password" placeholder="Password">
+							<input name="password" type="password" class="form-control input-md" id="password" placeholder="Password">
 						</div>
 						<div class="ui-button text-center" style="width: 18rem;">
 							<button class="btn btn-primary" type="submit">Login</button>
