@@ -1,19 +1,13 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.model.Usuario;
-import br.com.ucs.MusicHarmony.model.db.UsuarioDAO;
-import br.com.ucs.MusicHarmony.model.dto.RequisicaoCadastro;
 import br.com.ucs.MusicHarmony.model.dto.RequisicaoLogin;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import java.util.Objects;
 
 @Controller
 public class LoginController {
@@ -28,15 +22,27 @@ public class LoginController {
     UsuarioRepository usuarioRepository;
 
     @PostMapping("/login")
-    public String home(RequisicaoLogin request) {
+    public String home(RequisicaoLogin request, HttpServletRequest requestSession) {
+        Usuario user = usuarioRepository.findByUsername(request.getUsername());
 
-            System.out.println("senha digitada: " + request.getPassword());
+        System.out.println("senha digitada: " + request.getPassword());
+        System.out.println("Usuario digitado: " + request.getUsername());
 
-            Usuario user = usuarioRepository.findByUsername(request.getUsername());
+        System.out.println("senha do banco: " + user.getPassword());
+        System.out.println("Usuario digitado: " + user.getUsername());
 
-            System.out.println("senha do banco: " + user.getPassword());
 
-            return "redirect:/home";
+        if (user != null && (request.getUsername().equals(user.getUsername()) &&
+                (request.getPassword().equals(user.getPassword())))){
+//            HttpSession sessao = requestSession.getSession();
+//            sessao.setAttribute("usuarioLogado", user.getId());
+             return "redirect:/home";
+         } else {
+             return "redirect:/login";
+         }
+
+        //HttpSession sessao = request.getSession();
+        //sessao.setAttribute("usuarioLogado", usuario.getUsername());
 
 //         // Implementar a logica do login
 //         UsuarioDAO usuarioDAO = new UsuarioDAO();

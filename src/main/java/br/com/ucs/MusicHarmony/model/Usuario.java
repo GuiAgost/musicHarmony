@@ -48,12 +48,12 @@ public class Usuario {
 //        this.enabled = enabled;
 //    }
 
-    public boolean isEquals(String usuarioCadastrado, String senhaCadastrado) {
-        System.out.println("Segunda comparação: Usuario");
-        if(!this.username.equals(usuarioCadastrado) || !this.password.equals(senhaCadastrado)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+//    public boolean isEquals(String usuarioCadastrado, String senhaCadastrado) {
+//        System.out.println("Segunda comparação: Usuario");
+//        if(!this.username.equals(usuarioCadastrado) || !this.password.equals(senhaCadastrado)) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
 }
