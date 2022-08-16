@@ -1,4 +1,4 @@
-//package br.com.ucs.MusicHarmony.security;
+//package br.com.ucs.MusicHarmony.model.security;
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -7,14 +7,15 @@
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //
 //import javax.sql.DataSource;
 //
-//@Configuration
-//@EnableWebSecurity
+////@Configuration
+////@EnableWebSecurity
 //@EnableWebMvcSecurity
-//@EnableAutoConfiguration
+////@EnableAutoConfiguration
 //@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //
@@ -32,11 +33,11 @@
 //                .defaultSuccessUrl("/home", true)
 //                .permitAll()
 //                )
-//                .logout(logout -> logout.logoutUrl("/logout"))
-//                .invalidateHttpSession(true)
-//                .deleteCookies("JSESSIONID")
-//                .logoutSuccessHandler(logoutSuccessHandler());
-
+//                .logout(logout -> logout.logoutUrl("/logout"));
+//                //.invalidateHttpSession(true)
+//                //.deleteCookies("JSESSIONID");
+//                //.logoutSuccessHandler(logoutSuccessHandler());
+//
 //    }
 //
 //    @Override
