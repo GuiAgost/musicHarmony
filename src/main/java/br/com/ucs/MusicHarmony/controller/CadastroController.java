@@ -26,6 +26,13 @@ public class CadastroController {
     public String salvar(RequisicaoCadastro requisicao){
         System.out.println("Estou aqui no CadastroController");
         System.out.println("Salvando o usuário...");
+
+        // Implementar a lógica se o usuário digitado já existe no banco
+        // https://pt.stackoverflow.com/questions/391238/cadastrar-no-spring-boot
+        // Se sucesso:
+        // https://cursos.alura.com.br/forum/topico-cadastro-usuario-33066
+        // https://cursos.alura.com.br/forum/topico-validar-livro-existente-no-banco-25819
+
         Usuario usuario = requisicao.toUsuario();
         usuarioRepository.save(usuario);
         System.out.println("Salvou");
