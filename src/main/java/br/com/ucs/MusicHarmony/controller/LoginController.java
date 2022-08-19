@@ -5,6 +5,7 @@ import br.com.ucs.MusicHarmony.model.dto.RequisicaoLogin;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class LoginController {
     UsuarioRepository usuarioRepository;
 
     @PostMapping("/login")
-    public String home(RequisicaoLogin request, HttpServletRequest requestSession) {
+    public String home(RequisicaoLogin request, HttpServletRequest requestSession, BindingResult errors) {
         Usuario user = usuarioRepository.findByUsername(request.getUsername());
 
         if (user != null && (request.getUsername().equals(user.getUsername()) &&
@@ -35,13 +36,19 @@ public class LoginController {
             System.out.println("Senha do banco: " + user.getPassword());
             System.out.println("Usuario do banco: " + user.getUsername());
             //================MOSTRA OS DADOS NO CONSOLE===========================//
-            HttpSession sessao = requestSession.getSession();
-            sessao.setAttribute("userIsLogged", request.getUsername());
+            HttpSession session = requestSession.getSession();
+            session.setAttribute("userIsLogged", user);
+            System.out.println("Usuario Logado: " + session.getId());
             return "redirect:/home";
         } else {
             System.out.println("Usuário inválido ou null");
             return "redirect:/login";
         }
+//        if (errors.hasErrors()) {
+//            System.out.println("Usuário inválido ou null");
+//            return "redirect:/login";
+//        }
+
     }
 
     @PostMapping("/logout")

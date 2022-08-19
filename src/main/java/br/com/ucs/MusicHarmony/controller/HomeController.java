@@ -14,17 +14,15 @@ import java.io.IOException;
 public class HomeController {
 
     @GetMapping
-    public String home(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String home(HttpServletRequest request) {
 
-//        String paramAction = request.getRemoteUser();
-//        System.out.println(paramAction);
 //        HttpSession session = request.getSession();
-//        boolean usuarioNaoEstaLogado = (session.getAttribute("userIsLogged") == null);
-//        boolean ehUmaAcaoProtegida = !(paramAction.equals("login"));
-//
-//        if(ehUmaAcaoProtegida & usuarioNaoEstaLogado) {
-//            System.out.println("Eu não estou logado");
-//            return "redirect:/login";
+//        if (session.getAttribute(session.getId()) == null ||
+//                session.getAttribute(session.getId()).equals("")) {
+//            return "login";
+//        } else{
+//            System.out.println("Estou no homeController");
+//            return "home";
 //        }
 
         System.out.println("Estou no homeController");
