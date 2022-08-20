@@ -19,10 +19,10 @@
 			<div class="user_card">
 				<div class="d-flex justify-content-center form_container form-border">
 					<form th:action="${login}" method="post">
-<!--						<div class="alert-danger titulo alert-dismissible" th:if="errors">-->
-<!--							<button class="btn btn-close" data-bs-dismiss="alert"></button>-->
-<!--							Usuário ou senha inválido!-->
-<!--						</div>-->
+						<div class="alert alert-danger titulo alert-dismissible" role="alert" th:if="errors">
+							<a class="btn-close" data-bs-dismiss="alert"></a>
+														Usuário ou senha Inválido!
+						</div>
 						<div class="form-group">
 							<label for="username">Seu Nome</label>
 							<input name="username" class="form-control" id="username" placeholder="Username" required="">

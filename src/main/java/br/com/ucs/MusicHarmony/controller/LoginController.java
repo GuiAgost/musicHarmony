@@ -5,6 +5,7 @@ import br.com.ucs.MusicHarmony.model.dto.RequisicaoLogin;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +41,7 @@ public class LoginController {
             session.setAttribute("userIsLogged", user);
             System.out.println("Usuario Logado: " + session.getId());
             return "redirect:/home";
-        } else {
+        } else if (errors.hasErrors()) {
             System.out.println("Usuário inválido ou null");
             return "redirect:/login";
         }
@@ -48,6 +49,7 @@ public class LoginController {
 //            System.out.println("Usuário inválido ou null");
 //            return "redirect:/login";
 //        }
+        return null;
 
     }
 

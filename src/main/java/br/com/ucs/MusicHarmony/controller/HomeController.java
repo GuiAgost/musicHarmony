@@ -16,7 +16,8 @@ public class HomeController {
     @GetMapping
     public String home(HttpServletRequest request) {
 
-//        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
+        //Integer codUser = (Integer) request.getSession().getAttribute("user");
 //        if (session.getAttribute(session.getId()) == null ||
 //                session.getAttribute(session.getId()).equals("")) {
 //            return "login";
