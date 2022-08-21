@@ -16,17 +16,16 @@ public class HomeController {
     @GetMapping
     public String home(HttpServletRequest request) {
 
+        // Implementar a mesma coisa para todas as classes Controller
         HttpSession session = request.getSession();
-        //Integer codUser = (Integer) request.getSession().getAttribute("user");
-//        if (session.getAttribute(session.getId()) == null ||
-//                session.getAttribute(session.getId()).equals("")) {
-//            return "login";
-//        } else{
-//            System.out.println("Estou no homeController");
-//            return "home";
-//        }
+        System.out.println("Sessão: " + session.getId());
+        if (session.getAttribute("userIsLogged") == null ||
+                session.getAttribute("userIsLogged").equals("")) {
+            return "redirect:/login";
+        } else{
+            System.out.println("Estou no homeController");
+            return "home";
+        }
 
-        System.out.println("Estou no homeController");
-        return "home";
     }
 }

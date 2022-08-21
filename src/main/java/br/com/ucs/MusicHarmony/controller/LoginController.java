@@ -25,7 +25,7 @@ public class LoginController {
     UsuarioRepository usuarioRepository;
 
     @PostMapping("/login")
-    public String home(RequisicaoLogin request, HttpServletRequest requestSession, BindingResult errors) {
+    public String home(Model model, RequisicaoLogin request, HttpServletRequest requestSession, BindingResult errors) {
         Usuario user = usuarioRepository.findByUsername(request.getUsername());
 
         if (user != null && (request.getUsername().equals(user.getUsername()) &&
@@ -41,16 +41,11 @@ public class LoginController {
             session.setAttribute("userIsLogged", user);
             System.out.println("Usuario Logado: " + session.getId());
             return "redirect:/home";
-        } else if (errors.hasErrors()) {
+        } else {
             System.out.println("Usuário inválido ou null");
-            return "redirect:/login";
+            model.addAttribute("errors", errors);
         }
-//        if (errors.hasErrors()) {
-//            System.out.println("Usuário inválido ou null");
-//            return "redirect:/login";
-//        }
         return null;
-
     }
 
     @PostMapping("/logout")
