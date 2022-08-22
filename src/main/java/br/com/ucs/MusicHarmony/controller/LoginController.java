@@ -3,6 +3,7 @@ package br.com.ucs.MusicHarmony.controller;
 import br.com.ucs.MusicHarmony.model.Usuario;
 import br.com.ucs.MusicHarmony.model.dto.RequisicaoLogin;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
+import br.com.ucs.MusicHarmony.model.service.SairService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,18 +43,16 @@ public class LoginController {
             System.out.println("Usuario Logado: " + session.getId());
             return "redirect:/home";
         } else {
-            System.out.println("Usuário inválido ou null");
+            System.out.println("Usuário ou senha inválidos!!");
             model.addAttribute("errors", errors);
         }
         return null;
     }
 
-    // Pensar em criar uma classe
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        System.out.println("Excluindo o usuario: " + session.getId());
-        session.invalidate();
+        SairService logout = new SairService();
+        logout.invalidationSession(request);
         return "redirect:/login";
     }
 }

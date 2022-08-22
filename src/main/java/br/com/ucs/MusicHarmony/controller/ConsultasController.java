@@ -1,6 +1,7 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.model.service.ExisteSessaoService;
+import br.com.ucs.MusicHarmony.model.service.SairService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ public class ConsultasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Consulta Tríade");
             return "consultas/triade";
         }
     }
@@ -31,6 +33,7 @@ public class ConsultasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Consulta Tétrade");
             return "consultas/tetrade";
         }
     }
@@ -42,6 +45,7 @@ public class ConsultasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Consulta Transposição");
             return "consultas/transposicao";
         }
     }
@@ -53,15 +57,15 @@ public class ConsultasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Consulta Acordes");
             return "consultas/acordes";
         }
     }
 
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        System.out.println("Excluindo o usuario: " + session.getId());
-        session.invalidate();
+        SairService logout = new SairService();
+        logout.invalidationSession(request);
         return "redirect:/login";
     }
 }

@@ -1,13 +1,13 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.model.service.ExisteSessaoService;
+import br.com.ucs.MusicHarmony.model.service.SairService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("aulas")
@@ -15,11 +15,13 @@ public class AulasController {
 
     @GetMapping
     public String aulas(HttpServletRequest request){
+
         ExisteSessaoService userExist = new ExisteSessaoService();
         Boolean logged = userExist.existeUsario(request);
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Menu Aulas");
             return "aulas";
         }
     }
@@ -31,6 +33,7 @@ public class AulasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Módulo Conceito Musical");
             return "aulas/moduloConceito";
         }
     }
@@ -42,6 +45,7 @@ public class AulasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Módulo Tétrade");
             return "aulas/moduloTetrade";
         }
     }
@@ -53,6 +57,7 @@ public class AulasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Módulo Triade");
             return "aulas/moduloTriade";
         }
     }
@@ -64,15 +69,15 @@ public class AulasController {
         if (logged){
             return "redirect:/login";
         } else{
+            System.out.println("Módulo Transposição");
             return "aulas/moduloTransposicao";
         }
     }
 
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        System.out.println("Excluindo o usuario: " + session.getId());
-        session.invalidate();
+        SairService logout = new SairService();
+        logout.invalidationSession(request);
         return "redirect:/login";
     }
 }
