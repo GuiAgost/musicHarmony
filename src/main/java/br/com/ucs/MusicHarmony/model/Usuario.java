@@ -14,7 +14,7 @@ public class Usuario {
     private String username;
     @Column(name="password", nullable=false)
     private String password;
-    @Column(name="enabled", nullable=false)
+//    @Column(name="enabled", nullable=false)
 //    private boolean enabled;
 
     public Long getId() {

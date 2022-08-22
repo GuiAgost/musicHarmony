@@ -1,16 +1,13 @@
 package br.com.ucs.MusicHarmony.model.dto;
 
-import br.com.ucs.MusicHarmony.model.Usuario;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RequisicaoLogin {
     @Autowired
     UsuarioRepository usuarioRepository;
-    private static List<Usuario> listaUsuarios = new ArrayList<>();
+    //private static List<Usuario> listaUsuarios = new ArrayList<>();
 
     @NotBlank
     private String username;

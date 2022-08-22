@@ -48,6 +48,7 @@ public class LoginController {
         return null;
     }
 
+    // Pensar em criar uma classe
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
         HttpSession session = request.getSession();

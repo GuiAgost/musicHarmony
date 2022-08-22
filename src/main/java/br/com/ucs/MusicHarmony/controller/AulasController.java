@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.controller;
 
+import br.com.ucs.MusicHarmony.model.service.ExisteSessaoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,29 +14,58 @@ import javax.servlet.http.HttpSession;
 public class AulasController {
 
     @GetMapping
-    public String aulas(){
-        System.out.println("Entrei na aula");
-        return "aulas";
+    public String aulas(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "aulas";
+        }
     }
 
     @GetMapping("moduloConceito")
-    public String moduloConceito(){
-        return "aulas/moduloConceito";
+    public String moduloConceito(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "aulas/moduloConceito";
+        }
     }
 
     @GetMapping("moduloTetrade")
-    public String moduloTetrade(){
-        return "aulas/moduloTetrade";
+    public String moduloTetrade(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "aulas/moduloTetrade";
+        }
     }
 
     @GetMapping("moduloTriade")
-    public String moduloTriade(){
-        return "aulas/moduloTriade";
+    public String moduloTriade(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "aulas/moduloTriade";
+        }
     }
 
     @GetMapping("moduloTransposicao")
-    public String moduloTransposicao(){
-        return "aulas/moduloTransposicao";
+    public String moduloTransposicao(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "aulas/moduloTransposicao";
+        }
     }
 
     @PostMapping("/logout")

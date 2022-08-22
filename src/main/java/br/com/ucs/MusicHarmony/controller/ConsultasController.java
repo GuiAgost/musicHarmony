@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.controller;
 
+import br.com.ucs.MusicHarmony.model.service.ExisteSessaoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,23 +14,47 @@ import javax.servlet.http.HttpSession;
 public class ConsultasController {
 
     @GetMapping("triade")
-    public String triade(){
-        return "consultas/triade";
+    public String triade(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "consultas/triade";
+        }
     }
 
     @GetMapping("tetrade")
-    public String tetrade(){
-        return "consultas/tetrade";
+    public String tetrade(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "consultas/tetrade";
+        }
     }
 
     @GetMapping("transposicao")
-    public String transposicao(){
-        return "consultas/transposicao";
+    public String transposicao(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "consultas/transposicao";
+        }
     }
 
     @GetMapping("acordes")
-    public String acordes(){
-        return "consultas/acordes";
+    public String acordes(HttpServletRequest request){
+        ExisteSessaoService userExist = new ExisteSessaoService();
+        Boolean logged = userExist.existeUsario(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            return "consultas/acordes";
+        }
     }
 
     @PostMapping("/logout")
