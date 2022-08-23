@@ -7,46 +7,44 @@
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Questionários')}"></div>
 <body>
-    <div class="container">
-        <div class="container d-flex justify-content-center form_container form-border">
-            <div class="row">
-                <div>
-                    Questão 1)
+    <div class="container d-flex justify-content-center form_container form-border">
+        <div class="row">
+            <div>
+                Questão 1)
+            </div>
+            <span class="space"></span>
+            <form>
+                <div class="form-check">
+                    <label>
+                        <span class="label-text">A)</span> <input type="radio" name="radio">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label>
+                        <span class="label-text">B)</span> <input type="radio" name="radio">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label>
+                        <span class="label-text">C)</span> <input type="radio" name="radio">
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label>
+                        <span class="label-text">D)</span> <input type="radio" name="radio">
+                    </label>
+                </div>
+            </form>
+            <form>
+                <span class="space"></span>
+                <div class="text-center">
+                    <button class="btn btn-success" type="submit">Confirmar Resposta</button>
                 </div>
                 <span class="space"></span>
-                <form>
-                    <div class="form-check">
-                        <label>
-                            <span class="label-text">A)</span> <input type="radio" name="radio">
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label>
-                            <span class="label-text">B)</span> <input type="radio" name="radio">
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label>
-                            <span class="label-text">C)</span> <input type="radio" name="radio">
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label>
-                            <span class="label-text">D)</span> <input type="radio" name="radio">
-                        </label>
-                    </div>
-                </form>
-                <form>
-                    <span class="space"></span>
-                    <div class="text-center">
-                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                    </div>
-                    <span class="space"></span>
-                    <div class="text-center">
-                        <button class="btn btn-primary" type="submit">Próximo</button>
-                    </div>
-                </form>
-            </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Próximo</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

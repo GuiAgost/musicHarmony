@@ -5,6 +5,8 @@ import br.com.ucs.MusicHarmony.model.Usuario;
 import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +20,28 @@ public class CadastroController {
 
     @GetMapping("formulario")
     public String formulario(){
-        System.out.println("Estou no CadastroController");
+        System.out.println("Cadastro");
         return "cadastro/formulario";
     }
 
     @PostMapping("/novoUsuario")
-    public String salvar(RequisicaoCadastro requisicao){
-        System.out.println("Estou aqui no CadastroController");
-        System.out.println("Salvando o usuário...");
+    public String salvar(Model model, RequisicaoCadastro request, BindingResult registrationError){
+
+        Usuario user = usuarioRepository.findByUsername(request.getUsername());
+        if (user != null && (request.getUsername().equals(user.getUsername()) &&
+                (request.getPassword().equals(user.getPassword())))){
+            System.out.println("Usuário existente!!");
+            model.addAttribute("registrationError", registrationError);
+            return "redirect:/cadastro/formulario";
+        } else {
+            System.out.println("Cadastrando o usuário...");
+            System.out.println("Salvando o usuário...");
+            Usuario usuario = request.toUsuario();
+            usuarioRepository.save(usuario);
+
+            System.out.println("Salvou");
+            return "redirect:/login";
+        }
 
         // Implementar a lógica se o usuário digitado já existe no banco
         // https://pt.stackoverflow.com/questions/391238/cadastrar-no-spring-boot
@@ -33,10 +49,10 @@ public class CadastroController {
         // https://cursos.alura.com.br/forum/topico-cadastro-usuario-33066
         // https://cursos.alura.com.br/forum/topico-validar-livro-existente-no-banco-25819
 
-        Usuario usuario = requisicao.toUsuario();
-        usuarioRepository.save(usuario);
-        System.out.println("Salvou");
-        return "redirect:/login";
+//        Usuario usuario = request.toUsuario();
+//        usuarioRepository.save(usuario);
+//        System.out.println("Salvou");
+//        return "redirect:/login";
     }
 }
 // http://localhost:8080/cadastro/formulario

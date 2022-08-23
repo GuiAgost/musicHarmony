@@ -7,31 +7,29 @@
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Consultar Transposição')}"></div>
 <body>
-    <div class="container">
-        <div class="container d-flex justify-content-center form_container form-border">
-            <div class="row">
-                <form>
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <label for="acordeNota">Informe um acorde/nota</label>
-                                <input name="acordeNota" id="acordeNota" placeholder=" " class="form-control">
-                            </div>
-                            <label for="semitons">Números de semitons</label>
-                            <div class="col-sm-6 form-group">
-                                <input name="semitons" id="semitons" placeholder=" " class="form-control">
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <button class="btn btn-primary" type="submit">Gerar Transposição</button>
-                            </div>
+    <div class="container d-flex justify-content-center form_container form-border">
+        <div class="row">
+            <form>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <label for="acordeNota">Informe um acorde/nota</label>
+                            <input name="acordeNota" id="acordeNota" placeholder=" " class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="resultadoTriade">Resultado</label>
-                            <input name="resultadoTriade" id="resultadoTriade" placeholder=" " class="form-control">
+                        <label for="semitons">Números de semitons</label>
+                        <div class="col-sm-6 form-group">
+                            <input name="semitons" id="semitons" placeholder=" " class="form-control">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <button class="btn btn-primary" type="submit">Gerar Transposição</button>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="form-group">
+                        <label for="resultadoTriade">Resultado</label>
+                        <input name="resultadoTriade" id="resultadoTriade" placeholder=" " class="form-control">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
