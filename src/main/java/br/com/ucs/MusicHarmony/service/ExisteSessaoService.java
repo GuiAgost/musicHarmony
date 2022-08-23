@@ -1,4 +1,4 @@
-package br.com.ucs.MusicHarmony.model.service;
+package br.com.ucs.MusicHarmony.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;

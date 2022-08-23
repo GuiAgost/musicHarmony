@@ -1,9 +1,9 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.model.Usuario;
-import br.com.ucs.MusicHarmony.model.dto.RequisicaoLogin;
-import br.com.ucs.MusicHarmony.model.repository.UsuarioRepository;
-import br.com.ucs.MusicHarmony.model.service.SairService;
+import br.com.ucs.MusicHarmony.dto.RequisicaoLogin;
+import br.com.ucs.MusicHarmony.repository.UsuarioRepository;
+import br.com.ucs.MusicHarmony.service.SairService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
