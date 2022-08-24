@@ -1,8 +1,8 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.dto.RequisicaoCadastro;
-import br.com.ucs.MusicHarmony.model.Usuario;
-import br.com.ucs.MusicHarmony.repository.UsuarioRepository;
+import br.com.ucs.MusicHarmony.dto.RequestRegistration;
+import br.com.ucs.MusicHarmony.model.User;
+import br.com.ucs.MusicHarmony.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("cadastro")
-public class CadastroController {
+public class FormController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository usuarioRepository;
 
     @GetMapping("formulario")
-    public String formulario(){
+    public String form(){
         System.out.println("Cadastro");
         return "cadastro/formulario";
     }
 
     @PostMapping("/formulario")
-    public String salvar(Model model, RequisicaoCadastro request, BindingResult registrationError){
+    public String toSave(Model model, RequestRegistration request, BindingResult registrationError){
 
-        Usuario user = usuarioRepository.findByUsername(request.getUsername());
+        User user = usuarioRepository.findByUsername(request.getUsername());
         if (user != null && (request.getUsername().equals(user.getUsername()) &&
                 (request.getPassword().equals(user.getPassword())))){
             System.out.println("Usuário existente!!");
@@ -36,7 +36,7 @@ public class CadastroController {
         } else {
             System.out.println("Cadastrando o usuário...");
             System.out.println("Salvando o usuário...");
-            Usuario usuario = request.toUsuario();
+            User usuario = request.toUsuario();
             usuarioRepository.save(usuario);
 
             System.out.println("Salvou");

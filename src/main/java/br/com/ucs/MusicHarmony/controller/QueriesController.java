@@ -1,7 +1,7 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.service.ExisteSessaoService;
-import br.com.ucs.MusicHarmony.service.SairService;
+import br.com.ucs.MusicHarmony.service.ExistsSessionService;
+import br.com.ucs.MusicHarmony.service.LogoutService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("consultas")
-public class ConsultasController {
+public class QueriesController {
 
     @GetMapping("triade")
-    public String triade(HttpServletRequest request){
-        ExisteSessaoService userExist = new ExisteSessaoService();
-        Boolean logged = userExist.existeUsario(request);
+    public String triad(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -26,9 +26,9 @@ public class ConsultasController {
     }
 
     @GetMapping("tetrade")
-    public String tetrade(HttpServletRequest request){
-        ExisteSessaoService userExist = new ExisteSessaoService();
-        Boolean logged = userExist.existeUsario(request);
+    public String tetrad(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -38,9 +38,9 @@ public class ConsultasController {
     }
 
     @GetMapping("transposicao")
-    public String transposicao(HttpServletRequest request){
-        ExisteSessaoService userExist = new ExisteSessaoService();
-        Boolean logged = userExist.existeUsario(request);
+    public String transposition(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -50,9 +50,9 @@ public class ConsultasController {
     }
 
     @GetMapping("acordes")
-    public String acordes(HttpServletRequest request){
-        ExisteSessaoService userExist = new ExisteSessaoService();
-        Boolean logged = userExist.existeUsario(request);
+    public String chords(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -63,7 +63,7 @@ public class ConsultasController {
 
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
-        SairService logout = new SairService();
+        LogoutService logout = new LogoutService();
         logout.invalidationSession(request);
         return "redirect:/login";
     }

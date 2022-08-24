@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Service
-public class SairService {
+public class LogoutService {
 
     public void invalidationSession(HttpServletRequest request) {
         HttpSession session = request.getSession();

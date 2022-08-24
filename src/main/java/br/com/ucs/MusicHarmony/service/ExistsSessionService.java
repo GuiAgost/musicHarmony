@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Service
-public class ExisteSessaoService {
+public class ExistsSessionService {
 
     @GetMapping
-    public Boolean existeUsario(HttpServletRequest request) {
+    public Boolean existsUsers(HttpServletRequest request) {
         HttpSession session = request.getSession();
         System.out.println("Sessão: " + session.getId());
         if (session.getAttribute("userIsLogged") == null ||

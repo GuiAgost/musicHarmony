@@ -1,6 +1,6 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.service.ExisteSessaoService;
+import br.com.ucs.MusicHarmony.service.ExistsSessionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +12,8 @@ public class HomeController {
 
     @GetMapping
     public String home(HttpServletRequest request) {
-        ExisteSessaoService userExist = new ExisteSessaoService();
-        Boolean logged = userExist.existeUsario(request);
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
         if (logged){
             return "redirect:/login";
         } else{

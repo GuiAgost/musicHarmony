@@ -1,9 +1,9 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.model.Usuario;
-import br.com.ucs.MusicHarmony.dto.RequisicaoLogin;
-import br.com.ucs.MusicHarmony.repository.UsuarioRepository;
-import br.com.ucs.MusicHarmony.service.SairService;
+import br.com.ucs.MusicHarmony.model.User;
+import br.com.ucs.MusicHarmony.dto.RequestLogin;
+import br.com.ucs.MusicHarmony.repository.UserRepository;
+import br.com.ucs.MusicHarmony.service.LogoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +23,11 @@ public class LoginController {
     }
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    UserRepository userRepository;
 
     @PostMapping("/login")
-    public String home(Model model, RequisicaoLogin request, HttpServletRequest requestSession, BindingResult errors) {
-        Usuario user = usuarioRepository.findByUsername(request.getUsername());
+    public String home(Model model, RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
+        User user = userRepository.findByUsername(request.getUsername());
 
         if (user != null && (request.getUsername().equals(user.getUsername()) &&
                 (request.getPassword().equals(user.getPassword())))){
@@ -51,7 +51,7 @@ public class LoginController {
 
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
-        SairService logout = new SairService();
+        LogoutService logout = new LogoutService();
         logout.invalidationSession(request);
         return "redirect:/login";
     }

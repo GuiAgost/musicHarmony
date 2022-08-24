@@ -1,15 +1,17 @@
 package br.com.ucs.MusicHarmony.dto;
 
-
-import br.com.ucs.MusicHarmony.model.Usuario;
+import br.com.ucs.MusicHarmony.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.constraints.NotBlank;
 
-public class RequisicaoCadastro {
+public class RequestLogin {
+    @Autowired
+    UserRepository usuarioRepository;
 
-        @NotBlank
-        private String username;
-        @NotBlank
-        private String password;
+    @NotBlank
+    private String username;
+    @NotBlank
+    private String password;
 
     public String getUsername() {
         return username;
@@ -27,10 +29,4 @@ public class RequisicaoCadastro {
         this.password = password;
     }
 
-    public Usuario toUsuario() {
-        Usuario usuario = new Usuario();
-        usuario.setUsername(username);
-        usuario.setPassword(password);
-        return usuario;
-    }
 }
