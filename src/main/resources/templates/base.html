@@ -58,12 +58,7 @@
 </div>
 <!--Titulo logo3-->
 <div th:fragment="logo3" class="logo-container mb-5 p-2 d-flex justify-content-between">
-<!--    <div class="row">-->
         <span th:if="${session.userIsLogged}" class="navbar-brand">Olá, <a th:text="${session.userIsLogged.username}"></a>!</span>
-<!--        <div class="align-items-center">-->
-<!--            <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-light">Voltar</a></button></span>-->
-<!--        </div>-->
-<!--    </div>-->
     <header class="titulo">
         <span class="logo">MusicHarmony</span>
     </header>
