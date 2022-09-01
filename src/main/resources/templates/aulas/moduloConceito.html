@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/html">
 <!--Configuração de cabeçalho-->
 <head th:replace="~{base :: head}"><title></title></head>
 <!--Titulo-->
@@ -20,32 +20,32 @@
                     Existem sete notas musicais naturais, conforme a sequência da escala de <strong>C</strong>:
                 </p>
                 <div class="d-flex justify-content-center">
-                <table class="table table-sm table-bordered table-info col-xs-12 col-md-6">
-                    <thead>
-                    <tr class="text-center">
-                        <th scope="col">Graus</th>
-                        <th scope="col">I</th>
-                        <th scope="col">II</th>
-                        <th scope="col">III</th>
-                        <th scope="col">IV</th>
-                        <th scope="col">V</th>
-                        <th scope="col">VI</th>
-                        <th scope="col">VII</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="text-center">
-                        <th scope="row">Notas</th>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>G</td>
-                        <td>A</td>
-                        <td>B</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-sm table-bordered table-info col-xs-12 col-md-6">
+                        <thead>
+                        <tr class="text-center">
+                            <th scope="col">Graus</th>
+                            <th scope="col">I</th>
+                            <th scope="col">II</th>
+                            <th scope="col">III</th>
+                            <th scope="col">IV</th>
+                            <th scope="col">V</th>
+                            <th scope="col">VI</th>
+                            <th scope="col">VII</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="text-center">
+                            <th scope="row">Notas</th>
+                            <td  class="table-active">C</td>
+                            <td  class="table-active">D</td>
+                            <td  class="table-active">E</td>
+                            <td  class="table-active">F</td>
+                            <td  class="table-active">G</td>
+                            <td  class="table-active">A</td>
+                            <td  class="table-active">B</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <p>
                     Essa escala pode ser acrescentadas as <em>notas de acidentes</em>. Os símbolos são <strong>'#'</strong> (sustenido)
@@ -74,18 +74,18 @@
                     <tbody>
                     <tr class="text-center">
                         <th scope="row">Notas</th>
-                        <td>C</td>
-                        <td>C# ou Db</td>
-                        <td>D</td>
-                        <td>D# ou Eb</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>F# ou Gb</td>
-                        <td>G</td>
-                        <td>G# ou Ab</td>
-                        <td>A</td>
-                        <td>A# ou Bb</td>
-                        <td>B</td>
+                        <td  class="table-active">C</td>
+                        <td  class="table-active">C# ou Db</td>
+                        <td  class="table-active">D</td>
+                        <td  class="table-active">D# ou Eb</td>
+                        <td  class="table-active">E</td>
+                        <td  class="table-active">F</td>
+                        <td  class="table-active">F# ou Gb</td>
+                        <td  class="table-active">G</td>
+                        <td  class="table-active">G# ou Ab</td>
+                        <td  class="table-active">A</td>
+                        <td  class="table-active">A# ou Bb</td>
+                        <td  class="table-active">B</td>
                     </tr>
                     </tbody>
                 </table>
@@ -101,12 +101,340 @@
             </small>
         </h6>
         <h6>
-            <div class="titulo">Escalas</div>
+            <div class="titulo">Intervalo</div>
             <span class="space"></span>
             <small class="text-muted">
                 <ul class="list-unstyled">
-                    <p>É uma série de sequência de notas descendented ou ascendentes dentro da oitava.</p>
-
+                    <p>
+                        O <strong>intervalo</strong> é a distância entre as notas. O <em>semitom</em> representadao em símbolo
+                        '<strong>S</strong>', é o menor intervalo entre as duas notas. O <em>tom</em> representado pelo símbolo
+                        '<strong>T</strong>', é o intervalo formado por dois semitom. A imagem abaixo exemplifica como é formado
+                        o <strong>intervalo</strong>:
+                    </p>
+                    <div class="card-body text-center">
+                        <figure>
+                            <img src="../img/intervalo.jpg" class="w-25 rounded" alt="image">
+                        </figure>
+                    </div>
+                </ul>
+            </small>
+        </h6>
+        <h6>
+            <div class="titulo">Escala</div>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <p>
+                        As escala é uma série de sequência de notas descendente ou ascendentes dentro da oitava. Abordamos
+                        dois tipos de escala: Escala maiores e Escala menores.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Escala maiores</strong>: Também chamado de escala diatônica. É formado por 5 tons e 2 semitons. Os semitons é encontrado
+                            no intervalo entre III e IV grau e entre VII e VIII. A fórmula aplicada para formar a sequencia
+                            de escala maiores é definido:
+                        </li>
+                    </ul>
+                    <span class="space"></span>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-4 col-md-2">
+                            <thead>
+                            <tr class="text-center">
+                                <td><strong>T - T - S - T - T - T - S</strong></td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <p>
+                        A tabela abaixo, mostra a sequência de cada nota da escala maiores completa:
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-12 col-md-6">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Notas</th>
+                                <th scope="col" colspan="8">Intervalos de Notas</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">C</th>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">E</th>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C#</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">E</th>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G#</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C#</td>
+                                <td aria-flowto="col" class="table-active">D#</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">F</th>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">G</th>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">A</th>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C#</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G#</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">B</th>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C#</td>
+                                <td aria-flowto="col" class="table-active">D#</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G#</td>
+                                <td aria-flowto="col" class="table-active">A#</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul>
+                        <li>
+                            <strong>Escala menores</strong>: É formado por 5 tons e 2 semitons. Os semitons é encontrado
+                            no intervalo entre II e III graus e entre V e VI. A fórmula aplicada para formar a sequencia
+                            de escala menores é definido:
+                        </li>
+                    </ul>
+                    <span class="space"></span>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-4 col-md-2">
+                            <thead>
+                            <tr class="text-center">
+                                <td><strong>T - S - T - T - S - T - T</strong></td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <p>
+                        A tabela abaixo, mostra a sequência de cada nota da escala menores completa:
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-12 col-md-6">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Notas</th>
+                                <th scope="col" colspan="8">Intervalos de Notas</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Cm</th>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Dbm</th>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">Gb</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Dm</th>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Ebm</th>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">Gb</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Em</th>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Fm</th>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Gbm</th>
+                                <td aria-flowto="col" class="table-active">Gb</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Gm</th>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Abm </th>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">Gb</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Am</th>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Bbm</th>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                                <td aria-flowto="col" class="table-active">C</td>
+                                <td aria-flowto="col" class="table-active">Db</td>
+                                <td aria-flowto="col" class="table-active">Eb</td>
+                                <td aria-flowto="col" class="table-active">F</td>
+                                <td aria-flowto="col" class="table-active">Gb</td>
+                                <td aria-flowto="col" class="table-active">Ab</td>
+                                <td aria-flowto="col" class="table-active">Bb</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Bm</th>
+                                <td aria-flowto="col" class="table-active">B</td>
+                                <td aria-flowto="col" class="table-active">C#</td>
+                                <td aria-flowto="col" class="table-active">D</td>
+                                <td aria-flowto="col" class="table-active">E</td>
+                                <td aria-flowto="col" class="table-active">F#</td>
+                                <td aria-flowto="col" class="table-active">G</td>
+                                <td aria-flowto="col" class="table-active">A</td>
+                                <td aria-flowto="col" class="table-active">B</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </ul>
             </small>
         </h6>
@@ -136,13 +464,13 @@
                         <tbody>
                         <tr class="text-center">
                             <th scope="row">Notas em Cifras</th>
-                            <td>C</td>
-                            <td>D</td>
-                            <td>E</td>
-                            <td>F</td>
-                            <td>G</td>
-                            <td>A</td>
-                            <td>B</td>
+                            <td class="table-active">C</td>
+                            <td class="table-active">D</td>
+                            <td class="table-active">E</td>
+                            <td class="table-active">F</td>
+                            <td class="table-active">G</td>
+                            <td class="table-active">A</td>
+                            <td class="table-active">B</td>
                         </tr>
                         </tbody>
                     </table>
@@ -182,25 +510,6 @@
                 </div>
             </small>
         </h6>
-
-        <h6>
-            <div class="titulo">Intervalo</div>
-            <span class="space"></span>
-            <small class="text-muted">
-                <ul class="list-unstyled">
-                    <p>
-                        O <strong>intervalo</strong> é a distância entre as notas. O <em>semitom</em> é o menor intervalo entre as duas notas.
-                        O <em>tom</em> é o intervalo formado por dois semitom. A imagem abaixo exemplifica como é formado
-                        o <strong>intervalo</strong>:
-                    </p>
-                    <div class="card-body text-center">
-                        <figure>
-                            <img src="../img/intervalo.jpg" class="w-25 rounded" alt="image">
-                        </figure>
-                    </div>
-                </ul>
-            </small>
-        </h6>
     </div>
     <span class="space"></span>
     <div class="container form_container form-border mb-3">
@@ -210,7 +519,21 @@
                 <ul class="list-unstyled">
                     <div class="text-center">
                         <p>
-                            <em>Fonte: Adaptado o conteúdo do lívro "Harmonia & Improvisação I" do autor Almir Chediak.</em>
+                            <em>
+                                Fonte: Adaptado o conteúdo do lívro "Harmonia & Improvisação I" do autor Almir Chediak.
+                            </em>
+                        </p>
+                        <p>
+                            <em>
+                                Adaptado do conteúdo do lívro "Curso completo de Teoria Musical e Solfejo" dos autores
+                                Belmira Cardoso e Mário Mascarenhas.
+                            </em>
+                        </p>
+                        <p>
+                            <em>
+                                Adaptado do artigo "Chordix: um Aplicativo para Auto-Acompanhamento Musical Através de
+                                Cifras" do autor Tércio Souza de Jesus.
+                            </em>
                         </p>
                         <div class="align-items-center">
                             <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
