@@ -6,10 +6,6 @@
 <div th:replace="~{base :: logo3}"></div>
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Tétrade')}"></div>
-<style>
-
-</style>
-
 <body>
     <div class="container form_container form-border">
         <h6>
@@ -18,14 +14,182 @@
             <small class="text-muted">
                 <ul class="list-unstyled">
                     <p>
-                        <strong>Tétrades</strong> é formado por quatros notas agrupadas por intervalo de terças, ou seja, além das três notas da tríade basta apenas acrescentar
-                        a nota do VII graus. Também é chamado de <em>acorde de sétima</em>.
+                        <strong>Tétrades</strong> é formado por quatros notas agrupadas por intervalo de terças, ou seja, além das três notas
+                        da tríade basta apenas acrescentar a nota do VII graus. Também é chamado de <em>acorde de sétima</em>. Existem 5 tipos
+                        de tétrades, porém nesta aula abordaremos os 3 tipos de tétrades mais usados:
+                    </p>
+                    <ul>
+                        <li>Tétrade maior com sétima maior;</li>
+                        <li>Tétrade maior com sétima menor;</li>
+                        <li>Tétrade menor com sétima menor;</li>
+                    </ul>
+                    <span class="space"></span>
+                    <p>
+                        A formação das quatros notas, em graus, é composto por: I Graus (nota fundamental), III Graus (terça maior ou terça menor),
+                        IV Graus (quinta justa, diminuta ou aumentada) e VII Graus (maior, menor ou diminuta).
                     </p>
                 </ul>
             </small>
         </h6>
-    </div>
 
+        <h6>
+            <div class="titulo">Tétrade maior com sétima maior</div>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <p>
+                        É formado por nota fundamental, <strong>terça maior</strong>, quinta justa e <strong>sétima maior</strong>. Por exemplo, para localizarmos
+                        as três notas do acorde <strong>Cmaj7</strong>, poderemos usar a escala de C, que identificamos o seguinte: C - E - G - B,
+                        conforme a tabela abaixo:
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-8 col-md-8">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Graus</th>
+                                <th scope="col" class="table-danger">I</th>
+                                <th scope="col"> </th>
+                                <th scope="col">II</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">III</th>
+                                <th scope="col">IV</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">V</th>
+                                <th scope="col"> </th>
+                                <th scope="col">VI</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">VII</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Notas</th>
+                                <td class="table-danger">C</td>
+                                <td>C# ou Db</td>
+                                <td>D</td>
+                                <td>D# ou Eb</td>
+                                <td class="table-danger">E</td>
+                                <td>F</td>
+                                <td>F# ou Gb</td>
+                                <td class="table-danger">G</td>
+                                <td>G# ou Ab</td>
+                                <td>A</td>
+                                <td >A# ou Bb</td>
+                                <td class="table-danger">B</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ul>
+            </small>
+        </h6>
+
+        <h6>
+            <div class="titulo">Tétrade maior com sétima menor</div>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <p>
+                        É formado por nota fundamental, <strong>terça maior</strong>, quinta justa e <strong>sétima menor</strong>. Basta apenas diminuir 1 semitom
+                        no VII Graus, usando o mesmo exemplo anterior, só que ficará em <strong>C7</strong> e é composto por notas: C - E - G - Bb,
+                        conforme a tabela abaixo:
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-8 col-md-8">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Graus</th>
+                                <th scope="col" class="table-danger">I</th>
+                                <th scope="col"> </th>
+                                <th scope="col">II</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">III</th>
+                                <th scope="col">IV</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">V</th>
+                                <th scope="col"> </th>
+                                <th scope="col">VI</th>
+                                <th scope="col" class="table-danger"> </th>
+                                <th scope="col">VII</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Notas</th>
+                                <td class="table-danger">C</td>
+                                <td>C# ou Db</td>
+                                <td>D</td>
+                                <td>D# ou Eb</td>
+                                <td class="table-danger">E</td>
+                                <td>F</td>
+                                <td>F# ou Gb</td>
+                                <td class="table-danger">G</td>
+                                <td>G# ou Ab</td>
+                                <td>A</td>
+                                <td class="table-danger">A# ou Bb</td>
+                                <td>B</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ul>
+            </small>
+        </h6>
+
+        <h6>
+            <div class="titulo">Tétrade menor com sétima menor</div>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <p>
+                        É formado por nota fundamental, <strong>terça menor</strong>, quinta justa e <strong>sétima menor</strong>. Além de diminuir 1 semitom
+                        no VII Graus,  basta reduzir 1 semitom na terça. Continuando com o mesmo exemplo, só que ficará em <strong>Cm7</strong> e é composto por notas: C - Eb - G - Bb,
+                        conforme a tabela abaixo:
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered table-info col-xs-8 col-md-8">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Graus</th>
+                                <th scope="col" class="table-danger">I</th>
+                                <th scope="col"> </th>
+                                <th scope="col">II</th>
+                                <th scope="col" class="table-danger"> </th>
+                                <th scope="col">III</th>
+                                <th scope="col">IV</th>
+                                <th scope="col"> </th>
+                                <th scope="col" class="table-danger">V</th>
+                                <th scope="col"> </th>
+                                <th scope="col">VI</th>
+                                <th scope="col" class="table-danger"> </th>
+                                <th scope="col">VII</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-center">
+                                <th scope="row">Notas</th>
+                                <td class="table-danger">C</td>
+                                <td>C# ou Db</td>
+                                <td>D</td>
+                                <td class="table-danger">D# ou Eb</td>
+                                <td>E</td>
+                                <td>F</td>
+                                <td>F# ou Gb</td>
+                                <td class="table-danger">G</td>
+                                <td>G# ou Ab</td>
+                                <td>A</td>
+                                <td class="table-danger">A# ou Bb</td>
+                                <td>B</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ul>
+            </small>
+        </h6>
+
+
+    </div>
     <span class="space"></span>
     <div class="container form_container form-border mb-3">
         <h6>
@@ -34,7 +198,8 @@
                 <ul class="list-unstyled">
                     <div class="text-center">
                         <p>
-                            <em>Fonte: Adaptado o conteúdo do lívro "Harmonia & Improvisação I" do autor Almir Chediak.</em>
+                            <em>Fonte: Adaptado o conteúdo do artigo "Harmonia Tonal com uma Introdução à Música do Século XX" do autor
+                                Stefan Kostka e Dorothy Payne.</em>
                         </p>
                         <div class="align-items-center">
                             <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
