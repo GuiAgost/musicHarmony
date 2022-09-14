@@ -9,12 +9,12 @@
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
-            <form>
+            <form th:action="${triade}" method="get">
                 <div class="col-sm-12">
                     <div class="row">
-                        <label for="acordeTriade">Informe um acorde</label>
+                        <label for="chord">Informe um acorde</label>
                         <div class="col-sm-6 form-group">
-                            <input name="acordeTriade" id="acordeTriade" placeholder=" " class="form-control">
+                            <input type ="text" name="chord" id="chord" placeholder=" " class="form-control" required="">
                         </div>
                         <div class="col-sm-6 form-group">
                             <button class="btn btn-primary" type="submit">Gerar Tríade</button>
