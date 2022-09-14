@@ -9,20 +9,20 @@
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
-            <form>
+            <form th:action="${tetrade}" method="get">
                 <div class="col-sm-12">
                     <div class="row">
-                        <label for="acordeTriade">Informe um acorde</label>
+                        <label for="chord">Informe um acorde</label>
                         <div class="col-sm-6 form-group">
-                            <input name="acordeTriade" id="acordeTriade" placeholder=" " class="form-control">
+                            <input type ="text" name="chord" id="chord" placeholder=" " class="form-control" required="">
                         </div>
                         <div class="col-sm-6 form-group">
                             <button class="btn btn-primary" type="submit">Gerar Tétrade</button>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="resultadoTriade">Resultado</label>
-                        <input name="resultadoTriade" id="resultadoTriade" placeholder=" " class="form-control">
+                        <label for="resultTetrad">Resultado</label>
+                        <input type ="text" name="resultTetrad" id="resultTetrad" placeholder=" " class="form-control">
                     </div>
                 </div>
             </form>
