@@ -9,8 +9,8 @@
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
-            <form th:action="${triade}" method="get">
-                <div class="col-sm-12">
+            <div class="col-sm-12">
+                <form th:action="${triade}" method="get">
                     <div class="row">
                         <label for="chord">Informe um acorde</label>
                         <div class="col-sm-6 form-group">
@@ -20,12 +20,12 @@
                             <button class="btn btn-primary" type="submit">Gerar Tríade</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="resultTriad">Resultado</label>
-                        <input type ="text" name="resultTriad" id="resultTriad" placeholder=" " class="form-control">
-                    </div>
-                </div>
-            </form>
+                </form>
+                <form th:action="${triade}" method="post">
+                    <label for="resultTriad">Resultado</label>
+                    <input type ="text" name="resultTriad" id="resultTriad" placeholder=" " class="form-control" readonly>
+                </form>
+            </div>
             <div class="d-flex justify-content-center">
                 <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
             </div>
