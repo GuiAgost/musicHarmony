@@ -7,9 +7,9 @@ import br.com.ucs.MusicHarmony.service.TriadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -18,8 +18,7 @@ public class QueriesController {
 
     @GetMapping("triade")
     public String triad(HttpServletRequest request, Model model){
-
-        String answerTriade;
+//        String answerTriade;
         String chord;
         TriadService answer = new TriadService();
 
@@ -31,25 +30,26 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 System.out.println("Acorde informado: " + chord);
-                answerTriade = answer.chordTriad(chord);
-                triadResult(answerTriade, model);
+                //answerTriade = answer.chordTriad(chord);
+                model.addAttribute("resultTriad", answer.chordTriad(chord));
+                //triadResult(answerTriade, model);
             }
             return "consultas/triade";
         }
     }
 
-    @PostMapping("/triade")
-    public String triadResult(@ModelAttribute String resultTriad, Model model){
-        System.out.println(model.addAttribute("resultTriad", resultTriad));
-        model.addAttribute("resultTriad", resultTriad);
-        return "consultas/triade";
-    }
+//    @PostMapping("/triade")
+//    public String triadResult(@ModelAttribute String resultTriad, Model model){
+//        System.out.println(model.addAttribute("resultTriad", resultTriad));
+//        model.addAttribute("resultTriad", resultTriad);
+//        return "redirect:/consultas/triade";
+//    }
 
     @GetMapping("tetrade")
-    public String tetrad(HttpServletRequest request){
-        String resultTetrad;
+    public String tetrad(HttpServletRequest request, Model model){
+//        String answerTetrad;
         String chord;
-        TetradService result = new TetradService();
+        TetradService answer = new TetradService();
 
         Boolean logged = getLogged(request);
         if (logged){
@@ -59,8 +59,7 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 System.out.println("Acorde informado: " + chord);
-                resultTetrad = result.chordTetrad(chord);
-                System.out.println(resultTetrad);
+                model.addAttribute("resultTetrad", answer.chordTetrad(chord));
             }
             return "consultas/tetrade";
         }

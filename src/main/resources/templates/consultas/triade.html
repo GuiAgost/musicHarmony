@@ -3,7 +3,7 @@
 <!--Configuração de cabeçalho-->
 <head th:replace="~{base :: head}"><title></title></head>
 <!--Titulo-->
-<div th:replace="~{base :: logo3}"></div>
+<div th:replace="~{base ::  logo3}"></div>
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Consultar Tríade')}"></div>
 <body>
@@ -14,16 +14,16 @@
                     <div class="row">
                         <label for="chord">Informe um acorde</label>
                         <div class="col-sm-6 form-group">
-                            <input type ="text" name="chord" id="chord" placeholder=" " class="form-control" required="">
+                            <input type="text" name="chord" id="chord" placeholder=" " class="form-control" required="">
                         </div>
                         <div class="col-sm-6 form-group">
                             <button class="btn btn-primary" type="submit">Gerar Tríade</button>
                         </div>
                     </div>
                 </form>
-                <form th:action="${triade}" method="post">
-                    <label for="resultTriad">Resultado</label>
-                    <input type ="text" name="resultTriad" id="resultTriad" placeholder=" " class="form-control" readonly>
+                <form th:action="${tetrade}" method="post">
+                    <label for="resultTriad">Resultado: </label>
+                    <a id="resultTriad" class="form-control" readonly th:text="${resultTriad}"></a>
                 </form>
             </div>
             <div class="d-flex justify-content-center">

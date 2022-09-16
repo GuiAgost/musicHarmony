@@ -9,8 +9,8 @@
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
-            <form th:action="${tetrade}" method="get">
-                <div class="col-sm-12">
+            <div class="col-sm-12">
+                <form th:action="${tetrade}" method="get">
                     <div class="row">
                         <label for="chord">Informe um acorde</label>
                         <div class="col-sm-6 form-group">
@@ -20,12 +20,14 @@
                             <button class="btn btn-primary" type="submit">Gerar Tétrade</button>
                         </div>
                     </div>
+                </form>
+                <form th:action="${tetrade}" method="post">
                     <div class="form-group">
                         <label for="resultTetrad">Resultado</label>
-                        <input type ="text" name="resultTetrad" id="resultTetrad" placeholder=" " class="form-control">
+                        <a id="resultTetrad" class="form-control" readonly th:text="${resultTetrad}"></a>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
             <div class="d-flex justify-content-center">
                 <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
             </div>
