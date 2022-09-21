@@ -9,43 +9,68 @@
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
-            <div>
-                Questão 1)
-            </div>
-            <span class="space"></span>
-            <form>
-                <div class="form-check">
-                    <label>
-                        <span class="label-text">A)</span> <input type="radio" name="radio">
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label>
-                        <span class="label-text">B)</span> <input type="radio" name="radio">
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label>
-                        <span class="label-text">C)</span> <input type="radio" name="radio">
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label>
-                        <span class="label-text">D)</span> <input type="radio" name="radio">
-                    </label>
-                </div>
-            </form>
-            <form>
-                <span class="space"></span>
-                <div class="text-center">
-                    <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                </div>
-                <span class="space"></span>
-                <div class="text-center">
-                    <button class="btn btn-primary" type="submit">Próximo</button>
-                </div>
-            </form>
+            <h5>
+                <small class="text-muted">
+                    <div>
+                        Questão 1) Quantas são as notas musicais naturais e quais?
+                    </div>
+                    <span class="space"></span>
+                    <form>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="radio"> <span class="label-text">A) São 8 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá, Si e Dó.</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="radio"> <span class="label-text">B) São 12 notas musicais: Dó, Dó#, Ré, Ré#, Mi, Fá, Fá#, Sol, Sol#, Lá, Lá# e Si.</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="radio"> <span class="label-text">C) São 7 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá e Si.</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="radio"> <span class="label-text">D) São 7 notas musicais: Dó#, Ré#, Mi, Fá#, Sol#, Lá# e Si.</span>
+                            </label>
+                        </div>
+                    </form>
+                </small>
+                <form>
+                    <span class="space"></span>
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
+                    </div>
+                    <span class="space"></span>
+                    <div class="text-center">
+                        <a class="btn btn-primary" type="reset" onClick="history.back()" href="/home">Voltar</a>
+                        <button class="btn btn-primary" type="submit"><a onClick="history.forward()">Próximo</a></button>
+                    </div>
+                </form>
+            </h5>
         </div>
+    </div>
+    <span class="space"></span>
+    <div class="container form_container form-border mb-3">
+        <h6>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <div class="text-center">
+                        <p>
+                            <em>
+                                Fonte: Adaptado o conteúdo do artigo "Teoria Musical Lições Essenciais" do autor Luciano Alves.
+                            </em>
+                        </p>
+                        <div class="align-items-center">
+                            <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary" href="/home">Voltar</a></button></span>
+                        </div>
+                    </div>
+                </ul>
+            </small>
+        </h6>
     </div>
 </body>
 </html>
