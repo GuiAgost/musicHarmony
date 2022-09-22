@@ -24,6 +24,114 @@ public class QuizController {
         }
     }
 
+    @GetMapping("questionariosDois")
+    public String quizDois(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioDois");
+            return "questoes/questionariosDois";
+        }
+    }
+
+    @GetMapping("questionariosTres")
+    public String quizTres(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioTres");
+            return "questoes/questionariosTres";
+        }
+    }
+
+    @GetMapping("questionariosQuatro")
+    public String quizQuatro(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioQuatro");
+            return "questoes/questionariosQuatro";
+        }
+    }
+
+    @GetMapping("questionariosCinco")
+    public String quizCinco(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioCinco");
+            return "questoes/questionariosCinco";
+        }
+    }
+
+    @GetMapping("questionariosSeis")
+    public String quizSeis(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioSeis");
+            return "questoes/questionariosSeis";
+        }
+    }
+
+    @GetMapping("questionariosSete")
+    public String quizSete(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioSete");
+            return "questoes/questionariosSete";
+        }
+    }
+
+    @GetMapping("questionariosOito")
+    public String quizOito(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioOito");
+            return "questoes/questionariosOito";
+        }
+    }
+
+    @GetMapping("questionariosNove")
+    public String quizNove(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioNove");
+            return "questoes/questionariosNove";
+        }
+    }
+
+    @GetMapping("questionariosDez")
+    public String quizDez(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioDez");
+            return "questoes/questionariosDez";
+        }
+    }
+
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
         LogoutService logout = new LogoutService();

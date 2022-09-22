@@ -6,19 +6,19 @@ import br.com.ucs.MusicHarmony.service.TetradService;
 import br.com.ucs.MusicHarmony.service.TriadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("consultas")
 public class QueriesController {
 
     @GetMapping("triade")
-    public String triad(HttpServletRequest request, Model model){
-//        String answerTriade;
+    public String triad(HttpServletRequest request, Model model/*, BindingResult errorsTriade*/){
+        //String answerTriade;
         String chord;
         TriadService answer = new TriadService();
 
@@ -31,17 +31,27 @@ public class QueriesController {
                 chord = request.getParameter("chord");
                 System.out.println("Acorde informado: " + chord);
                 //answerTriade = answer.chordTriad(chord);
+//                if (answer.chordTriad(chord).equals("Acorde inválido")){
+//                    model.addAttribute("errorsTriade", errorsTriade);
+//                }else{
+//                    model.addAttribute("resultTriad", answer.chordTriad(chord));
+//                }
                 model.addAttribute("resultTriad", answer.chordTriad(chord));
-                //triadResult(answerTriade, model);
+                //triadResult(answerTriade, model, errorsTriade);
             }
             return "consultas/triade";
         }
     }
 
 //    @PostMapping("/triade")
-//    public String triadResult(@ModelAttribute String resultTriad, Model model){
-//        System.out.println(model.addAttribute("resultTriad", resultTriad));
-//        model.addAttribute("resultTriad", resultTriad);
+//    public String triadResult(@ModelAttribute String resultTriad, Model model, BindingResult errorsTriade){
+////        System.out.println(model.addAttribute("resultTriad", resultTriad));
+////        model.addAttribute("resultTriad", resultTriad);
+//          if (resultTriad.equals("Acorde inválido")){
+//              model.addAttribute("errorsTriade", errorsTriade);
+//          }else{
+//              model.addAttribute("resultTriad", resultTriad);
+//          }
 //        return "redirect:/consultas/triade";
 //    }
 

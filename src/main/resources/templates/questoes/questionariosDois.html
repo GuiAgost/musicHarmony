@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<!--Configuração de cabeçalho-->
+<head th:replace="~{base :: head}"><title></title></head>
+<!--Titulo-->
+<div th:replace="~{base :: logo3}"></div>
+<!--Subtitulo-->
+<div th:replace="~{base :: titulo('Questionários')}"></div>
+<body>
+<div class="container d-flex justify-content-center form_container form-border">
+    <div class="row">
+        <h5>
+            <small class="text-muted">
+                <div>
+                    Questão 2) Quantos semitons compreende em 3 tons?
+                </div>
+                <span class="space"></span>
+                <form>
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="radio"> <span class="label-text">A) 2 semitons.</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="radio"> <span class="label-text">B) 6 semitons.</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="radio"> <span class="label-text">C) 3 semitons.</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="radio"> <span class="label-text">D) 1 semitons.</span>
+                        </label>
+                    </div>
+                </form>
+            </small>
+            <form>
+                <span class="space"></span>
+                <div class="text-center">
+                    <button class="btn btn-success" type="submit">Confirmar Resposta</button>
+                </div>
+                <span class="space"></span>
+                <div class="text-center">
+                    <a class="btn btn-primary" onClick="history.back()" href="questionarios">Voltar</a>
+                    <a href="questionariosTres"><button type="button" class="btn btn-primary">Próximo</button></a>
+                </div>
+            </form>
+        </h5>
+    </div>
+</div>
+<span class="space"></span>
+<div class="container form_container form-border mb-3">
+    <h6>
+        <span class="space"></span>
+        <small class="text-muted">
+            <ul class="list-unstyled">
+                <div class="text-center">
+                    <p>
+                        <em>
+                            Fonte: Adaptado o conteúdo do artigo "Teoria Musical Lições Essenciais" do autor Luciano Alves.
+                        </em>
+                    </p>
+                    <div class="align-items-center">
+                        <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary" href="/home">Voltar</a></button></span>
+                    </div>
+                </div>
+            </ul>
+        </small>
+    </h6>
+</div>
+</body>
+</html>
