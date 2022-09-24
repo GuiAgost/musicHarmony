@@ -9,7 +9,7 @@ public class ChordImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="chordName", nullable=false, unique=true)
+    @Column(name="chord_name", nullable=false, unique=true)
     private String chordName;
     @Column(name="image", nullable=false)
     private byte[] image;

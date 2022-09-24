@@ -8,6 +8,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @SpringBootApplication // É responsável por dispor diversas funcionalidades, sem que para isso tenhamos que fazer qualquer configuração
 public class MusicHarmonyApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MusicHarmonyApplication .class, args);
+		SpringApplication.run(MusicHarmonyApplication.class, args);
 	}
 }
