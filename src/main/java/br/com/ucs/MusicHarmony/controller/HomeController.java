@@ -19,17 +19,5 @@ public class HomeController {
         } else{
             return "home";
         }
-
-//        Pensar em criar uma classe e um metodos para todas as páginas web validar
-//        se o usuário está logado ou não.
-//        HttpSession session = request.getSession();
-//        System.out.println("Sessão: " + session.getId());
-//        if (session.getAttribute("userIsLogged") == null ||
-//                session.getAttribute("userIsLogged").equals("")) {
-//            return "redirect:/login";
-//        } else{
-//            System.out.println("Estou no homeController");
-//            return "home";
-//        }
     }
 }
