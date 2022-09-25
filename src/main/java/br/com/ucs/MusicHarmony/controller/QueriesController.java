@@ -6,10 +6,8 @@ import br.com.ucs.MusicHarmony.service.TetradService;
 import br.com.ucs.MusicHarmony.service.TriadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 
 @Controller
@@ -17,8 +15,7 @@ import javax.validation.Valid;
 public class QueriesController {
 
     @GetMapping("triade")
-    public String triad(HttpServletRequest request, Model model/*, BindingResult errorsTriade*/){
-        //String answerTriade;
+    public String triad(HttpServletRequest request, Model model, Object errorsTriade){
         String chord;
         TriadService answer = new TriadService();
 
@@ -30,34 +27,18 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 System.out.println("Acorde informado: " + chord);
-                //answerTriade = answer.chordTriad(chord);
-//                if (answer.chordTriad(chord).equals("Acorde inválido")){
-//                    model.addAttribute("errorsTriade", errorsTriade);
-//                }else{
-//                    model.addAttribute("resultTriad", answer.chordTriad(chord));
-//                }
-                model.addAttribute("resultTriad", answer.chordTriad(chord));
-                //triadResult(answerTriade, model, errorsTriade);
+                if (answer.chordTriad(chord).equals("Acorde inválido")){
+                    model.addAttribute("errorsTriade", errorsTriade);
+                }else{
+                    model.addAttribute("resultTriad", answer.chordTriad(chord));
+                }
             }
             return "consultas/triade";
         }
     }
 
-//    @PostMapping("/triade")
-//    public String triadResult(@ModelAttribute String resultTriad, Model model, BindingResult errorsTriade){
-////        System.out.println(model.addAttribute("resultTriad", resultTriad));
-////        model.addAttribute("resultTriad", resultTriad);
-//          if (resultTriad.equals("Acorde inválido")){
-//              model.addAttribute("errorsTriade", errorsTriade);
-//          }else{
-//              model.addAttribute("resultTriad", resultTriad);
-//          }
-//        return "redirect:/consultas/triade";
-//    }
-
     @GetMapping("tetrade")
-    public String tetrad(HttpServletRequest request, Model model){
-//        String answerTetrad;
+    public String tetrad(HttpServletRequest request, Model model, Object errorsTetrade){
         String chord;
         TetradService answer = new TetradService();
 
@@ -69,7 +50,11 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 System.out.println("Acorde informado: " + chord);
-                model.addAttribute("resultTetrad", answer.chordTetrad(chord));
+                if (answer.chordTetrad(chord).equals("Acorde inválido")){
+                    model.addAttribute("errorsTetrade", errorsTetrade);
+                }else{
+                    model.addAttribute("resultTetrad", answer.chordTetrad(chord));
+                }
             }
             return "consultas/tetrade";
         }
