@@ -6,10 +6,10 @@ import javax.validation.constraints.NotBlank;
 
 public class RequestRegistration {
 
-        @NotBlank
-        private String username;
-        @NotBlank
-        private String password;
+    @NotBlank
+    private String username;
+    @NotBlank
+    private String password;
 
     public String getUsername() {
         return username;

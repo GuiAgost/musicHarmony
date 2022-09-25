@@ -12,11 +12,7 @@ public class ExistsSessionService {
     public Boolean existsUsers(HttpServletRequest request) {
         HttpSession session = request.getSession();
         System.out.println("Sessão: " + session.getId());
-        if (session.getAttribute("userIsLogged") == null ||
-                session.getAttribute("userIsLogged").equals("")) {
-            return true;
-        } else{
-            return false;
-        }
+        return session.getAttribute("userIsLogged") == null ||
+                session.getAttribute("userIsLogged").equals("");
     }
 }
