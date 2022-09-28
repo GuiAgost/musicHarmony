@@ -28,11 +28,10 @@ public class FormController {
     public String toSave(Model model, RequestRegistration request, BindingResult registrationError){
 
         User user = usuarioRepository.findByUsername(request.getUsername());
-        if (user != null && (request.getUsername().equals(user.getUsername()) &&
+        if (user != null && (request.getUsername().equals(user.getUsername()) ||
                 (request.getPassword().equals(user.getPassword())))){
             System.out.println("Usuário existente!!");
             model.addAttribute("registrationError", registrationError);
-            //return "redirect:/cadastro/formulario";
         } else {
             System.out.println("Cadastrando o usuário...");
             System.out.println("Salvando o usuário...");
@@ -45,4 +44,3 @@ public class FormController {
         return null;
     }
 }
-// http://localhost:8080/cadastro/formulario

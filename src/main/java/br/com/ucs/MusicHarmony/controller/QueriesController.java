@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import java.util.InputMismatchException;
 
 
 @Controller
@@ -58,7 +59,7 @@ public class QueriesController {
     }
 
     @GetMapping("transposicao")
-    public String transposition(HttpServletRequest request, Model model, Object errrorsTransp){
+    public String transposition(HttpServletRequest request, Model model, Object errorsTransp){
         int semitone;
         String chordNote;
         TranspositionService transp = new TranspositionService();
@@ -68,16 +69,20 @@ public class QueriesController {
             return "redirect:/login";
         } else{
             System.out.println("Consulta Transposição");
-            if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)){
-                semitone = Integer.parseInt(request.getParameter("semitone"));
-                chordNote = request.getParameter("chordNote");
-                System.out.println("Semitom informado: " + semitone);
-                System.out.println("Acorde/Nota informado: " + chordNote);
-                if (transp.transposition(semitone, chordNote).equals("Acorde inválido")){
-                    model.addAttribute("errrorsTransp", errrorsTransp);
-                }else{
-                    model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
+            try {
+                if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
+                    semitone = Integer.parseInt(request.getParameter("semitone"));
+                    chordNote = request.getParameter("chordNote");
+                    System.out.println("Semitom informado: " + semitone);
+                    System.out.println("Acorde/Nota informado: " + chordNote);
+                    if (transp.transposition(semitone, chordNote).equals("Inválido")) {
+                        model.addAttribute("errrorsTransp", errorsTransp);
+                    } else {
+                        model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
+                    }
                 }
+            }catch (InputMismatchException | NumberFormatException ex){
+                model.addAttribute("errorsTransp", errorsTransp);
             }
             return "consultas/transposicao";
         }
