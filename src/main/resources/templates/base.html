@@ -43,7 +43,7 @@
     <header class="titulo">
         <span class="logo">
            <figure>
-               <img src="../img/musicHarmony.png" class="w-25 rounded" alt="image">
+               <img src="../img/musicHarmony1.jpg" class="w-25 rounded" alt="image">
            </figure>
        </span>
     </header>
@@ -52,7 +52,11 @@
 <div th:fragment="logo2" class="logo-container mb-5 p-2 d-flex justify-content-between">
     <span th:if="${session.userIsLogged}" class="navbar-brand">Olá, <a th:text="${session.userIsLogged.username}"></a>!</span>
    <header class="titulo">
-        <span class="logo">MusicHarmony</span>
+        <span class="logo">
+           <figure>
+               <img src="../img/musicHarmony1.jpg" class="w-25 rounded" alt="image">
+           </figure>
+       </span>
     </header>
     <form th:action="@{logout}" method="post">
         <span class="mt-3">
@@ -64,7 +68,11 @@
 <div th:fragment="logo3" class="logo-container mb-5 p-2 d-flex justify-content-between">
         <span th:if="${session.userIsLogged}" class="navbar-brand">Olá, <a th:text="${session.userIsLogged.username}"></a>!</span>
     <header class="titulo">
-        <span class="logo">MusicHarmony</span>
+        <span class="logo">
+           <figure>
+               <img src="../img/musicHarmony1.jpg" class="w-25 rounded" alt="image">
+           </figure>
+       </span>
     </header>
     <form th:action="@{logout}" method="POST">
         <span class="mt-3">
