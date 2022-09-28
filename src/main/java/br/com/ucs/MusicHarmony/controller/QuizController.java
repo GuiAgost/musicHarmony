@@ -132,6 +132,30 @@ public class QuizController {
         }
     }
 
+    @GetMapping("questionariosOnze")
+    public String quizOnze(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioOnze");
+            return "questoes/questionariosOnze";
+        }
+    }
+
+    @GetMapping("questionariosDoze")
+    public String quizDoze(HttpServletRequest request){
+        ExistsSessionService userExist = new ExistsSessionService();
+        Boolean logged = userExist.existsUsers(request);
+        if (logged){
+            return "redirect:/login";
+        } else{
+            System.out.println("QuestionárioDoze");
+            return "questoes/questionariosDoze";
+        }
+    }
+
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
         LogoutService logout = new LogoutService();
