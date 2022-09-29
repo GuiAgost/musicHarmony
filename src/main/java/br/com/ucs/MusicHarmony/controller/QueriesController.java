@@ -24,7 +24,6 @@ public class QueriesController {
             System.out.println("Consulta Tríade");
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
-                System.out.println("Acorde informado: " + chord);
                 if (answer.chordTriad(chord).equals("Acorde inválido")){
                     model.addAttribute("errorsTriade", errorsTriade);
                 }else{
@@ -47,7 +46,6 @@ public class QueriesController {
             System.out.println("Consulta Tétrade");
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
-                System.out.println("Acorde informado: " + chord);
                 if (answer.chordTetrad(chord).equals("Acorde inválido")){
                     model.addAttribute("errorsTetrade", errorsTetrade);
                 }else{
@@ -73,10 +71,8 @@ public class QueriesController {
                 if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                     semitone = Integer.parseInt(request.getParameter("semitone"));
                     chordNote = request.getParameter("chordNote");
-                    System.out.println("Semitom informado: " + semitone);
-                    System.out.println("Acorde/Nota informado: " + chordNote);
-                    if (transp.transposition(semitone, chordNote).equals("Inválido")) {
-                        model.addAttribute("errrorsTransp", errorsTransp);
+                    if (chordNote.matches("[0-9]*")) {
+                        model.addAttribute("errorsTransp", errorsTransp);
                     } else {
                         model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
                     }
@@ -87,6 +83,7 @@ public class QueriesController {
             return "consultas/transposicao";
         }
     }
+    // https://www.alura.com.br/artigos/verificar-se-e-letra-ou-numero-no-java#:~:text=Agora%20precisamos%20verificar%20se%20essa,equipara%20com%20o%20par%C3%A2metro%20passado.
 
     @GetMapping("acordes")
     public String chords(HttpServletRequest request){

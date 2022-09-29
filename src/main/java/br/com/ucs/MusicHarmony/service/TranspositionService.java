@@ -1,29 +1,34 @@
 package br.com.ucs.MusicHarmony.service;
 
-import java.util.InputMismatchException;
 import java.util.LinkedList;
-
-import static java.lang.Math.abs;
 
 public class TranspositionService {
 
     public String transposition(int semitone, String note){
-        final LinkedList<String> escala = new LinkedList<String>(){{add("C");add("C#");add("D");add("D#");add("E");add("F");add("F#");add("G");add("G#");add("A");add("A#");add("B");}};
+        final LinkedList<String> scale = new LinkedList<String>(){{add("C");add("C#");add("D");add("D#");add("E");add("F");add("F#");add("G");add("G#");add("A");add("A#");add("B");}};
 
-        String transposto;
-        // REGEX: A, B, C, D, E, F, G e #
-
-        int i = 0;
+//        if (note.matches("[0-9]*")) {
+//
+//        }
+        int transposed;
         int aux = 0;
 
-        while (i < escala.size()) {
-            if (escala.get(i).equals(note)) {
-                aux = i; // Pega a nota informada pelo usuário
+        for(int i = 0; i < scale.size(); i++){
+            if(scale.get(i).equals(note)){
+                aux = i;
             }
-            i++;
         }
-        transposto = escala.get(abs(abs(aux + (semitone)) - i)); // Pega o elemento transposto
-        System.out.println("Nota transposta: " + transposto); // Informa a nota tranposta
-        return transposto;
+        int sum = aux + semitone;
+
+        if (sum >= 0) {
+            transposed = sum % scale.size();
+        } else {
+            transposed = Math.abs(scale.size() + sum) % scale.size();
+        }
+
+        System.out.println(scale.get(transposed));
+        return scale.get(transposed);
     }
 }
+
+// https://scholar.google.com.br/scholar?hl=pt-BR&as_sdt=0%2C5&q=Teoria+de+Grupos+e+M%C3%BAsica%3A+Conex%C3%B5es&btnG=
