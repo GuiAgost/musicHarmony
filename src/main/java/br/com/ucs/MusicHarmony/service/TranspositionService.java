@@ -7,8 +7,9 @@ public class TranspositionService {
 
     public String transposition(int semitone, String note){
         final LinkedList<String> scale = new LinkedList<>(){{add("C");add("C#");add("D");add("D#");add("E");add("F");add("F#");add("G");add("G#");add("A");add("A#");add("B");}};
+        int aux = 0;
 
-        int aux = getAux(note, scale, 0);
+        aux = getAux(note, scale, aux);
         int transposed = getTransposed(semitone, scale, aux);
 
         System.out.println(scale.get(transposed));
