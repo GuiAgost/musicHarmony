@@ -9,7 +9,7 @@ public class TranspositionService {
         final LinkedList<String> scale = new LinkedList<>(){{add("C");add("C#");add("D");add("D#");add("E");add("F");add("F#");add("G");add("G#");add("A");add("A#");add("B");}};
         int aux = 0;
 
-        aux = getAux(note, scale, aux);
+        aux = getPositionNote(note, scale, aux);
         int transposed = getTransposed(semitone, scale, aux);
 
         System.out.println(scale.get(transposed));
@@ -29,7 +29,7 @@ public class TranspositionService {
         return transposed;
     }
 
-    private int getAux(String note, LinkedList<String> scale, int aux) {
+    private int getPositionNote(String note, LinkedList<String> scale, int aux) {
         for(int i = 0; i < scale.size(); i++){
             if(scale.get(i).equals(note)){
                 aux = i;
