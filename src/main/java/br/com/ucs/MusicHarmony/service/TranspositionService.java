@@ -1,8 +1,10 @@
 package br.com.ucs.MusicHarmony.service;
 
+import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import static java.lang.Math.abs;
 
+@Service
 public class TranspositionService {
 
     public String transposition(int semitone, String note){
@@ -17,9 +19,9 @@ public class TranspositionService {
     }
     // https://en.wikipedia.org/wiki/Transposition_(music)
 
-    private int getTransposed(int semitone, LinkedList<String> scale, int aux) {
+    private int getTransposed(int semitone, LinkedList<String> scale, int position) {
         int transposed;
-        int sum = aux + semitone;
+        int sum = position + semitone;
 
         if (sum >= 0) {
             transposed = sum % scale.size();
