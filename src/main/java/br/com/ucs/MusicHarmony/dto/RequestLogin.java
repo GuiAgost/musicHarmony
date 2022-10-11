@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.constraints.NotBlank;
 
 public class RequestLogin {
+
     @Autowired
     UserRepository usuarioRepository;
 

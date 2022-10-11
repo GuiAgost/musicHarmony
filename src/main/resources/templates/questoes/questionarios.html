@@ -15,33 +15,33 @@
                         Questão 1) Quantas são as notas musicais naturais e quais?
                     </div>
                     <span class="space"></span>
-                    <form>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">A) São 8 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá, Si e Dó.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">B) São 12 notas musicais: Dó, Dó#, Ré, Ré#, Mi, Fá, Fá#, Sol, Sol#, Lá, Lá# e Si.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">C) São 7 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá e Si.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">D) São 7 notas musicais: Dó#, Ré#, Mi, Fá#, Sol#, Lá# e Si.</span>
-                            </label>
+                    <form th:action="questionarios" method="post" th:modelAttribute="answer">
+                        <div class="form-group">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="answer" name="answer" class="custom-control-input" value="1" th:field="*{answer}">
+                                    <label class="custom-control-label" for="answer"> A) São 8 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá, Si e Dó.</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="option2" name="option2" class="custom-control-input" value="B"> <!--Criar uma nova classe modelo?-->
+                                    <label class="custom-control-label" for="option2"> B) São 12 notas musicais: Dó, Dó#, Ré, Ré#, Mi, Fá, Fá#, Sol, Sol#, Lá, Lá# e Si.</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="option3" name="option3" class="custom-control-input" value="B">
+                                    <label class="custom-control-label" for="option3"> C) São 7 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá e Si.</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="option4" name="option4" class="custom-control-input" value="B">
+                                    <label class="custom-control-label" for="option4"> D) São 7 notas musicais: Dó#, Ré#, Mi, Fá#, Sol#, Lá# e Si.</label>
+                                </div>
                         </div>
                     </form>
                 </small>
                 <form>
                     <span class="space"></span>
                     <div class="text-center">
-                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
+                        <form th:action="${quiz}" method="post">
+                        <button class="btn btn-success" type="submit" >Confirmar Resposta</button>
+                        </form>
                     </div>
                     <span class="space"></span>
                     <div class="text-center">
