@@ -15,34 +15,32 @@
                         Questão 8) Quais intervalos que formam a tríade aumentada?
                     </div>
                     <span class="space"></span>
-                    <form>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">A) Nota fundamental, terça maior, quinta justa e sétima aumantada.</span>
-                            </label>
+                    <!--/*@thymesVar id="selected" type="java"*/-->
+                    <form method="post" th:object="${selected}">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
+                                <label class="custom-control-label" for="option1"> A) Nota fundamental, terça maior, quinta justa e sétima aumantada.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
+                                <label class="custom-control-label" for="option2"> B) Nota fundamental, terça aumantada e quinta justa.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
+                                <label class="custom-control-label" for="option3"> C) Nota fundamental, terça maior e quinta aumentada.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                                <label class="custom-control-label" for="option4"> D) Nota fundamental, terça menor e quinta aumentada.</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">B) Nota fundamental, terça aumantada e quinta justa.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">C) Nota fundamental, terça maior e quinta aumentada.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">D) Nota fundamental, terça menor e quinta aumentada.</span>
-                            </label>
+                        <div class="text-center">
+                            <button class="btn btn-success" type="submit">Confirmar Resposta</button>
                         </div>
                     </form>
                 </small>
                 <form>
-                    <span class="space"></span>
-                    <div class="text-center">
-                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                    </div>
                     <span class="space"></span>
                     <div class="text-center">
                         <a class="btn btn-primary" onClick="history.back()" href="questionariosSete">Anterior</a>

@@ -15,35 +15,33 @@
                         Questão 10) Para que serve a transposição?
                     </div>
                     <span class="space"></span>
-                    <form>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">A) Serve para embelezar a música.</span>
-                            </label>
+                    <!--/*@thymesVar id="selected" type="java"*/-->
+                    <form method="post" th:object="${selected}">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
+                                <label class="custom-control-label" for="option1"> A) Serve para embelezar a música.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
+                                <label class="custom-control-label" for="option2"> B) Serve para aumentar ou diminuir entre os acordes presentes na música.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
+                                <label class="custom-control-label" for="option3"> C) Serve para adequar a voz do canto aumentando ou diminuindo as tonalidade
+                                    até tornarem-se confortáveis.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                                <label class="custom-control-label" for="option4"> D) Serve para ficar mais dissonante em relação à voz.</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">B) Serve para aumentar ou diminuir entre os acordes presentes na música.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">C) Serve para adequar a voz do canto aumentando ou diminuindo as tonalidade
-                                até tornarem-se confortáveis.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">D) Serve para ficar mais dissonante em relação à voz.</span>
-                            </label>
+                        <div class="text-center">
+                            <button class="btn btn-success" type="submit">Confirmar Resposta</button>
                         </div>
                     </form>
                 </small>
                 <form>
-                    <span class="space"></span>
-                    <div class="text-center">
-                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                    </div>
                     <span class="space"></span>
                     <div class="text-center">
                         <a class="btn btn-primary" onClick="history.back()" href="questionariosNove">Anterior</a>

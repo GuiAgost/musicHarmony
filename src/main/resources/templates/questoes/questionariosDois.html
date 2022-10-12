@@ -15,34 +15,32 @@
                     Questão 2) Quantos semitons compreende em 3 tons?
                 </div>
                 <span class="space"></span>
-                <form>
-                    <div class="form-check">
-                        <label>
-                            <input type="radio" name="radio"> <span class="label-text">A) 2 semitons.</span>
-                        </label>
+                <!--/*@thymesVar id="selected" type="java"*/-->
+                <form method="post" th:object="${selected}">
+                    <div class="form-group">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
+                            <label class="custom-control-label" for="option1"> A) 2 semitons.</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
+                            <label class="custom-control-label" for="option2"> B) 6 semitons.</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
+                            <label class="custom-control-label" for="option3"> C) 3 semitons.</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                            <label class="custom-control-label" for="option4"> D) 1 semitons.</label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <label>
-                            <input type="radio" name="radio"> <span class="label-text">B) 6 semitons.</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label>
-                            <input type="radio" name="radio"> <span class="label-text">C) 3 semitons.</span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label>
-                            <input type="radio" name="radio"> <span class="label-text">D) 1 semitons.</span>
-                        </label>
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
                     </div>
                 </form>
             </small>
             <form>
-                <span class="space"></span>
-                <div class="text-center">
-                    <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                </div>
                 <span class="space"></span>
                 <div class="text-center">
                     <a class="btn btn-primary" onClick="history.back()" href="questionarios">Anterior</a>

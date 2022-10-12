@@ -15,34 +15,32 @@
                         Questão 12) O VII graus do acorde de sétima consistem:
                     </div>
                     <span class="space"></span>
-                    <form>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">A) Maior, menor, meio diminuta, diminuta e aumentada.</span>
-                            </label>
+                    <!--/*@thymesVar id="selected" type="java"*/-->
+                    <form method="post" th:object="${selected}">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
+                                <label class="custom-control-label" for="option1"> A) Maior, menor, meio diminuta, diminuta e aumentada.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
+                                <label class="custom-control-label" for="option2"> B) Maior, menor e diminuta.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
+                                <label class="custom-control-label" for="option3"> C) Maior, menor e meio diminuta.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                                <label class="custom-control-label" for="option4"> D) Maior, menor, diminuta e aumentada.</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">B) Maior, menor e diminuta.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">C) Maior, menor e meio diminuta.</span>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label>
-                                <input type="radio" name="radio"> <span class="label-text">D) Maior, menor, diminuta e aumentada.</span>
-                            </label>
+                        <div class="text-center">
+                            <button class="btn btn-success" type="submit">Confirmar Resposta</button>
                         </div>
                     </form>
                 </small>
                 <form>
-                    <span class="space"></span>
-                    <div class="text-center">
-                        <button class="btn btn-success" type="submit">Confirmar Resposta</button>
-                    </div>
                     <span class="space"></span>
                     <div class="text-center">
                         <a class="btn btn-primary" onClick="history.back()" href="questionariosOnze">Anterior</a>
