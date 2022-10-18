@@ -2,9 +2,9 @@ package br.com.ucs.MusicHarmony.model;
 
 public class Questionnaires {
 
-    private char selected;
+    private String selected;
 
-    public char getSelected() {
+    public String getSelected() {
         return selected;
     }
 }

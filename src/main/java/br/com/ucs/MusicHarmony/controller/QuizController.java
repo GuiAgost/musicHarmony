@@ -2,30 +2,31 @@ package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.dto.RequestQuestion;
 import br.com.ucs.MusicHarmony.model.Questionnaires;
+import br.com.ucs.MusicHarmony.model.Questions;
 import br.com.ucs.MusicHarmony.repository.QuestionsRepository;
 import br.com.ucs.MusicHarmony.service.ExistsSessionService;
 import br.com.ucs.MusicHarmony.service.LogoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("questoes")
 public class QuizController {
 
     @Autowired
-    QuestionsRepository questionsRepository;
+    private QuestionsRepository questionsRepository;
 
     @GetMapping("questionarios")
-    public String quiz(HttpServletRequest requestUser, RequestQuestion requestQuestions, Model model){
+    public String quiz(HttpServletRequest requestUser, Model model){
         ExistsSessionService userExist = new ExistsSessionService();
         Boolean logged = userExist.existsUsers(requestUser);
-        //Questions questions = questionsRepository.findQuestionsByAnswer(requestQuestions.getAnswer());
-
         if (logged){
             return "redirect:/login";
         } else{
@@ -36,18 +37,13 @@ public class QuizController {
     }
 
     @PostMapping("questionarios")
-    public String questions(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questions(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                            BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 1);
         return "questoes/questionarios";
     }
+
+
 
     @GetMapping("questionariosDois")
     public String quizDois(HttpServletRequest request, Model model){
@@ -63,15 +59,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosDois")
-    public String questionsDois(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
+    public String questionsDois(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 2);
 
         return "questoes/questionariosDois";
     }
@@ -90,16 +80,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosTres")
-    public String questionsTres(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsTres(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 3);
         return "questoes/questionariosTres";
     }
 
@@ -117,16 +100,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosQuatro")
-    public String questionsQuatro(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsQuatro(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                  BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 4);
         return "questoes/questionariosQuatro";
     }
 
@@ -144,16 +120,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosCinco")
-    public String questionsCinco(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsCinco(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                 BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 5);
         return "questoes/questionariosCinco";
     }
 
@@ -171,16 +140,10 @@ public class QuizController {
     }
 
     @PostMapping("questionariosSeis")
-    public String questionsSeis(Questionnaires selected, Model model, HttpServletRequest requestUser) {
+    public String questionsSeis(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
         model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 6);
         return "questoes/questionariosSeis";
     }
 
@@ -198,16 +161,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosSete")
-    public String questionsSete(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsSete(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 7);
         return "questoes/questionariosSete";
     }
 
@@ -225,16 +181,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosOito")
-    public String questionsOito(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsOito(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 8);
         return "questoes/questionariosOito";
     }
 
@@ -252,16 +201,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosNove")
-    public String questionsNove(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsNove(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 9);
         return "questoes/questionariosNove";
     }
 
@@ -279,16 +221,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosDez")
-    public String questionsDez(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsDez(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                               BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 10);
         return "questoes/questionariosDez";
     }
 
@@ -306,16 +241,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosOnze")
-    public String questionsOnze(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsOnze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 11);
         return "questoes/questionariosOnze";
     }
 
@@ -333,16 +261,9 @@ public class QuizController {
     }
 
     @PostMapping("questionariosDoze")
-    public String questionsDoze(Questionnaires selected, Model model, HttpServletRequest requestUser) {
-        model.addAttribute("selected", selected);
-        System.out.println("Resposta selecionado: " + requestUser.getParameter("selected"));
-
-        //    if(answer != null && answer.equals(aqui pegar o valor do banco)){
-//                // Enviar a notificação que acertou a resposta
-//            } else {
-//                // Enviar a notificação que errou a resposta
-//            }
-
+    public String questionsDoze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 12);
         return "questoes/questionariosDoze";
     }
 
@@ -351,5 +272,23 @@ public class QuizController {
         LogoutService logout = new LogoutService();
         logout.invalidationSession(request);
         return "redirect:/login";
+    }
+
+    private void result(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions, BindingResult wrong, BindingResult gotItRight, Integer number) {
+        Optional<Questions> answer = questionsRepository.findById(requestQuestions.getId(number));
+        String resp = String.valueOf(answer.stream().map(Questions::getAnswer).toList());
+        System.out.println("Resposta do banco: " + resp);
+
+        model.addAttribute("selected", selected);
+        String option = request.getParameter("selected");
+        System.out.println("Resposta selecionado: " + option);
+
+        if( (option.equals(resp))){
+            System.out.println("Resposta correta!");
+            model.addAttribute("gotItRight", gotItRight);
+        } else {
+            System.out.println("Resposta errada!!");
+            model.addAttribute("wrong", wrong);
+        }
     }
 }

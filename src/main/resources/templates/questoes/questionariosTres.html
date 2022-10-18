@@ -11,6 +11,8 @@
         <div class="row">
             <h5>
                 <small class="text-muted">
+                    <div th:replace="~{base :: errou}"></div>
+                    <div th:replace="~{base :: acertou}"></div>
                     <div>
                         Questão 3) Quais são os símbolos de acidentes? O que cada uma faz quando aplicado em uma nota musical?
                     </div>
@@ -19,7 +21,7 @@
                     <form method="post" th:object="${selected}">
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="[A]" th:field="*{selected}">
                                 <label class="custom-control-label" for="option1"> A) São símbolos "#" (sustenido) e "b" (bemol). O sustenido aumenta 1 semitom e o bemol diminui 1 semitom.</label>
                             </div>
                             <div class="custom-control custom-radio">

@@ -9,23 +9,15 @@ public class Questions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable=false, unique=true)
-    private Long id;
+    private Integer id;
     @Column(name="answer", nullable=false)
-    private char answer;
+    private String answer;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public char getAnswer() {
+    public String getAnswer() {
         return answer;
-    }
-
-    public void setAnswer(char answer) {
-        this.answer = answer;
     }
 }

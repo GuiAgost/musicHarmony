@@ -11,6 +11,8 @@
         <div class="row">
             <h5>
                 <small class="text-muted">
+                    <div th:replace="~{base :: errou}"></div>
+                    <div th:replace="~{base :: acertou}"></div>
                     <div>
                         Questão 8) Quais intervalos que formam a tríade aumentada?
                     </div>
@@ -27,7 +29,7 @@
                                 <label class="custom-control-label" for="option2"> B) Nota fundamental, terça aumantada e quinta justa.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="[C]" th:field="*{selected}">
                                 <label class="custom-control-label" for="option3"> C) Nota fundamental, terça maior e quinta aumentada.</label>
                             </div>
                             <div class="custom-control custom-radio">
