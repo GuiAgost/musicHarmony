@@ -1,10 +1,12 @@
 package br.com.ucs.MusicHarmony.controller;
 
+import br.com.ucs.MusicHarmony.model.Scales;
 import br.com.ucs.MusicHarmony.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.InputMismatchException;
 
 
@@ -17,6 +19,7 @@ public class QueriesController {
         String chord;
         TriadService answer = new TriadService();
 
+
         Boolean logged = getLogged(request);
         if (logged){
             return "redirect:/login";
@@ -27,6 +30,8 @@ public class QueriesController {
                 if (answer.chordTriad(chord).equals("Acorde inválido")){
                     model.addAttribute("errorsTriade", errorsTriade);
                 }else{
+                    HttpSession session = request.getSession();
+                    session.setAttribute("chord", chord);
                     model.addAttribute("resultTriad", answer.chordTriad(chord));
                 }
             }
@@ -60,6 +65,7 @@ public class QueriesController {
     public String transposition(HttpServletRequest request, Model model, Object errorsTransp){
         int semitone;
         String chordNote;
+        Scales scale = new Scales();
         TranspositionService transp = new TranspositionService();
 
         Boolean logged = getLogged(request);

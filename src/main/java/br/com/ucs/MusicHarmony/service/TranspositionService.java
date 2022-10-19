@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.service;
 
+import br.com.ucs.MusicHarmony.model.Scales;
 import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import static java.lang.Math.abs;
@@ -8,14 +9,14 @@ import static java.lang.Math.abs;
 public class TranspositionService {
 
     public String transposition(int semitone, String note){
-        final LinkedList<String> scale = new LinkedList<>(){{add("C");add("C#");add("D");add("D#");add("E");add("F");add("F#");add("G");add("G#");add("A");add("A#");add("B");}};
+        Scales scale = new Scales();
         int aux = 0;
 
-        aux = getPositionNote(note, scale, aux);
-        int transposed = getTransposed(semitone, scale, aux);
+        aux = getPositionNote(note, scale.getScale(), aux);
+        int transposed = getTransposed(semitone, scale.getScale(), aux);
 
-        System.out.println(scale.get(transposed));
-        return scale.get(transposed);
+        System.out.println(scale.getScale().get(transposed));
+        return scale.getScale().get(transposed);
     }
     // https://en.wikipedia.org/wiki/Transposition_(music)
 

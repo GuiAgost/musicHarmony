@@ -3,14 +3,14 @@
 <!--Configuração de cabeçalho-->
 <head th:replace="~{base :: head}"><title></title></head>
 <!--Titulo-->
-<div th:replace="~{base ::  logo3}"></div>
+<div th:replace="~{base :: logo3}"></div>
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Consultar Tríade')}"></div>
 <body>
     <div class="container d-flex justify-content-center form_container form-border">
         <div class="row">
             <div class="col-sm-12">
-                <form th:action="${triade}" method="get">
+                <form th:action="${triade}" method="get" >
                     <div class="form-group">
                         <div class="alert alert-danger titulo alert-dismissible" role="alert" th:if="${errorsTriade}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -20,24 +20,26 @@
                             <a class="btn-close" data-bs-dismiss="alert"></a>
                             Acorde inválido!
                         </div>
-                    <div class="row">
-                        <label for="chord">Informe um acorde</label>
-                        <div class="col-sm-6 form-group">
-                            <input type="text" name="chord" id="chord" placeholder=" " class="form-control" required="">
-                        </div>
-                        <div class="col-sm-6 form-group">
-                            <button class="btn btn-primary" type="submit">Gerar Tríade</button>
+                        <div class="row">
+                            <label for="chord">Informe um acorde</label>
+                            <div class="col-sm-6 form-group">
+                                <input type="text" th:value="${session.chord}" name="chord" id="chord" placeholder=" " class="form-control"  onfocus="this.value='';" required="">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <button class="btn btn-primary" type="submit" >Gerar Tríade</button>
+                            </div>
                         </div>
                     </div>
                 </form>
                 <form th:action="${triade}" method="post">
+                    <div class="form-group">
                         <label for="resultTriad">Resultado: </label>
                         <a id="resultTriad" class="form-control" readonly th:text="${resultTriad}"></a>
                     </div>
                 </form>
             </div>
             <div class="d-flex justify-content-center">
-                <a class="btn btn-primary" type="reset" onClick="history.back()" href="/home">Voltar</a>
+                <a class="btn btn-primary" onClick="history.back() reset" href="/home">Voltar</a>
             </div>
         </div>
     </div>
