@@ -6,18 +6,17 @@ import org.springframework.stereotype.Service;
 public class ValidationChordService {
 
     public boolean validation(String chordNote){
-        if (chordNote.matches("[0-9]*")) {
+
+
+        if (chordNote.matches("[H-Z]") || chordNote.matches("[0-9]*") || chordNote.matches("[a-z]")) {
+            System.out.println("Passou a validação das letras inválidas e numeros inválidos: " + chordNote.matches("[H-Z]"));
             return false;
         }
-        if (!chordNote.matches("[A-G]*") || !chordNote.matches("[A#-G#]*")) {
-            return false;
+        if (chordNote.matches("((?![EB]#))^([A-G][#]?$)")) {
+            System.out.println("Passou a validação das letras válidas: " + chordNote.matches("^[A-G][#]?$"));
+            return true;
         }
-        if (chordNote.length() == 2){
-            return false;
-        }
-        return true;
+        System.out.println("Tamanho: " + (chordNote.length() < 2));
+        return chordNote.length() < 2;
     }
 }
-// Falta aceitar o símbolo '#'
-// https://www.alura.com.br/artigos/verificar-se-e-letra-ou-numero-no-java#:~:text=Agora%20precisamos%20verificar%20se%20essa,equipara%20com%20o%20par%C3%A2metro%20passado.
-

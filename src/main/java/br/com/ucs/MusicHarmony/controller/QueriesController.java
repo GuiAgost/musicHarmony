@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.InputMismatchException;
-
 
 @Controller
 @RequestMapping("consultas")
@@ -73,7 +71,6 @@ public class QueriesController {
             return "redirect:/login";
         } else{
             System.out.println("Consulta Transposição");
-            try {
                 if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                     semitone = Integer.parseInt(request.getParameter("semitone"));
                     chordNote = request.getParameter("chordNote");
@@ -85,9 +82,6 @@ public class QueriesController {
                         model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
                     }
                 }
-            }catch (InputMismatchException | NumberFormatException ex){
-                model.addAttribute("errorsTransp", errorsTransp);
-            }
             return "consultas/transposicao";
         }
     }
