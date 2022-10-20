@@ -77,7 +77,9 @@ public class QueriesController {
                 if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                     semitone = Integer.parseInt(request.getParameter("semitone"));
                     chordNote = request.getParameter("chordNote");
-                    if (chordNote.matches("[0-9]*")) {
+                    ValidationChordService val = new ValidationChordService();
+                    boolean validation = val.validation(chordNote);
+                    if (!validation) {
                         model.addAttribute("errorsTransp", errorsTransp);
                     } else {
                         model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
@@ -89,7 +91,6 @@ public class QueriesController {
             return "consultas/transposicao";
         }
     }
-    // https://www.alura.com.br/artigos/verificar-se-e-letra-ou-numero-no-java#:~:text=Agora%20precisamos%20verificar%20se%20essa,equipara%20com%20o%20par%C3%A2metro%20passado.
 
     @GetMapping("acordes")
     public String chords(HttpServletRequest request){
