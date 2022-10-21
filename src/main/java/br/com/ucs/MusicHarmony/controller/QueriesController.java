@@ -16,7 +16,7 @@ public class QueriesController {
     public String triad(HttpServletRequest request, Model model, Object errorsTriade){
         String chord;
         TriadService answer = new TriadService();
-
+        HttpSession session = request.getSession();
 
         Boolean logged = getLogged(request);
         if (logged){
@@ -28,10 +28,11 @@ public class QueriesController {
                 if (answer.chordTriad(chord).equals("Acorde inválido")){
                     model.addAttribute("errorsTriade", errorsTriade);
                 }else{
-                    HttpSession session = request.getSession();
                     session.setAttribute("chord", chord);
                     model.addAttribute("resultTriad", answer.chordTriad(chord));
                 }
+            } else {
+                voltar(session);
             }
             return "consultas/triade";
         }
@@ -41,6 +42,7 @@ public class QueriesController {
     public String tetrad(HttpServletRequest request, Model model, Object errorsTetrade){
         String chord;
         TetradService answer = new TetradService();
+        HttpSession session = request.getSession();
 
         Boolean logged = getLogged(request);
         if (logged){
@@ -52,8 +54,11 @@ public class QueriesController {
                 if (answer.chordTetrad(chord).equals("Acorde inválido")){
                     model.addAttribute("errorsTetrade", errorsTetrade);
                 }else{
+                    session.setAttribute("chord", chord);
                     model.addAttribute("resultTetrad", answer.chordTetrad(chord));
                 }
+            }else {
+                voltar(session);
             }
             return "consultas/tetrade";
         }
@@ -62,9 +67,10 @@ public class QueriesController {
     @GetMapping("transposicao")
     public String transposition(HttpServletRequest request, Model model, Object errorsTransp){
         int semitone;
-        String chordNote;
-        Scales scale = new Scales();
+        String chord;
+//        Scales scale = new Scales();
         TranspositionService transp = new TranspositionService();
+        HttpSession session = request.getSession();
 
         Boolean logged = getLogged(request);
         if (logged){
@@ -73,14 +79,18 @@ public class QueriesController {
             System.out.println("Consulta Transposição");
                 if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                     semitone = Integer.parseInt(request.getParameter("semitone"));
-                    chordNote = request.getParameter("chordNote");
+                    chord = request.getParameter("chord");
                     ValidationChordService val = new ValidationChordService();
-                    boolean validation = val.validation(chordNote);
+                    boolean validation = val.validation(chord);
+                    session.setAttribute("chord", chord);
+                    session.setAttribute("semitone", semitone);
                     if (!validation) {
                         model.addAttribute("errorsTransp", errorsTransp);
                     } else {
-                        model.addAttribute("resultTransp", transp.transposition(semitone, chordNote));
+                        model.addAttribute("resultTransp", transp.transposition(semitone, chord));
                     }
+                }else {
+                    voltar(session);
                 }
             return "consultas/transposicao";
         }
@@ -95,6 +105,13 @@ public class QueriesController {
             System.out.println("Consulta Acordes");
             return "consultas/acordes";
         }
+    }
+
+    @PostMapping("voltar")
+    public String voltar (HttpSession session) {
+        session.removeAttribute("chord");
+        session.removeAttribute("semitone");
+        return "redirect:/home";
     }
 
     @PostMapping("/logout")

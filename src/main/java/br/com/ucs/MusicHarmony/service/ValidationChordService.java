@@ -5,17 +5,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class ValidationChordService {
 
-    public boolean validation(String chordNote){
+    public boolean validation(String chord){
 
-        if (chordNote.matches("[H-Z]") || chordNote.matches("[0-9]*") || chordNote.matches("[a-z]")) {
-            System.out.println("Passou a validação das letras inválidas e numeros inválidos: " + chordNote.matches("[H-Z]"));
+        if (chord.matches("[H-Z]") || chord.matches("[0-9]*") || chord.matches("[a-z]")) {
             return false;
         }
-        if (chordNote.matches("((?![EB]#))^([A-G][#]?$)")) {
-            System.out.println("Passou a validação das letras válidas: " + chordNote.matches("^[A-G][#]?$"));
+        if (chord.matches("((?![EB]#))^([A-G][#]?$)")) {
             return true;
         }
-        System.out.println("Tamanho: " + (chordNote.length() < 2));
-        return chordNote.length() < 2;
+        return chord.length() < 2;
     }
 }
+
+// ^ = Começa assim
+// $ = Termina assim
+// ? = Pode existir ou não
+// ! = negação
