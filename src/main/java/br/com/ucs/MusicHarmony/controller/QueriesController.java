@@ -22,7 +22,7 @@ public class QueriesController {
     ChordRepository chordRepository;
 
     @GetMapping("triade")
-    public String triad(HttpServletRequest request, Model model, Object errorsTriade){
+    public String triad(HttpServletRequest request, Model model, Object errorsChord){
         String chord;
         TriadService answer = new TriadService();
         HttpSession session = request.getSession();
@@ -35,7 +35,7 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 if (answer.chordTriad(chord).equals("Acorde inválido")){
-                    model.addAttribute("errorsTriade", errorsTriade);
+                    model.addAttribute("errorsChord", errorsChord);
                 }else{
                     session.setAttribute("chord", chord);
                     model.addAttribute("resultTriad", answer.chordTriad(chord));
@@ -81,7 +81,7 @@ public class QueriesController {
     }
 
     @GetMapping("tetrade")
-    public String tetrad(HttpServletRequest request, Model model, Object errorsTetrade){
+    public String tetrad(HttpServletRequest request, Model model, Object errorsChord){
         String chord;
         TetradService answer = new TetradService();
         HttpSession session = request.getSession();
@@ -94,7 +94,7 @@ public class QueriesController {
             if(request.getParameter("chord") != null) {
                 chord = request.getParameter("chord");
                 if (answer.chordTetrad(chord).equals("Acorde inválido")){
-                    model.addAttribute("errorsTetrade", errorsTetrade);
+                    model.addAttribute("errorsChord", errorsChord);
                 }else{
                     session.setAttribute("chord", chord);
                     model.addAttribute("resultTetrad", answer.chordTetrad(chord));
@@ -107,7 +107,7 @@ public class QueriesController {
     }
 
     @GetMapping("transposicao")
-    public String transposition(HttpServletRequest request, Model model, Object errorsTransp){
+    public String transposition(HttpServletRequest request, Model model, Object errorsChord){
         int semitone;
         String chord;
         TranspositionService transp = new TranspositionService();
@@ -126,7 +126,7 @@ public class QueriesController {
                     session.setAttribute("chord", chord);
                     session.setAttribute("semitone", semitone);
                     if (!validation) {
-                        model.addAttribute("errorsTransp", errorsTransp);
+                        model.addAttribute("errorsChord", errorsChord);
                     } else {
                         model.addAttribute("resultTransp", transp.transposition(semitone, chord));
                     }
