@@ -13,11 +13,11 @@
         <div class="row">
             <form>
                 <div class="input-group mb-3">
-                    <label class="form-label" for="pesquisarAcorde">Pesquisar Acorde</label>
+                    <label for="chord">Pesquise um acorde</label>
                     <div class="input-group">
-                        <input class="form-control" id="pesquisarAcorde" type="search"  onfocus="this.value='';" placeholder="Pesquisar">
+                        <input type="search" th:value="${session.chord}" name="chord" id="chord" placeholder=" " class="form-control" onfocus="this.value='';" required="">
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-primary" type="button">Procurar</button>
+                            <button class="btn btn-outline-primary" type="submit">Procurar</button>
                         </div>
                     </div>
                 </div>
