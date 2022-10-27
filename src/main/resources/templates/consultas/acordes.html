@@ -23,28 +23,48 @@
                     </div>
                 </div>
                 <span class="space"></span>
-                <div class="card-deck">
-                    <div class="card">
-                        <img th:src="*{'data:image/png;base64,'+ session.img}" alt=""/>
-                    </div>
-                    <!--                        <img class="card-img-top" src="" alt="Imagem de capa do card">-->
-                    <!--                        https://www.youtube.com/watch?v=HWFwgQYdEJE-->
-                    <div class="card">
-                        <img class="img-thumbnail" src="" alt="Imagem">
-                    </div>
-                    <div class="card">
-                        <img class="img-thumbnail" src="" alt="Imagem">
-                    </div>
-                    <div class="card">
-                        <img class="img-thumbnail" src="" alt="Imagem">
-                    </div>
+                <div class="row text-center text-lg-start">
+                <div class="card-deck" th:each="img: ${session.img} ">
+<!--                    <div class="card">-->
+                        <img class="img-thumbnail" width="122px" height="20px" th:src="*{'data:image/png;base64,'+ session.img}" alt="" src=""/>
+<!--                    </div>-->
+<!--                    <div class="card">-->
+<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
+<!--                    </div>-->
+<!--                    <div class="card">-->
+<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
+<!--                    </div>-->
+<!--                    <div class="card">-->
+<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
+<!--                    </div>-->
+                </div>
                 </div>
                 <span class="space"></span>
             </form>
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-primary" type="reset" onClick="history.back()" href="/home">Voltar</a>
-            </div>
+<!--            <div class="d-flex justify-content-center">-->
+<!--                <a class="btn btn-primary" type="reset" onClick="history.back()" href="/home">Voltar</a>-->
+<!--            </div>-->
         </div>
+    </div>
+    <span class="space"></span>
+    <div class="container form_container form-border mb-3">
+        <h6>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <div class="text-center">
+                        <p>
+                            <em>
+                                Fonte: Adaptado o conteúdo da apostila "Formação acordes – I" e "Formação acordes – II" do cifraclub.
+                            </em>
+                        </p>
+                        <div class="align-items-center">
+                            <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary" href="/home">Voltar</a></button></span>
+                        </div>
+                    </div>
+                </ul>
+            </small>
+        </h6>
     </div>
 </body>
 </html>

@@ -11,13 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
-
-import static java.util.stream.Collectors.toList;
 
 @Controller
 @RequestMapping("consultas")
@@ -46,7 +42,7 @@ public class QueriesController {
                     model.addAttribute("resultTriad", answer.chordTriad(chord));
                 }
             } else {
-                voltar(session);
+                clear(session);
             }
             return "consultas/triade";
         }
@@ -68,23 +64,23 @@ public class QueriesController {
                 String chord1 = "[" + chordTyped + "]";
                 Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chordTyped));
                 session.setAttribute("chord", chordTyped);
-                String chord = String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
+                String chordDatabase= String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
 
-                if (chord1.equals(chord)){
+                if (chord1.equals(chordDatabase)){
                     System.out.println("Acorde digitado: " + chord1);
-                    System.out.println("Acorde do Banco de Dados: " + chord);
+                    System.out.println("Acorde do Banco de Dados: " + chordDatabase);
 
                     List<byte[]> image = chordImage.stream().map(ChordImage::getImage).toList();
                     String img = Base64.getMimeEncoder().encodeToString(image.iterator().next());
-                    System.out.println("Imagem: " + img);
                     session.setAttribute("img", img);
 
                 } else{
                     System.out.println("Acorde não encontrado!");
                     model.addAttribute("wrong", wrong);
+                    clear(session);
                 }
             }else {
-                voltar(session);
+                clear(session);
             }
             return "consultas/acordes";
         }
@@ -110,7 +106,7 @@ public class QueriesController {
                     model.addAttribute("resultTetrad", answer.chordTetrad(chord));
                 }
             }else {
-                voltar(session);
+                clear(session);
             }
             return "consultas/tetrade";
         }
@@ -141,16 +137,17 @@ public class QueriesController {
                         model.addAttribute("resultTransp", transp.transposition(semitone, chord));
                     }
                 }else {
-                    voltar(session);
+                    clear(session);
                 }
             return "consultas/transposicao";
         }
     }
 
     @PostMapping("voltar")
-    public String voltar (HttpSession session) {
+    public String clear(HttpSession session) {
         session.removeAttribute("chord");
         session.removeAttribute("semitone");
+        session.removeAttribute("img");
         return "redirect:/home";
     }
 
