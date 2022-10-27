@@ -25,16 +25,18 @@
                 <span class="space"></span>
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="[BANCO DE DADOS]" alt="Imagem de capa do card">
+                        <img th:src="*{'data:image/png;'+ session.img}" th:each="img:${session.img}" alt="" src=""/>
+                    </div>
+                    <!--                        <img class="card-img-top" src="" alt="Imagem de capa do card">-->
+                    <!--                        https://www.youtube.com/watch?v=HWFwgQYdEJE-->
+                    <div class="card">
+                        <img class="img-thumbnail" src="" alt="Imagem">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="[BANCO DE DADOS]" alt="Imagem de capa do card">
+                        <img class="img-thumbnail" src="" alt="Imagem">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="[BANCO DE DADOS]" alt="Imagem de capa do card">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="[BANCO DE DADOS]" alt="Imagem de capa do card">
+                        <img class="img-thumbnail" src="" alt="Imagem">
                     </div>
                 </div>
                 <span class="space"></span>

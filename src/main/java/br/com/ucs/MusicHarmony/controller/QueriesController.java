@@ -11,8 +11,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 @Controller
 @RequestMapping("consultas")
@@ -50,7 +53,7 @@ public class QueriesController {
     @GetMapping("acordes")
     public String chords(HttpServletRequest request, RequestChord requestChord, Model model, BindingResult wrong){
         HttpSession session = request.getSession();
-        String chord;
+        String chordTyped;
 
         Boolean logged = getLogged(request);
         if (logged){
@@ -59,20 +62,25 @@ public class QueriesController {
             System.out.println("Consulta Acordes");
 
             if(request.getParameter("chord") != null) {
+                chordTyped = request.getParameter("chord");
+                String chord1 = "[" + chordTyped + "]";
+                Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chordTyped));
+                session.setAttribute("chord", chordTyped);
+                String chord = String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
 
-                chord = request.getParameter("chord");
-                String chord1 = "[" + chord + "]";
-                Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chord));
-                session.setAttribute("chord", chord);
-                String chordName = String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
+                if (chord1.equals(chord)){
+                    System.out.println("Acorde digitado: " + chord1);
+                    System.out.println("Acorde do Banco de Dados: " + chord);
 
-                if (chord1.equals(chordName)){
-                    System.out.println("Acorde Encontrado: " + chordName);
+                    List<byte[]> image = chordImage.stream().map(ChordImage::getImage).toList();
+                    String img = Base64.getMimeEncoder().encodeToString(image.iterator().next());
+                    System.out.println("Imagem: " + img);
+                    session.setAttribute("img", img);
+
                 } else{
                     System.out.println("Acorde não encontrado!");
                     model.addAttribute("wrong", wrong);
                 }
-
             }else {
                 voltar(session);
             }
