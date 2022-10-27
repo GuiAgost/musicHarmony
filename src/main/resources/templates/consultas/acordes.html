@@ -25,7 +25,7 @@
                 <span class="space"></span>
                 <div class="card-deck">
                     <div class="card">
-                        <img th:src="*{'data:image/png;'+ session.img}" th:each="img:${session.img}" alt="" src=""/>
+                        <img th:src="*{'data:image/png;base64,'+ session.img}" alt=""/>
                     </div>
                     <!--                        <img class="card-img-top" src="" alt="Imagem de capa do card">-->
                     <!--                        https://www.youtube.com/watch?v=HWFwgQYdEJE-->
