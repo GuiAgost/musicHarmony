@@ -26,15 +26,7 @@ public class ChordImage {
         return chordName;
     }
 
-    public void setChordName(String chordName) {
-        this.chordName = chordName;
-    }
-
     public byte[] getImage() {
         return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
     }
 }

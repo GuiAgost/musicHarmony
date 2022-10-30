@@ -25,8 +25,7 @@ public class QuizController {
 
     @GetMapping("questionarios")
     public String quiz(HttpServletRequest requestUser, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(requestUser);
+        Boolean logged = getExistsUser(requestUser);
         if (logged){
             return "redirect:/login";
         } else{
@@ -43,12 +42,9 @@ public class QuizController {
         return "questoes/questionarios";
     }
 
-
-
     @GetMapping("questionariosDois")
     public String quizDois(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -68,8 +64,7 @@ public class QuizController {
 
     @GetMapping("questionariosTres")
     public String quizTres(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -88,8 +83,7 @@ public class QuizController {
 
     @GetMapping("questionariosQuatro")
     public String quizQuatro(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -108,8 +102,7 @@ public class QuizController {
 
     @GetMapping("questionariosCinco")
     public String quizCinco(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -128,8 +121,7 @@ public class QuizController {
 
     @GetMapping("questionariosSeis")
     public String quizSeis(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -149,8 +141,7 @@ public class QuizController {
 
     @GetMapping("questionariosSete")
     public String quizSete(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -169,8 +160,7 @@ public class QuizController {
 
     @GetMapping("questionariosOito")
     public String quizOito(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -189,8 +179,7 @@ public class QuizController {
 
     @GetMapping("questionariosNove")
     public String quizNove(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -209,8 +198,7 @@ public class QuizController {
 
     @GetMapping("questionariosDez")
     public String quizDez(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -229,8 +217,7 @@ public class QuizController {
 
     @GetMapping("questionariosOnze")
     public String quizOnze(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -249,8 +236,7 @@ public class QuizController {
 
     @GetMapping("questionariosDoze")
     public String quizDoze(HttpServletRequest request, Model model){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -265,6 +251,11 @@ public class QuizController {
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 12);
         return "questoes/questionariosDoze";
+    }
+
+    private Boolean getExistsUser(HttpServletRequest request) {
+        ExistsSessionService userExist = new ExistsSessionService();
+        return userExist.existsUsers(request);
     }
 
     @PostMapping("/logout")

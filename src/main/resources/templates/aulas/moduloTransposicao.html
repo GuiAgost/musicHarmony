@@ -6,68 +6,64 @@
 <div th:replace="~{base :: logo3}"></div>
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Transposicao')}"></div>
-<style>
-
-</style>
-
 <body>
-<div class="container form_container form-border">
-    <h5>
-        <div class="titulo">Como transpor uma nota ou um acorde?</div>
-        <span class="space"></span>
-        <small class="text-muted">
-            <ul class="list-unstyled">
-                <p>
-                    Para Transpor uma nota ou um acorde, é alterar para uma região mais grave ou mais aguda (aumentar ou diminuir).
-                    Vamos supor uma música tem o tom de acorde <strong>C</strong>, então queremos diminuir 3 semitons. Utilizando
-                    o relógio para calcular a distância, vamos para o sentido anti-horário a partir do acorde <strong>C</strong>
-                    e assim encontramos o acorde resultado <strong>A</strong>:
-                </p>
-                <div class="card-body text-center">
-                    <figure>
-                        <img src="../img/relogioTransposicaoC.jpg" class="w-25 rounded card-img" alt="image" >
-                    </figure>
-                </div>
-                <p>
-                    Ou seja, a distância entre o acorde <strong>C</strong> para o acorde <strong>A</strong> é de menos 1 tom e 1 semitom.
-                </p>
-                <p>
-                    Agora, queremos aumentar do acorde <strong>G</strong> em 5 semitons. Utilizando mais uma vez o relógio para calcular,
-                    vamos para o sentido horário a partir do acorde <strong>G</strong> e assim encontramos o acorde resultado <strong>C</strong>:
-                </p>
-                <div class="card-body text-center">
-                    <figure>
-                        <img src="../img/relogioTransposicaoG.jpg" class="w-25 rounded card-img" alt="image" >
-                    </figure>
-                </div>
-                <p>
-                    Sendo assim, a distância entre o acorde <strong>G</strong> para o acorde  <strong>C</strong> é mais de 2 tons e 1 semitom.
-                    Será realizado a mesma lógica a sequência de acordes de uma música e também para as notas de um solo musical.
-                </p>
-            </ul>
-        </small>
-    </h5>
-</div>
-<span class="space"></span>
-<div class="container form_container form-border mb-3">
-    <h6>
-        <span class="space"></span>
-        <small class="text-muted">
-            <ul class="list-unstyled">
-                <div class="text-center">
+    <div class="container form_container form-border">
+        <h5>
+            <div class="titulo">Como transpor uma nota ou um acorde?</div>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
                     <p>
-                        <em>
-                            Fonte: Adaptado o conteúdo do artigo "Um sistema para Transposição Automática de Sequências MIDI baseada
-                            em Alcance Vocal" da autora Sandra Fernandes de Oliveira Lima.
-                        </em>
+                        Para Transpor uma nota ou um acorde, é alterar para uma região mais grave ou mais aguda (aumentar ou diminuir).
+                        Vamos supor uma música tem o tom de acorde <strong>C</strong>, então queremos diminuir 3 semitons. Utilizando
+                        o relógio para calcular a distância, vamos para o sentido anti-horário a partir do acorde <strong>C</strong>
+                        e assim encontramos o acorde resultado <strong>A</strong>:
                     </p>
-                    <div class="align-items-center">
-                        <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
+                    <div class="card-body text-center">
+                        <figure>
+                            <img src="../img/relogioTransposicaoC.jpg" class="w-25 rounded card-img" alt="image" >
+                        </figure>
                     </div>
-                </div>
-            </ul>
-        </small>
-    </h6>
-</div>
-</body>
+                    <p>
+                        Ou seja, a distância entre o acorde <strong>C</strong> para o acorde <strong>A</strong> é de menos 1 tom e 1 semitom.
+                    </p>
+                    <p>
+                        Agora, queremos aumentar do acorde <strong>G</strong> em 5 semitons. Utilizando mais uma vez o relógio para calcular,
+                        vamos para o sentido horário a partir do acorde <strong>G</strong> e assim encontramos o acorde resultado <strong>C</strong>:
+                    </p>
+                    <div class="card-body text-center">
+                        <figure>
+                            <img src="../img/relogioTransposicaoG.jpg" class="w-25 rounded card-img" alt="image" >
+                        </figure>
+                    </div>
+                    <p>
+                        Sendo assim, a distância entre o acorde <strong>G</strong> para o acorde  <strong>C</strong> é mais de 2 tons e 1 semitom.
+                        Será realizado a mesma lógica a sequência de acordes de uma música e também para as notas de um solo musical.
+                    </p>
+                </ul>
+            </small>
+        </h5>
+    </div>
+    <span class="space"></span>
+    <div class="container form_container form-border mb-3">
+        <h6>
+            <span class="space"></span>
+            <small class="text-muted">
+                <ul class="list-unstyled">
+                    <div class="text-center">
+                        <p>
+                            <em>
+                                Fonte: Adaptado o conteúdo do artigo "Um sistema para Transposição Automática de Sequências MIDI baseada
+                                em Alcance Vocal" da autora Sandra Fernandes de Oliveira Lima.
+                            </em>
+                        </p>
+                        <div class="align-items-center">
+                            <span><button class="btn btn-link text-light mt-3"><a onClick="history.back()" class="text-primary">Voltar</a></button></span>
+                        </div>
+                    </div>
+                </ul>
+            </small>
+        </h6>
+    </div>
+    </body>
 </html>

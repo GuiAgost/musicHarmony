@@ -1,4 +1,3 @@
-<!--https://icons.getbootstrap.com/#install-->
 <!doctype html>
 <html lang="pt-BR">
 <!--Configuração de cabeçalho-->
@@ -23,27 +22,20 @@
                     </div>
                 </div>
                 <span class="space"></span>
-                <div class="row text-center text-lg-start">
-                <div class="card-deck" th:each="img: ${session.img} ">
-<!--                    <div class="card">-->
-                        <img class="img-thumbnail" width="122px" height="20px" th:src="*{'data:image/png;base64,'+ session.img}" alt="" src=""/>
-<!--                    </div>-->
-<!--                    <div class="card">-->
-<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
-<!--                    </div>-->
-<!--                    <div class="card">-->
-<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
-<!--                    </div>-->
-<!--                    <div class="card">-->
-<!--                        <img class="img-thumbnail" src="" alt="Imagem">-->
-<!--                    </div>-->
-                </div>
+                <div class="container d-flex justify-content-center form_container form-border">
+                    <div class="row col-8">
+                        <table>
+                            <div class="card-deck">
+                                <img class="img-thumbnail" width="122px" height="20px" th:if="${session.img == null}"  th:each="img: ${session.listImg}" th:src="*{'data:image/png;base64,'+ img}" alt="" src=""/>
+                                <div class="rounded mx-auto d-block">
+                                    <img class="img-thumbnail" width="122px" height="20px" th:if="${session.img}" th:src="*{'data:image/png;base64,'+ session.img}" alt="" src=""/>
+                                </div>
+                            </div>
+                        </table>
+                    </div>
                 </div>
                 <span class="space"></span>
             </form>
-<!--            <div class="d-flex justify-content-center">-->
-<!--                <a class="btn btn-primary" type="reset" onClick="history.back()" href="/home">Voltar</a>-->
-<!--            </div>-->
         </div>
     </div>
     <span class="space"></span>
@@ -68,5 +60,3 @@
     </div>
 </body>
 </html>
-
-<!--https://www.youtube.com/watch?v=22VmM2OiftQ-->

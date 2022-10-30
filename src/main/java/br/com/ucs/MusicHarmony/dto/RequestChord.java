@@ -11,10 +11,6 @@ public class RequestChord {
 
     @NotBlank
     private Long id;
-    @NotBlank
-    private String chordName;
-    @NotBlank
-    private byte[] image;
 
     public Long getId() {
         return id;
@@ -22,9 +18,5 @@ public class RequestChord {
 
     public String getChordName(String chordName) {
         return chordName;
-    }
-
-    public byte[] getImage() {
-        return image;
     }
 }

@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
-
 @Controller
 @RequestMapping("aulas")
 public class ClassesController {
 
     @GetMapping
     public String aulas(HttpServletRequest request){
-
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -28,8 +25,7 @@ public class ClassesController {
 
     @GetMapping("moduloConceito")
     public String conceptModule(HttpServletRequest request){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -40,8 +36,7 @@ public class ClassesController {
 
     @GetMapping("moduloTetrade")
     public String tetradModule(HttpServletRequest request){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -52,8 +47,7 @@ public class ClassesController {
 
     @GetMapping("moduloTriade")
     public String triadModule(HttpServletRequest request){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistUser(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -64,14 +58,18 @@ public class ClassesController {
 
     @GetMapping("moduloTransposicao")
     public String transpositionModule(HttpServletRequest request){
-        ExistsSessionService userExist = new ExistsSessionService();
-        Boolean logged = userExist.existsUsers(request);
+        Boolean logged = getExistUser(request);
         if (logged){
             return "redirect:/login";
         } else{
             System.out.println("Módulo Transposição");
             return "aulas/moduloTransposicao";
         }
+    }
+
+    private Boolean getExistUser(HttpServletRequest request) {
+        ExistsSessionService userExist = new ExistsSessionService();
+        return userExist.existsUsers(request);
     }
 
     @PostMapping("/logout")

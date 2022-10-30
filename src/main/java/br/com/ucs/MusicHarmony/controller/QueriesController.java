@@ -11,9 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Base64;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("consultas")
@@ -56,30 +54,42 @@ public class QueriesController {
         Boolean logged = getLogged(request);
         if (logged){
             return "redirect:/login";
-        } else{
+        } else {
             System.out.println("Consulta Acordes");
 
-            if(request.getParameter("chord") != null) {
-                chordTyped = request.getParameter("chord");
-                String chord1 = "[" + chordTyped + "]";
-                Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chordTyped));
-                session.setAttribute("chord", chordTyped);
-                String chordDatabase= String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
+            // É AQUI QUE MOSTRA TODAS IMAGENS QUANDO ENTRA NA PÁGINA//
+            List<ChordImage> listImages = chordRepository.findByImage();
+            System.out.println(Arrays.toString(listImages.toArray()));
+            List<byte[]> imageDatabase = listImages.stream().map(ChordImage::getImage).toList();
 
-                if (chord1.equals(chordDatabase)){
-                    System.out.println("Acorde digitado: " + chord1);
+            List<String> listImg = new ArrayList<>();
+            for (int i = 0; i < imageDatabase.toArray().length; i++){
+                String imagem  = Base64.getMimeEncoder().encodeToString(imageDatabase.get(i));
+                listImg.add(imagem);
+            }
+            session.setAttribute("listImg", listImg);
+
+            if (request.getParameter("chord") != null) {
+                chordTyped = request.getParameter("chord");
+                String chord = "[" + chordTyped + "]";
+                session.setAttribute("chord", chordTyped);
+                Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chordTyped));
+                String chordDatabase = String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
+
+                if (chord.equals(chordDatabase)) {
+                    System.out.println("Acorde digitado: " + chord);
                     System.out.println("Acorde do Banco de Dados: " + chordDatabase);
 
                     List<byte[]> image = chordImage.stream().map(ChordImage::getImage).toList();
                     String img = Base64.getMimeEncoder().encodeToString(image.iterator().next());
                     session.setAttribute("img", img);
 
-                } else{
+                } else {
                     System.out.println("Acorde não encontrado!");
                     model.addAttribute("wrong", wrong);
                     clear(session);
                 }
-            }else {
+            } else {
                 clear(session);
             }
             return "consultas/acordes";
@@ -126,11 +136,13 @@ public class QueriesController {
             System.out.println("Consulta Transposição");
                 if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                     semitone = Integer.parseInt(request.getParameter("semitone"));
+                    session.setAttribute("semitone", semitone);
+
                     chord = request.getParameter("chord");
+                    session.setAttribute("chord", chord);
+
                     ValidationChordService val = new ValidationChordService();
                     boolean validation = val.validation(chord);
-                    session.setAttribute("chord", chord);
-                    session.setAttribute("semitone", semitone);
                     if (!validation) {
                         model.addAttribute("errorsChord", errorsChord);
                     } else {

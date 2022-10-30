@@ -18,7 +18,6 @@ public class TranspositionService {
         System.out.println(scale.getScale().get(transposed));
         return scale.getScale().get(transposed);
     }
-    // https://en.wikipedia.org/wiki/Transposition_(music)
 
     private int getTransposed(int semitone, LinkedList<String> scale, int position) {
         int transposed;
@@ -41,5 +40,3 @@ public class TranspositionService {
         return aux;
     }
 }
-
-// https://scholar.google.com.br/scholar?hl=pt-BR&as_sdt=0%2C5&q=Teoria+de+Grupos+e+M%C3%BAsica%3A+Conex%C3%B5es&btnG=
