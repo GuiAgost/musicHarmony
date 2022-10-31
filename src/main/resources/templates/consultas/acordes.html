@@ -8,16 +8,22 @@
 <!--Subtitulo-->
 <div th:replace="~{base :: titulo('Pesquisar Acordes')}"></div>
 <body>
-    <div class="container d-flex justify-content-center form_container form-border">
+    <div class="container form_container form-border">
         <div class="row">
             <div th:replace="~{alertas :: chordNotFind}"></div>
             <form>
-                <div class="input-group mb-3">
-                    <label for="chord">Pesquise um acorde</label>
-                    <div class="input-group">
-                        <input type="search" th:value="${session.chord}" name="chord" id="chord" placeholder=" " class="form-control" onfocus="this.value='';" required="">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-primary" type="submit">Procurar</button>
+                <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3 col-sm-6">
+                        <label for="chord">Pesquise um acorde</label>
+                        <div class="input-group">
+                            <input type="search" th:value="${session.chord}" name="chord" id="chord" placeholder="Digite um acorde..." class="form-control" onfocus="this.value='';" required="">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-primary rounded" type="submit">Procurar</button>
+                            </div>
+                            <span class="space"></span>
+                            <div >
+                                <span><button class="btn btn-outline-primary text-light"><a onClick="history.back()" class="text-primary" href="/consultas/acordes">Limpar</a></button></span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -57,7 +57,7 @@ public class QueriesController {
         } else {
             System.out.println("Consulta Acordes");
 
-            // É AQUI QUE MOSTRA TODAS IMAGENS QUANDO ENTRA NA PÁGINA//
+            // AQUI QUE MOSTRA TODAS IMAGENS AO ENTRAR NA PÁGINA
             List<ChordImage> listImages = chordRepository.findByImage();
             System.out.println(Arrays.toString(listImages.toArray()));
             List<byte[]> imageDatabase = listImages.stream().map(ChordImage::getImage).toList();
@@ -69,6 +69,7 @@ public class QueriesController {
             }
             session.setAttribute("listImg", listImg);
 
+            // AQUI MOSTRA A IMAGEM PESQUISADA
             if (request.getParameter("chord") != null) {
                 chordTyped = request.getParameter("chord");
                 String chord = "[" + chordTyped + "]";
