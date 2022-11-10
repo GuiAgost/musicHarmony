@@ -14,27 +14,27 @@
                     <div th:replace="~{alertas :: wrong}"></div>
                     <div th:replace="~{alertas :: gotItRight}"></div>
                     <div>
-                        Questão 5) Qual é a sequência de intervalo da escala maior?
+                        Questão 3) Quais são os símbolos de acidentes? O que cada uma faz quando aplicado em uma nota musical?
                     </div>
                     <span class="space"></span>
                     <!--/*@thymesVar id="selected" type="java"*/-->
                     <form method="post" th:object="${selected}">
                         <div class="form-group">
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
-                                <label class="custom-control-label" for="option1"> A) Tom, Semitom, Tom, Tom, Semitom, Tom, Tom.</label>
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="[A]" th:field="*{selected}">
+                                <label class="custom-control-label" for="option1"> A) São símbolos "#" (sustenido) e "b" (bemol). O sustenido aumenta 1 semitom e o bemol diminui 1 semitom.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
-                                <label class="custom-control-label" for="option2"> B) Tom, Semitom, Tom, Tom, Tom, Tom, Semitom.</label>
+                                <label class="custom-control-label" for="option2"> B) São símbolos "m" (menor) e "7" (sétimo). O sétimo aumenta 1 semitom e o menor diminui 1 semitom.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
-                                <label class="custom-control-label" for="option3"> C) Tom, Tom, Semitom, Tom, Semitom, Tom, Semitom.</label>
+                                <label class="custom-control-label" for="option3"> C) São símbolos "#" (sustenido) e "b" (bemol). O sustenido aumenta 2 semitom e o bemol diminui 1 semitom.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="[D]" th:field="*{selected}">
-                                <label class="custom-control-label" for="option4"> D) Tom, Tom, Semitom, Tom, Tom, Tom, Semitom.</label>
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                                <label class="custom-control-label" for="option4"> D) São símbolos "m7" (menor sétimo) e "b5" (meio diminuto). O menor sétimo diminui 1 semitom e o meio diminuto diminui 1 tom.</label>
                             </div>
                         </div>
                         <div class="text-center">
@@ -45,8 +45,8 @@
                 <form>
                     <span class="space"></span>
                     <div class="text-center">
-                        <a class="btn btn-primary" onClick="history.back()" href="questionariosQuatro">Anterior</a>
-                        <a href="questionariosSeis"><button type="button" class="btn btn-primary">Próximo</button></a>
+                        <a class="btn btn-primary" onClick="history.back()" href="questionarioDois">Anterior</a>
+                        <a href="questionarioQuatro"><button type="button" class="btn btn-primary">Próximo</button></a>
                     </div>
                 </form>
             </h5>

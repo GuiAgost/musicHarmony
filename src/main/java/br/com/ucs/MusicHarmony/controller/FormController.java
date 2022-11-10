@@ -11,34 +11,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/*
+ *  Classe que sala o usuário e senha para banco de dados
+ */
+
 @Controller
 @RequestMapping("cadastro")
 public class FormController {
 
-    @Autowired
+    @Autowired // Injeção de dependência baseada em campo, que usa a instância do repository
+    // isso permite que não há necessidade de declarar um construtor para a classe
     private UserRepository usuarioRepository;
 
     @GetMapping("formulario")
     public String form(){
-        System.out.println("Cadastro");
         return "cadastro/formulario";
     }
 
     @PostMapping("/formulario")
     public String toSave(Model model, RequestRegistration request, BindingResult registrationError){
-
         User user = usuarioRepository.findByUsername(request.getUsername());
+
+        // Compara o usuario e senha do banco de dados, caso exista, retorna a mensagem que existe usuário
         if (user != null && (request.getUsername().equals(user.getUsername()) ||
                 (request.getPassword().equals(user.getPassword())))){
-            System.out.println("Usuário existente!!");
             model.addAttribute("registrationError", registrationError);
         } else {
-            System.out.println("Cadastrando o usuário...");
-            System.out.println("Salvando o usuário...");
+            // Salva o usuário no banco de dados
             User usuario = request.toUsuario();
             usuarioRepository.save(usuario);
-
-            System.out.println("Salvou");
             return "redirect:/login";
         }
         return null;

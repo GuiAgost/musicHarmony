@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import static java.lang.Math.abs;
 
+/*
+ * Classe para cálculo de transposição.
+ */
+
 @Service
 public class TranspositionService {
 
@@ -15,10 +19,11 @@ public class TranspositionService {
         aux = getPositionNote(note, scale.getScale(), aux);
         int transposed = getTransposed(semitone, scale.getScale(), aux);
 
-        System.out.println(scale.getScale().get(transposed));
+        // Retorna a nota transposta, conforme a posição da nota transposta calculada
         return scale.getScale().get(transposed);
     }
 
+    // Retorna a posição da nota transposta
     private int getTransposed(int semitone, LinkedList<String> scale, int position) {
         int transposed;
         int sum = position + semitone;
@@ -31,6 +36,7 @@ public class TranspositionService {
         return transposed;
     }
 
+    // Retorna a posição da nota informada
     private int getPositionNote(String note, LinkedList<String> scale, int aux) {
         for(int i = 0; i < scale.size(); i++){
             if(scale.get(i).equals(note)){

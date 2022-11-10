@@ -27,6 +27,7 @@ public class RequestRegistration {
         this.password = password;
     }
 
+    // Salva o usuário e senha no banco de dados
     public User toUsuario() {
         User usuario = new User();
         usuario.setUsername(username);

@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
 <!--Configuração de cabeçalho-->
-<head th:replace="~{base :: head}"><title></title></head>
+<head th:replace="~{base :: head}">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <title></title>
+</head>
 <!--Titulo-->
 <div th:replace="~{base :: logo3}"></div>
 <!--Subtitulo-->
@@ -14,7 +17,7 @@
                     <div th:replace="~{alertas :: wrong}"></div>
                     <div th:replace="~{alertas :: gotItRight}"></div>
                     <div>
-                        Questão 4) Quais são tipos de intervalos?
+                        Questão 1) Quantas são as notas musicais naturais e quais?
                     </div>
                     <span class="space"></span>
                     <!--/*@thymesVar id="selected" type="java"*/-->
@@ -22,31 +25,30 @@
                         <div class="form-group">
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
-                                <label class="custom-control-label" for="option1"> A) Maior, menor, aumentado e diminuto.</label>
+                                <label class="custom-control-label" for="option1"> A) São 8 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá, Si e Dó.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="[B]" th:field="*{selected}">
-                                <label class="custom-control-label" for="option2"> B) Maior, menor, justo, aumentado e diminuto.</label>
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
+                                <label class="custom-control-label" for="option2"> B) São 12 notas musicais: Dó, Dó#, Ré, Ré#, Mi, Fá, Fá#, Sol, Sol#, Lá, Lá# e Si.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
-                                <label class="custom-control-label" for="option3"> C) Sustenido, bemol, bemol dobrado.</label>
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="[C]" th:field="*{selected}">
+                                <label class="custom-control-label" for="option3"> C) São 7 notas musicais: Dó, Ré, Mi, Fá, Sol, Lá e Si.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
-                                <label class="custom-control-label" for="option4"> D) Maior, menor, menor sétimo, maior sétimo.</label>
+                                <label class="custom-control-label" for="option4"> D) São 7 notas musicais: Dó#, Ré#, Mi, Fá#, Sol#, Lá# e Si.</label>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-success" type="submit">Confirmar Resposta</button>
+                            <button class="btn btn-success" type="submit" >Confirmar Resposta</button>
                         </div>
                     </form>
                 </small>
                 <form>
                     <span class="space"></span>
                     <div class="text-center">
-                        <a class="btn btn-primary" onClick="history.back()" href="questionariosTres">Anterior</a>
-                        <a href="questionariosCinco"><button type="button" class="btn btn-primary">Próximo</button></a>
+                        <a href="questionarioDois"><button type="button" class="btn btn-primary">Próximo</button></a>
                     </div>
                 </form>
             </h5>

@@ -3,6 +3,10 @@ package br.com.ucs.MusicHarmony.service;
 import br.com.ucs.MusicHarmony.model.Scales;
 import org.springframework.stereotype.Service;
 
+/*
+ *  Classe para retornar as 3 notas que forma o acorde de tríade
+ */
+
 @Service
 public class TriadService {
 

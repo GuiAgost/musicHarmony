@@ -14,7 +14,7 @@
                     <div th:replace="~{alertas :: wrong}"></div>
                     <div th:replace="~{alertas :: gotItRight}"></div>
                     <div>
-                        Questão 11) Qual grau é acrescentado que consiste acorde de sétima?
+                        Questão 12) O VII graus do acorde de sétima consistem:
                     </div>
                     <span class="space"></span>
                     <!--/*@thymesVar id="selected" type="java"*/-->
@@ -22,19 +22,19 @@
                         <div class="form-group">
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
-                                <label class="custom-control-label" for="option1"> A) V grau.</label>
+                                <label class="custom-control-label" for="option1"> A) Maior, menor, meio diminuta, diminuta e aumentada.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
-                                <label class="custom-control-label" for="option2"> B) VIII grau.</label>
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="[B]" th:field="*{selected}">
+                                <label class="custom-control-label" for="option2"> B) Maior, menor e diminuta.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option3" name="option3" class="custom-control-input" value="C" th:field="*{selected}">
-                                <label class="custom-control-label" for="option3"> C) III grau.</label>
+                                <label class="custom-control-label" for="option3"> C) Maior, menor e meio diminuta.</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="[D]" th:field="*{selected}">
-                                <label class="custom-control-label" for="option4"> D) VII grau.</label>
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
+                                <label class="custom-control-label" for="option4"> D) Maior, menor, diminuta e aumentada.</label>
                             </div>
                         </div>
                         <div class="text-center">
@@ -45,8 +45,7 @@
                 <form>
                     <span class="space"></span>
                     <div class="text-center">
-                        <a class="btn btn-primary" onClick="history.back()" href="questionariosDez">Anterior</a>
-                        <a href="questionariosDoze"><button type="button" class="btn btn-primary">Próximo</button></a>
+                        <a class="btn btn-primary" onClick="history.back()" href="questionarioOnze">Anterior</a>
                     </div>
                 </form>
             </h5>

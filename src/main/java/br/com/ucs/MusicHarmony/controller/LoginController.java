@@ -16,19 +16,23 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
-    @GetMapping("/login")
-    public String login() {
-        System.out.println("Entrei login");
-        return "login";
+    final // Ao invés de usar o @Autowired, usa construtor
+    UserRepository userRepository;
+
+    public LoginController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    @Autowired
-    UserRepository userRepository;
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 
     @PostMapping("/login")
     public String home(Model model, RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
         User user = userRepository.findByUsername(request.getUsername());
 
+        // Compara o usuario e senha do banco de dados
         if (user != null && (request.getUsername().equals(user.getUsername()) &&
                 (request.getPassword().equals(user.getPassword())))){
             //================MOSTRA OS DADOS NO CONSOLE===========================//
@@ -38,17 +42,19 @@ public class LoginController {
             System.out.println("Senha do banco: " + user.getPassword());
             System.out.println("Usuario do banco: " + user.getUsername());
             //================MOSTRA OS DADOS NO CONSOLE===========================//
+            // Atribui o nome do usuário no canto esquerdo da tela
             HttpSession session = requestSession.getSession();
             session.setAttribute("userIsLogged", user);
-            System.out.println("Usuario Logado: " + session.getId());
             return "redirect:/home";
         } else {
             System.out.println("Usuário ou senha inválidos!!");
+            // Envia a mensagem de erro
             model.addAttribute("errors", errors);
         }
         return null;
     }
 
+    // Quando faz logout, remove a chave de sessão do usuário
     @PostMapping("/logout")
     public String logout (HttpServletRequest request) {
         LogoutService logout = new LogoutService();

@@ -14,7 +14,7 @@
                     <div th:replace="~{alertas :: wrong}"></div>
                     <div th:replace="~{alertas :: gotItRight}"></div>
                     <div>
-                        Questão 8) Quais intervalos que formam a tríade aumentada?
+                        Questão 10) Para que serve a transposição?
                     </div>
                     <span class="space"></span>
                     <!--/*@thymesVar id="selected" type="java"*/-->
@@ -22,19 +22,20 @@
                         <div class="form-group">
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option1" name="option1" class="custom-control-input" value="A" th:field="*{selected}">
-                                <label class="custom-control-label" for="option1"> A) Nota fundamental, terça maior, quinta justa e sétima aumantada.</label>
+                                <label class="custom-control-label" for="option1"> A) Serve para embelezar a música.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option2" name="option2" class="custom-control-input" value="B" th:field="*{selected}">
-                                <label class="custom-control-label" for="option2"> B) Nota fundamental, terça aumantada e quinta justa.</label>
+                                <label class="custom-control-label" for="option2"> B) Serve para aumentar ou diminuir entre os acordes presentes na música.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option3" name="option3" class="custom-control-input" value="[C]" th:field="*{selected}">
-                                <label class="custom-control-label" for="option3"> C) Nota fundamental, terça maior e quinta aumentada.</label>
+                                <label class="custom-control-label" for="option3"> C) Serve para adequar a voz do canto aumentando ou diminuindo as tonalidade
+                                    até tornarem-se confortáveis.</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="option4" name="option4" class="custom-control-input" value="D" th:field="*{selected}">
-                                <label class="custom-control-label" for="option4"> D) Nota fundamental, terça menor e quinta aumentada.</label>
+                                <label class="custom-control-label" for="option4"> D) Serve para ficar mais dissonante em relação à voz.</label>
                             </div>
                         </div>
                         <div class="text-center">
@@ -45,8 +46,8 @@
                 <form>
                     <span class="space"></span>
                     <div class="text-center">
-                        <a class="btn btn-primary" onClick="history.back()" href="questionariosSete">Anterior</a>
-                        <a href="questionariosNove"><button type="button" class="btn btn-primary">Próximo</button></a>
+                        <a class="btn btn-primary" onClick="history.back()" href="questionarioNove">Anterior</a>
+                        <a href="questionarioOnze"><button type="button" class="btn btn-primary">Próximo</button></a>
                     </div>
                 </form>
             </h5>

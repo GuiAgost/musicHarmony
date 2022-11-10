@@ -3,6 +3,10 @@ package br.com.ucs.MusicHarmony.service;
 import br.com.ucs.MusicHarmony.model.Scales;
 import org.springframework.stereotype.Service;
 
+/*
+ *  Classe para retornar as 4 notas que forma o acorde de tétrade
+ */
+
 @Service
 public class TetradService {
 

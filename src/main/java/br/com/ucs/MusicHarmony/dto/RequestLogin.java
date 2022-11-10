@@ -14,6 +14,10 @@ public class RequestLogin {
     @NotBlank
     private String password;
 
+    public RequestLogin(String username) {
+        this.username = username;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -21,6 +25,7 @@ public class RequestLogin {
     public void setUsername(String username) {
         this.username = username;
     }
+
 
     public String getPassword() {
         return password;

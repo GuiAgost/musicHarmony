@@ -5,13 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@Service
+/*
+Classe para verificar se existe a chave do usuário armazenado em cookie.
+Caso não exista, retornará false.
+ */
+
+@Service // service é um bean gerenciado pelo spring mvc
 public class ExistsSessionService {
 
     @GetMapping
     public Boolean existsUsers(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        System.out.println("Sessão: " + session.getId());
+        // Retorna false se a chave da sessão for nula ou não existe
         return session.getAttribute("userIsLogged") == null ||
                 session.getAttribute("userIsLogged").equals("");
     }

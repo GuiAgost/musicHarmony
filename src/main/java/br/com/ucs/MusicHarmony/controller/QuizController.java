@@ -23,234 +23,179 @@ public class QuizController {
     @Autowired
     private QuestionsRepository questionsRepository;
 
-    @GetMapping("questionarios")
+    // Redireciona a página, se o usuário estiver logado
+    @GetMapping("questionarioUm")
     public String quiz(HttpServletRequest requestUser, Model model){
-        Boolean logged = getExistsUser(requestUser);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("Questionário");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionarios";
-        }
+        return getLogged(requestUser, model, "questoes/questionarioUm");
     }
 
-    @PostMapping("questionarios")
+    // Retorna o resultado
+    @PostMapping("questionarioUm")
     public String questions(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                             BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 1);
-        return "questoes/questionarios";
+        return "questoes/questionarioUm";
     }
 
-    @GetMapping("questionariosDois")
+    @GetMapping("questionarioDois")
     public String quizDois(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioDois");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosDois";
-        }
+        return getLogged(request, model, "questoes/questionarioDois");
     }
 
-    @PostMapping("questionariosDois")
+    @PostMapping("questionarioDois")
     public String questionsDois(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 2);
-
-        return "questoes/questionariosDois";
+        return "questoes/questionarioDois";
     }
 
-    @GetMapping("questionariosTres")
+    @GetMapping("questionarioTres")
     public String quizTres(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioTres");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosTres";
-        }
+        return getLogged(request, model, "questoes/questionarioTres");
     }
 
-    @PostMapping("questionariosTres")
+    @PostMapping("questionarioTres")
     public String questionsTres(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 3);
-        return "questoes/questionariosTres";
+        return "questoes/questionarioTres";
     }
 
-    @GetMapping("questionariosQuatro")
+    @GetMapping("questionarioQuatro")
     public String quizQuatro(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioQuatro");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosQuatro";
-        }
+        return getLogged(request, model, "questoes/questionarioQuatro");
     }
 
-    @PostMapping("questionariosQuatro")
+    @PostMapping("questionarioQuatro")
     public String questionsQuatro(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                   BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 4);
-        return "questoes/questionariosQuatro";
+        return "questoes/questionarioQuatro";
     }
 
-    @GetMapping("questionariosCinco")
+    @GetMapping("questionarioCinco")
     public String quizCinco(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioCinco");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosCinco";
-        }
+        return getLogged(request, model, "questoes/questionarioCinco");
     }
 
-    @PostMapping("questionariosCinco")
+    @PostMapping("questionarioCinco")
     public String questionsCinco(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                  BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 5);
-        return "questoes/questionariosCinco";
+        return "questoes/questionarioCinco";
     }
 
-    @GetMapping("questionariosSeis")
+    @GetMapping("questionarioSeis")
     public String quizSeis(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioSeis");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosSeis";
-        }
+        return getLogged(request, model, "questoes/questionarioSeis");
     }
 
-    @PostMapping("questionariosSeis")
+    @PostMapping("questionarioSeis")
     public String questionsSeis(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         model.addAttribute("selected", selected);
         result(selected, model, request, requestQuestions, wrong, gotItRight, 6);
-        return "questoes/questionariosSeis";
+        return "questoes/questionarioseis";
     }
 
-    @GetMapping("questionariosSete")
+    @GetMapping("questionarioSete")
     public String quizSete(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioSete");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosSete";
-        }
+        return getLogged(request, model, "questoes/questionarioSete");
     }
 
-    @PostMapping("questionariosSete")
+    @PostMapping("questionarioSete")
     public String questionsSete(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 7);
-        return "questoes/questionariosSete";
+        return "questoes/questionarioSete";
     }
 
-    @GetMapping("questionariosOito")
+    @GetMapping("questionarioOito")
     public String quizOito(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioOito");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosOito";
-        }
+        return getLogged(request, model, "questoes/questionarioOito");
     }
 
-    @PostMapping("questionariosOito")
+    @PostMapping("questionarioOito")
     public String questionsOito(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 8);
-        return "questoes/questionariosOito";
+        return "questoes/questionarioOito";
     }
 
-    @GetMapping("questionariosNove")
+    @GetMapping("questionarioNove")
     public String quizNove(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioNove");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosNove";
-        }
+        return getLogged(request, model, "questoes/questionarioNove");
     }
 
-    @PostMapping("questionariosNove")
+    @PostMapping("questionarioNove")
     public String questionsNove(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 9);
-        return "questoes/questionariosNove";
+        return "questoes/questionarioNove";
     }
 
-    @GetMapping("questionariosDez")
+    @GetMapping("questionarioDez")
     public String quizDez(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioDez");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosDez";
-        }
+        return getLogged(request, model, "questoes/questionarioDez");
     }
 
-    @PostMapping("questionariosDez")
+    @PostMapping("questionarioDez")
     public String questionsDez(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 10);
-        return "questoes/questionariosDez";
+        return "questoes/questionarioDez";
     }
 
-    @GetMapping("questionariosOnze")
+    @GetMapping("questionarioOnze")
     public String quizOnze(HttpServletRequest request, Model model){
-        Boolean logged = getExistsUser(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            System.out.println("QuestionárioOnze");
-            model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosOnze";
-        }
+        return getLogged(request, model, "questoes/questionarioOnze");
     }
 
-    @PostMapping("questionariosOnze")
+    @PostMapping("questionarioOnze")
     public String questionsOnze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         result(selected, model, request, requestQuestions, wrong, gotItRight, 11);
-        return "questoes/questionariosOnze";
+        return "questoes/questionarioOnze";
     }
 
-    @GetMapping("questionariosDoze")
+    @GetMapping("questionarioDoze")
     public String quizDoze(HttpServletRequest request, Model model){
+        return getLogged(request, model, "questoes/questionarioDoze");
+    }
+
+    @PostMapping("questionarioDoze")
+    public String questionsDoze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
+                                BindingResult wrong, BindingResult gotItRight) {
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 12);
+        return "questoes/questionarioDoze";
+    }
+
+    private String getLogged(HttpServletRequest request, Model model, String redirect) {
         Boolean logged = getExistsUser(request);
         if (logged){
             return "redirect:/login";
         } else{
-            System.out.println("QuestionárioDoze");
             model.addAttribute("selected", new Questionnaires());
-            return "questoes/questionariosDoze";
+            return redirect;
         }
     }
 
-    @PostMapping("questionariosDoze")
-    public String questionsDoze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
-                                BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 12);
-        return "questoes/questionariosDoze";
+    public void result(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions, BindingResult wrong, BindingResult gotItRight, Integer number) {
+        // Retorna ID da questão do banco de dados
+        Optional<Questions> answer = questionsRepository.findById(requestQuestions.getId(number));
+        // Retorna a resposta do banco de dados
+        String resp = String.valueOf(answer.stream().map(Questions::getAnswer).toList());
+        // Retorna a resposta selecionado pelo usuário
+        model.addAttribute("selected", selected);
+        String option = request.getParameter("selected");
+
+        if( (option.equals(resp))){
+            // Resposta certa
+            model.addAttribute("gotItRight", gotItRight);
+        } else {
+            // Resposta errada
+            model.addAttribute("wrong", wrong);
+        }
     }
 
     private Boolean getExistsUser(HttpServletRequest request) {
@@ -263,23 +208,5 @@ public class QuizController {
         LogoutService logout = new LogoutService();
         logout.invalidationSession(request);
         return "redirect:/login";
-    }
-
-    private void result(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions, BindingResult wrong, BindingResult gotItRight, Integer number) {
-        Optional<Questions> answer = questionsRepository.findById(requestQuestions.getId(number));
-        String resp = String.valueOf(answer.stream().map(Questions::getAnswer).toList());
-        System.out.println("Resposta do banco: " + resp);
-
-        model.addAttribute("selected", selected);
-        String option = request.getParameter("selected");
-        System.out.println("Resposta selecionado: " + option);
-
-        if( (option.equals(resp))){
-            System.out.println("Resposta correta!");
-            model.addAttribute("gotItRight", gotItRight);
-        } else {
-            System.out.println("Resposta errada!!");
-            model.addAttribute("wrong", wrong);
-        }
     }
 }
