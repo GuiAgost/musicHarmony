@@ -1,6 +1,5 @@
 package br.com.ucs.MusicHarmony.service;
 
-import br.com.ucs.MusicHarmony.service.TriadService;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -116,5 +115,18 @@ class TriadServiceTest {
         assertEquals("G - B - D#", resGdim);
         assertEquals("A - C# - F", resAdim);
         assertEquals("B - D# - G", resBdim);
+    }
+
+    @Test
+    public void ChordsInvalidate() {
+        TriadService triad = new TriadService();
+        String chordInvalidate = "Cm7";
+        String chordInvalidate1 = "";
+
+        String resInvalidade = triad.chordTriad(chordInvalidate);
+        String resInvalidade1 = triad.chordTriad(chordInvalidate1);
+
+        assertEquals("Acorde inválido", resInvalidade);
+        assertEquals("Acorde inválido", resInvalidade1);
     }
 }

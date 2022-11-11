@@ -37,4 +37,30 @@ class TranspositionServiceTest {
 
         assertEquals("A", chordTransp);
     }
+
+    @Test
+    public void transpositionInvalidate() {
+        ValidationChordService valid = new ValidationChordService();
+
+        boolean val1 = valid.validation("C1");
+        assertFalse(val1);
+
+        boolean val2 = valid.validation("c");
+        assertFalse(val2);
+
+        boolean val3 = valid.validation("123");
+        assertFalse(val3);
+
+        boolean val4 = valid.validation("B#");
+        assertFalse(val4);
+
+        boolean val5 = valid.validation("E#");
+        assertFalse(val5);
+
+        boolean val6 = (valid.validation("CC"));
+        assertFalse(val6);
+
+        boolean val7 = valid.validation("H");
+        assertFalse(val7);
+    }
 }
