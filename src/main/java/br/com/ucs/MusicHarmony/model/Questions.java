@@ -13,6 +13,14 @@ public class Questions {
     @Column(name="answer", nullable=false)
     private String answer;
 
+    public Questions() {
+
+    }
+
+    public Questions(String answer) {
+        this.answer = answer;
+    }
+
     public Integer getId() {
         return id;
     }

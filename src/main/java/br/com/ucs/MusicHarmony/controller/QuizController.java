@@ -21,7 +21,7 @@ import java.util.Optional;
 public class QuizController {
 
     @Autowired
-    private QuestionsRepository questionsRepository;
+    QuestionsRepository questionsRepository;
 
     // Redireciona a página, se o usuário estiver logado
     @GetMapping("questionarioUm")
@@ -95,7 +95,7 @@ public class QuizController {
                                 BindingResult wrong, BindingResult gotItRight) {
         model.addAttribute("selected", selected);
         result(selected, model, request, requestQuestions, wrong, gotItRight, 6);
-        return "questoes/questionarioseis";
+        return "questoes/questionarioSeis";
     }
 
     @GetMapping("questionarioSete")

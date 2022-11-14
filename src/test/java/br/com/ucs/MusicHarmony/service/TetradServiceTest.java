@@ -1,20 +1,14 @@
 package br.com.ucs.MusicHarmony.service;
 
-import br.com.ucs.MusicHarmony.service.TetradService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TetradServiceTest {
 
-//    @SuppressWarnings("SpringJavaAutowiredMembersInspection")
-//    @Autowired
-//    public TetradService tetrad;
+    private final TetradService tetrad = new TetradService();
 
     @Test
     public void ChordsMajorWithSeventhMajorCorrect() {
-        TetradService tetrad = new TetradService();
         String chordC7M = "C7M";
         String chordD7M = "D7M";
         String chordE7M = "E7M";
@@ -22,8 +16,6 @@ class TetradServiceTest {
         String chordG7M = "G7M";
         String chordA7M = "A7M";
         String chordB7M = "B7M";
-        String chordInvalidate = "Acorde inválido";
-        String chordInvalidate1 = "Acorde inválido";
 
         String resC7M = tetrad.chordTetrad(chordC7M);
         String resD7M = tetrad.chordTetrad(chordD7M);
@@ -32,8 +24,6 @@ class TetradServiceTest {
         String resG7M = tetrad.chordTetrad(chordG7M);
         String resA7M= tetrad.chordTetrad(chordA7M);
         String resB7M = tetrad.chordTetrad(chordB7M);
-        String resInvalidade = tetrad.chordTetrad(chordInvalidate);
-        String resInvalidade1 = tetrad.chordTetrad(chordInvalidate1);
 
         assertEquals("C - E - G - B", resC7M);
         assertEquals("D - F# - A - C#", resD7M);
@@ -42,15 +32,10 @@ class TetradServiceTest {
         assertEquals("G - B - D - F#", resG7M);
         assertEquals("A - C# - E - G#", resA7M);
         assertEquals("B - D# - F# - A#", resB7M);
-        assertEquals("Acorde inválido", chordInvalidate);
-        assertNotEquals("C1", resInvalidade1);
-        assertNotEquals("", resInvalidade1);
     }
-
 
     @Test
     public void ChordsMajorWithSeventhMinorCorrect() {
-        TetradService tetrad = new TetradService();
         String chordC7 = "C7";
         String chordD7 = "D7";
         String chordE7 = "E7";
@@ -78,7 +63,6 @@ class TetradServiceTest {
 
     @Test
     public void ChordsMinorWithSeventhMinorCorrect() {
-        TetradService tetrad = new TetradService();
         String chordCm7 = "Cm7";
         String chordDm7 = "Dm7";
         String chordEm7 = "Em7";
@@ -106,7 +90,6 @@ class TetradServiceTest {
 
     @Test
     public void ChordsHalfDiminutiveWithSeventhMinorCorrect() {
-        TetradService tetrad = new TetradService();
         String chordCHalfDim = "Cm7(b5)";
         String chordDHalfDim  = "Dm7(b5)";
         String chordEHalfDim  = "Em7(b5)";
@@ -134,8 +117,6 @@ class TetradServiceTest {
 
     @Test
     public void ChordsInvalidate() {
-        TetradService tetrad = new TetradService();
-
         String chordInvalidate = "C";
         String chordInvalidate1 = "";
 

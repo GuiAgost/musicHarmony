@@ -1,29 +1,14 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.MusicHarmonyApplication;
 import br.com.ucs.MusicHarmony.dto.RequestLogin;
 import br.com.ucs.MusicHarmony.model.User;
 import br.com.ucs.MusicHarmony.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.ui.Model;
@@ -36,7 +21,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -60,7 +44,7 @@ class LoginControllerTest {
 
 
     @Test
-    public void returnExistUser() throws Exception {
+    public void returnExistUsers() throws Exception {
         // Cria um objeto que simula uma instância
         // Nesses 4 atributos não utilizo, porém o método home() exige ter esses parametros
         Model model = mock(Model.class);
@@ -93,7 +77,7 @@ class LoginControllerTest {
     }
 
     @Test
-    public void returnExistUser(Model model, RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
+    public void returnExistUsers(Model model, RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
         LoginController userTest = new LoginController(userRepository);
         userTest.home(model, request, requestSession, errors);
         String nome = request.getUsername();
