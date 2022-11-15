@@ -148,7 +148,6 @@ public class QueriesController {
         if (logged){
             return "redirect:/login";
         } else{
-            System.out.println("Consulta Transposição");
             if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
                 // Recebe o valor do campo digitado
                 semitone = Integer.parseInt(request.getParameter("semitone"));
