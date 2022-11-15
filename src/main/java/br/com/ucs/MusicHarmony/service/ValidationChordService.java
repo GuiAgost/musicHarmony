@@ -17,7 +17,6 @@ public class ValidationChordService {
         }
         //Valida somente as letras maiúsculas de A-G e pode incluir o #, exceto as notas E# e B#
         if(chord.matches("((?![EB]#))([A-G]#?$)")){
-            System.out.println("Testeletrasdentro,EeB");
             return true;
         }
         return chord.length() < 2;
