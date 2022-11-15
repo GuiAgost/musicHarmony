@@ -58,8 +58,17 @@ class TranspositionServiceTest {
         boolean val7 = valid.validation("H");
         assertFalse(val7);
 
+        boolean val8 = valid.validation("#");
+        assertFalse(val8);
+
+        boolean val9 = valid.validation("#F");
+        assertFalse(val9);
+
+        boolean val10 = valid.validation("##");
+        assertFalse(val10);
+
         // Nesse caso retorna true
-        boolean val8 = valid.validation("C#");
-        assertTrue(val8);
+        boolean val11 = valid.validation("C#");
+        assertTrue(val11);
     }
 }
