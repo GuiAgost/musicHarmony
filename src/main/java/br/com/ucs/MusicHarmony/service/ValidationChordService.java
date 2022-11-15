@@ -14,6 +14,11 @@ public class ValidationChordService {
         if (chord.matches("[H-Z]") || chord.matches("[0-9]*") || chord.matches("[a-z]")) {
             return false;
         }
+        //ValidasomenteasletrasmaiúsculasdeA-Gepodeincluiro#,excetoasnotasE#eB#
+        if(chord.matches("((?![EB]#))^([A-G]#?$)")){
+            System.out.println("Testeletrasdentro,EeB");
+            return true;
+        }
         return chord.length() < 2;
     }
 }
