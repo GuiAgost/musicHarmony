@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 public class ValidationChordService {
 
     public boolean validation(String chord){
-        // Não deve validar entre as letras H-Z, os números e letras minúsculas entre as letras a-z
+        // Não deve validar entre as letras H-Z, os números, letras minúsculas entre as letras a-z e o símbolo #
         if (chord.matches("[H-Z]") || chord.matches("[0-9]*") || chord.matches("[a-z]") ||
-                chord.matches("[#]")) {
+                chord.matches("#")) {
             return false;
         }
-        //Validas omente as letras maiúsculas de A-G e pode incluiro #, exceto as notas E# e B#
+        //Valida somente as letras maiúsculas de A-G e pode incluir o #, exceto as notas E# e B#
         if(chord.matches("((?![EB]#))([A-G]#?$)")){
             System.out.println("Testeletrasdentro,EeB");
             return true;
