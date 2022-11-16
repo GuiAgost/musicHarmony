@@ -9,7 +9,7 @@ public class Questions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable=false, unique=true)
-    private Integer id;
+    private Long id;
     @Column(name="answer", nullable=false)
     private String answer;
 
@@ -21,7 +21,7 @@ public class Questions {
         this.answer = answer;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

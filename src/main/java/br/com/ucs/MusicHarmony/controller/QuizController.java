@@ -33,7 +33,7 @@ public class QuizController {
     @PostMapping("questionarioUm")
     public String questions(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                             BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 1);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 1L);
         return "questoes/questionarioUm";
     }
 
@@ -45,7 +45,7 @@ public class QuizController {
     @PostMapping("questionarioDois")
     public String questionsDois(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 2);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 2L);
         return "questoes/questionarioDois";
     }
 
@@ -57,7 +57,7 @@ public class QuizController {
     @PostMapping("questionarioTres")
     public String questionsTres(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 3);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 3L);
         return "questoes/questionarioTres";
     }
 
@@ -69,7 +69,7 @@ public class QuizController {
     @PostMapping("questionarioQuatro")
     public String questionsQuatro(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                   BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 4);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 4L);
         return "questoes/questionarioQuatro";
     }
 
@@ -81,7 +81,7 @@ public class QuizController {
     @PostMapping("questionarioCinco")
     public String questionsCinco(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                  BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 5);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 5L);
         return "questoes/questionarioCinco";
     }
 
@@ -94,7 +94,7 @@ public class QuizController {
     public String questionsSeis(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
         model.addAttribute("selected", selected);
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 6);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 6L);
         return "questoes/questionarioSeis";
     }
 
@@ -106,7 +106,7 @@ public class QuizController {
     @PostMapping("questionarioSete")
     public String questionsSete(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 7);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 7L);
         return "questoes/questionarioSete";
     }
 
@@ -118,7 +118,7 @@ public class QuizController {
     @PostMapping("questionarioOito")
     public String questionsOito(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 8);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 8L);
         return "questoes/questionarioOito";
     }
 
@@ -130,7 +130,7 @@ public class QuizController {
     @PostMapping("questionarioNove")
     public String questionsNove(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 9);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 9L);
         return "questoes/questionarioNove";
     }
 
@@ -142,7 +142,7 @@ public class QuizController {
     @PostMapping("questionarioDez")
     public String questionsDez(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 10);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 10L);
         return "questoes/questionarioDez";
     }
 
@@ -154,7 +154,7 @@ public class QuizController {
     @PostMapping("questionarioOnze")
     public String questionsOnze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 11);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 11L);
         return "questoes/questionarioOnze";
     }
 
@@ -166,7 +166,7 @@ public class QuizController {
     @PostMapping("questionarioDoze")
     public String questionsDoze(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions,
                                 BindingResult wrong, BindingResult gotItRight) {
-        result(selected, model, request, requestQuestions, wrong, gotItRight, 12);
+        result(selected, model, request, requestQuestions, wrong, gotItRight, 12L);
         return "questoes/questionarioDoze";
     }
 
@@ -180,7 +180,7 @@ public class QuizController {
         }
     }
 
-    public void result(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions, BindingResult wrong, BindingResult gotItRight, Integer number) {
+    public void result(Questionnaires selected, Model model, HttpServletRequest request, RequestQuestion requestQuestions, BindingResult wrong, BindingResult gotItRight, Long number) {
         // Retorna ID da questão do banco de dados
         Optional<Questions> answer = questionsRepository.findById(requestQuestions.getId(number));
         // Retorna a resposta do banco de dados

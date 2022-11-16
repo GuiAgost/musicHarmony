@@ -19,7 +19,6 @@ public class QueriesController {
 
     @Autowired
     ChordRepository chordRepository;
-    // https://stackoverflow.com/questions/39890849/what-exactly-is-field-injection-and-how-to-avoid-it
 
     @GetMapping("triade")
     public String triad(HttpServletRequest request, Model model, Object errorsChord){

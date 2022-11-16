@@ -36,6 +36,10 @@ class TranspositionServiceTest {
         public void transpositionInvalidate() {
         ValidationChordService valid = new ValidationChordService();
 
+        // Nesse caso retorna true
+        boolean val11 = valid.validation("C#");
+        assertTrue(val11);
+
 //        boolean val1 = valid.validation("C1");
 //        assertFalse(val1);
         assertFalse(valid.validation("C1"));
@@ -66,9 +70,5 @@ class TranspositionServiceTest {
 
         boolean val10 = valid.validation("##");
         assertFalse(val10);
-
-        // Nesse caso retorna true
-        boolean val11 = valid.validation("C#");
-        assertTrue(val11);
     }
 }

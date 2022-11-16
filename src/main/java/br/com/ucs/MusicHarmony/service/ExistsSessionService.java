@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 Classe para verificar se existe a chave do usuário armazenado em cookie.
 Caso não exista, retornará false.
  */
-
-@Service // service é um bean gerenciado pelo spring mvc
+// service é um bean gerenciado pelo spring mvc, pra dizer que esta classe é responsável para operar lógica
+@Service
 public class ExistsSessionService {
 
     @GetMapping

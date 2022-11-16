@@ -8,7 +8,7 @@ public class RequestQuestion {
     @Autowired
     QuestionsRepository questionsRepository;
 
-    public Integer getId(Integer id) {
+    public Long getId(Long id) {
         return id;
     }
 }

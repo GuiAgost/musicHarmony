@@ -127,5 +127,3 @@ class TetradServiceTest {
         assertEquals("Acorde inválido", resInvalidade1);
     }
 }
-
-// https://cursos.alura.com.br/forum/topico-diferenca-entre-assert-assertequals-e-assertequals-138335
