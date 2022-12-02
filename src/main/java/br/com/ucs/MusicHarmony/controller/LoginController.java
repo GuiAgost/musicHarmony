@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired // Ao invés de usar o @Autowired, usa construtor
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping("/login")
     public String login() {

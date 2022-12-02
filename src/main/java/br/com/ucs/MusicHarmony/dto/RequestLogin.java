@@ -11,18 +11,10 @@ public class RequestLogin {
     @NotBlank
     private String password;
     @NotBlank
-    private RequestLogin request;
-
-    public RequestLogin() {
-    }
+    private final RequestLogin request;
 
     public RequestLogin(RequestLogin request) {
         this.request = request;
-    }
-
-    public RequestLogin(String username, String password) {
-        this.username = username;
-        this.password = password;
     }
 
     public String getUsername() {

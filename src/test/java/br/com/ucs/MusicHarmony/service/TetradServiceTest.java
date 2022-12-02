@@ -8,7 +8,7 @@ class TetradServiceTest {
     private final TetradService tetrad = new TetradService();
 
     @Test
-    public void ChordsMajorWithSeventhMajorCorrect() {
+    public void chordsMajorWithSeventhMajorCorrect() {
         String chordC7M = "C7M";
         String chordD7M = "D7M";
         String chordE7M = "E7M";
@@ -35,7 +35,7 @@ class TetradServiceTest {
     }
 
     @Test
-    public void ChordsMajorWithSeventhMinorCorrect() {
+    public void chordsMajorWithSeventhMinorCorrect() {
         String chordC7 = "C7";
         String chordD7 = "D7";
         String chordE7 = "E7";
@@ -62,7 +62,7 @@ class TetradServiceTest {
     }
 
     @Test
-    public void ChordsMinorWithSeventhMinorCorrect() {
+    public void chordsMinorWithSeventhMinorCorrect() {
         String chordCm7 = "Cm7";
         String chordDm7 = "Dm7";
         String chordEm7 = "Em7";
@@ -89,7 +89,7 @@ class TetradServiceTest {
     }
 
     @Test
-    public void ChordsHalfDiminutiveWithSeventhMinorCorrect() {
+    public void chordsHalfDiminutiveWithSeventhMinorCorrect() {
         String chordCHalfDim = "Cm7(b5)";
         String chordDHalfDim  = "Dm7(b5)";
         String chordEHalfDim  = "Em7(b5)";
@@ -116,7 +116,7 @@ class TetradServiceTest {
     }
 
     @Test
-    public void ChordsInvalidate() {
+    public void chordsInvalidate() {
         String chordInvalidate = "C";
         String chordInvalidate1 = "";
 

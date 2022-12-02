@@ -8,7 +8,7 @@ class TriadServiceTest {
     private final TriadService triad = new TriadService();
 
     @Test
-    public void ChordsBiggerCorrect() {
+    public void chordsBiggerCorrect() {
         String chordC = "C";
         String chordD = "D";
         String chordE = "E";
@@ -35,7 +35,7 @@ class TriadServiceTest {
     }
 
     @Test
-    public void ChordsMinorsCorrect() {
+    public void chordsMinorsCorrect() {
         String chordCm = "Cm";
         String chordDm = "Dm";
         String chordEm = "Em";
@@ -62,7 +62,7 @@ class TriadServiceTest {
     }
 
     @Test
-    public void ChordsDiminutiveCorrect() {
+    public void chordsDiminutiveCorrect() {
         String chordCdim = "Cdim";
         String chordDdim = "Ddim";
         String chordEdim = "Edim";
@@ -89,7 +89,7 @@ class TriadServiceTest {
     }
 
     @Test
-    public void ChordsAugmentedCorrect() {
+    public void chordsAugmentedCorrect() {
         String chordCaug = "C(#5)";
         String chordDaug = "D(#5)";
         String chordEaug = "E(#5)";
@@ -116,7 +116,7 @@ class TriadServiceTest {
     }
 
     @Test
-    public void ChordsInvalidate() {
+    public void chordsInvalidate() {
         String chordInvalidate = "Cm7";
         String chordInvalidate1 = "";
 
