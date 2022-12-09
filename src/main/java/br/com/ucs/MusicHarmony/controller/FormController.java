@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 /*
  *  Classe que sala o usuário e senha para banco de dados
  */
@@ -29,7 +31,7 @@ public class FormController {
     }
 
     @PostMapping("/formulario")
-    public String toSave(Model model, RequestRegistration request, BindingResult registrationError){
+    public String toSave(Model model, @Valid RequestRegistration request, BindingResult registrationError){
         User user = usuarioRepository.findByUsername(request.getUsername());
 
         // Compara o usuario e senha do banco de dados, caso exista, retorna a mensagem que existe usuário
