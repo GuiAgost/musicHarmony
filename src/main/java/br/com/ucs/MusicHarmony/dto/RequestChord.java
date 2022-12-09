@@ -1,8 +1,8 @@
 package br.com.ucs.MusicHarmony.dto;
 
 import br.com.ucs.MusicHarmony.repository.ChordRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class RequestChord {
 

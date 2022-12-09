@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+				<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.5.0</version>
+			<version>42.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.persistence</groupId>
@@ -72,18 +72,6 @@
 			<version>5.9.0</version>
 			<scope>test</scope>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.junit.jupiter</groupId>-->
-<!--			<artifactId>junit-jupiter-params</artifactId>-->
-<!--			<version>5.9.0</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.junit.platform</groupId>-->
-<!--			<artifactId>junit-platform-launcher</artifactId>-->
-<!--			<version>1.9.0</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>

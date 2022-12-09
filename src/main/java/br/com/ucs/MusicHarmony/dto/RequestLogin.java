@@ -3,7 +3,6 @@ package br.com.ucs.MusicHarmony.dto;
 import br.com.ucs.MusicHarmony.model.User;
 import javax.validation.constraints.NotBlank;
 
-
 public class RequestLogin {
 
     @NotBlank
