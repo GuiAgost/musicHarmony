@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 @Controller
 public class LoginController {
@@ -26,7 +25,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String home(Model model, @Valid RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
+    public String home(Model model, RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
         User user = userRepository.findByUsername(request.getUsername());
         RequestLogin log = new RequestLogin(request);
         boolean logged = log.logado(user);
