@@ -93,4 +93,4 @@ utilização do JPA Hibernate para mapeamento banco de dados relacional e o dese
 
 * O sistema web atendeu de acordo com os requisitos propostos, possibilitando acrescentar novas funcionalidades e novos conceitos da teoria musical.
 
-* O sistema ainda há muitas melhorias a serem desenvolvida, como por exemplo, seguir o designer patterns, refatorar algumas parte do html em javascript, entre outros.
+* O sistema ainda há muitas melhorias a serem desenvolvida, como por exemplo, seguir o designer patterns, refatorar algumas parte do html em javascript, entre outros.****

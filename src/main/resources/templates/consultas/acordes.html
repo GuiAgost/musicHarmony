@@ -18,11 +18,11 @@
                         <div class="input-group">
                             <input type="search" th:value="${session.chord}" name="chord" id="chord" placeholder="Digite um acorde..." class="form-control" onfocus="this.value='';" required="">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-primary rounded" type="submit">Procurar</button>
+                                <button class="btn btn-outline-primary rounded" style="margin: 0" type="submit">Procurar</button>
                             </div>
                             <span class="space"></span>
                             <div >
-                                <button class="btn btn-outline-primary"><a onClick="history.back()" href="/consultas/acordes">Limpar</a></button>
+                                <button class="btn btn-outline-primary" style="margin: 0" ><a onClick="history.back()" href="/consultas/acordes">Limpar</a></button>
                             </div>
                         </div>
                     </div>
