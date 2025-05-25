@@ -3,13 +3,14 @@ package br.com.ucs.MusicHarmony.controller;
 import br.com.ucs.MusicHarmony.dto.RequestLogin;
 import br.com.ucs.MusicHarmony.model.User;
 import br.com.ucs.MusicHarmony.repository.UserRepository;
-import br.com.ucs.MusicHarmony.service.LogoutService;
+import br.com.ucs.MusicHarmony.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,9 @@ public class LoginController {
 
     @Autowired // Ao invés de usar o @Autowired, usa construtor
     private UserRepository userRepository;
+
+    @Autowired
+    private UserSessionService userSessionService;
 
     @GetMapping("/login")
     public String login() {
@@ -40,11 +44,10 @@ public class LoginController {
         return null;
     }
 
-    // Quando faz logout, remove a chave de sessão do usuário
+    // Faz logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
     @PostMapping("/logout")
-    public String logout (HttpServletRequest request) {
-        LogoutService logout = new LogoutService();
-        logout.invalidationSession(request);
+    public String logout(HttpServletRequest request) {
+        userSessionService.invalidateSession(request);
         return "redirect:/login";
     }
 }

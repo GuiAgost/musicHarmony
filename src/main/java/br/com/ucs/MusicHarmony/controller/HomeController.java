@@ -1,6 +1,6 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.service.ExistsSessionService;
+import br.com.ucs.MusicHarmony.service.UserSessionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +16,10 @@ public class HomeController {
 
     @GetMapping
     public String home(HttpServletRequest request) {
-        ExistsSessionService userExist = new ExistsSessionService();
+        UserSessionService userExist = new UserSessionService ();
         // Retorna se existe a chave da sessão, ou seja, se o usuário está logado
         // Caso não esteja logado, o sistema não permite acessar a página diretamente sem fazer login
-        Boolean logged = userExist.existsUsers(request);
+        boolean logged = userExist.isUserNotLogged(request);
         if (logged){
             return "redirect:/login";
         } else{

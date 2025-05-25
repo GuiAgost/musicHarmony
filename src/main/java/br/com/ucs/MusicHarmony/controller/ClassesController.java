@@ -1,7 +1,7 @@
 package br.com.ucs.MusicHarmony.controller;
 
-import br.com.ucs.MusicHarmony.service.ExistsSessionService;
-import br.com.ucs.MusicHarmony.service.LogoutService;
+import br.com.ucs.MusicHarmony.service.UserSessionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("aulas")
 public class ClassesController {
+
+    @Autowired
+    private UserSessionService userSessionService;
 
     @GetMapping
     public String aulas(HttpServletRequest request){
@@ -43,7 +46,8 @@ public class ClassesController {
     }
 
     private String getRedirect(HttpServletRequest request, String redirect) {
-        Boolean logged = getExistUser(request);
+        UserSessionService userExist = new UserSessionService ();
+        boolean logged = userExist.isUserNotLogged(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -51,15 +55,17 @@ public class ClassesController {
         }
     }
 
-    private Boolean getExistUser(HttpServletRequest request) {
-        ExistsSessionService userExist = new ExistsSessionService();
-        return userExist.existsUsers(request);
+    private Boolean getExistsUser(HttpServletRequest request) {
+        UserSessionService userExist = new UserSessionService ();
+        // Retorna se existe a chave da sessão, ou seja, se o usuário está logado
+        // Caso não esteja logado, o sistema não permite acessar a página diretamente sem fazer login
+        return userExist.isUserNotLogged(request);
     }
 
+    // Faz logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
     @PostMapping("/logout")
-    public String logout (HttpServletRequest request) {
-        LogoutService logout = new LogoutService();
-        logout.invalidationSession(request);
+    public String logout(HttpServletRequest request) {
+        userSessionService.invalidateSession(request);
         return "redirect:/login";
     }
 }

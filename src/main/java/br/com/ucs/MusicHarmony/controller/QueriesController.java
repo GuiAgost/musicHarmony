@@ -32,6 +32,9 @@ public class QueriesController {
     @Autowired
     ChordImageService chordImageService;
 
+    @Autowired
+    private UserSessionService userSessionService;
+
     @GetMapping("triade")
     public String triad(HttpServletRequest request, Model model, Object errorsChord){
         if (getLogged(request)) return "redirect:/login";
@@ -94,22 +97,18 @@ public class QueriesController {
     // Faz a remoção de valores do campo
     @PostMapping("voltar")
     public void clear(HttpSession session) {
-        session.removeAttribute("chord");
-        session.removeAttribute("semitone");
-        session.removeAttribute("img");
+        userSessionService.clearAttributes(session);
     }
 
-    // Fax logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
+    // Faz logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
     @PostMapping("/logout")
-    public String logout (HttpServletRequest request) {
-        LogoutService logout = new LogoutService();
-        logout.invalidationSession(request);
+    public String logout(HttpServletRequest request) {
+        userSessionService.invalidateSession(request);
         return "redirect:/login";
     }
 
     // Caso o usuário não esteja logado, retorna false
     Boolean getLogged(HttpServletRequest request) {
-        ExistsSessionService userExist = new ExistsSessionService();
-        return userExist.existsUsers(request);
+        return userSessionService.isUserNotLogged(request);
     }
 }
