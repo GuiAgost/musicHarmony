@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.service;
 
+import br.com.ucs.MusicHarmony.interfaces.HarmonyStrategy;
 import br.com.ucs.MusicHarmony.model.Scales;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,12 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class TriadService {
+public class TriadService implements HarmonyStrategy {
+
+    @Override
+    public String process(String chord) {
+        return chordTriad(chord);
+    }
 
     public String chordTriad(String chord){
         String res;

@@ -1,17 +1,20 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.dto.RequestChord;
-import br.com.ucs.MusicHarmony.model.ChordImage;
+import br.com.ucs.MusicHarmony.interfaces.HarmonyStrategy;
 import br.com.ucs.MusicHarmony.repository.ChordRepository;
 import br.com.ucs.MusicHarmony.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("consultas")
@@ -20,166 +23,80 @@ public class QueriesController {
     @Autowired
     ChordRepository chordRepository;
 
+    @Autowired
+    private TriadService triadService;
+
+    @Autowired
+    private TetradService tetradService;
+
+    @Autowired
+    ChordImageService chordImageService;
+
     @GetMapping("triade")
     public String triad(HttpServletRequest request, Model model, Object errorsChord){
-        TriadService answer = new TriadService();
-
-        String chord;
-        HttpSession session = request.getSession();
-        Boolean logged = getLogged(request);
-
-        if (logged){
-            return "redirect:/login";
-        } else{
-            if(request.getParameter("chord") != null) {
-                // Recebe o valor do campo digitado
-                chord = request.getParameter("chord");
-                if (answer.chordTriad(chord).equals("Acorde inválido")){
-                    model.addAttribute("errorsChord", errorsChord);
-                    clear(session);
-                }else{
-                    // Deixa gravado o valor no campo
-                    session.setAttribute("chord", chord);
-                    // Retorna a resposta
-                    model.addAttribute("resultTriad", answer.chordTriad(chord));
-                }
-            } else {
-                // Limpa os campos ao clicar botão "Voltar"
-                clear(session);
-            }
-            return "consultas/triade";
-        }
+        if (getLogged(request)) return "redirect:/login";
+        return handleHarmonyRequest(triadService, request, model, errorsChord, "consultas/triade", "resultTriad");
     }
 
     @GetMapping("tetrade")
     public String tetrad(HttpServletRequest request, Model model, Object errorsChord){
-        TetradService answer = new TetradService();
+        if (getLogged(request)) return "redirect:/login";
+        return handleHarmonyRequest(tetradService, request, model, errorsChord, "consultas/tetrade", "resultTetrad");
+    }
 
-        // return getTriadAndTetrad(request, model, errorsChord, "consultas/tetrade");
-
-        String chord;
+    private String handleHarmonyRequest(HarmonyStrategy strategy, HttpServletRequest request, Model model, Object errorsChord, String viewName, String resultAttributeName) {
+        String chord = request.getParameter("chord");
         HttpSession session = request.getSession();
-        Boolean logged = getLogged(request);
-
-        if (logged){
-            return "redirect:/login";
-        } else{
-            if(request.getParameter("chord") != null) {
-                // Recebe o valor do campo digitado
-                chord = request.getParameter("chord");
-                if (answer.chordTetrad(chord).equals("Acorde inválido")){
-                    model.addAttribute("errorsChord", errorsChord);
-                    clear(session);
-                }else{
-                    // Deixa gravado o valor no campo
-                    session.setAttribute("chord", chord);
-                    // Retorna a resposta
-                    model.addAttribute("resultTetrad", answer.chordTetrad(chord));
-                }
-            }else {
-                // Limpa os campos ao clicar botão "Voltar"
+        if (chord != null) {
+            String result = strategy.process(chord);
+            if (result.equals("Acorde inválido")) {
+                model.addAttribute("errorsChord", errorsChord);
                 clear(session);
+            } else {
+                session.setAttribute("chord", chord);
+                model.addAttribute(resultAttributeName, result);
             }
-            return "consultas/tetrade";
+        } else {
+            clear(session);
         }
+        return viewName;
     }
 
     @GetMapping("acordes")
-    public String chords(HttpServletRequest request, RequestChord requestChord, Model model, BindingResult wrong){
+    public String chords(HttpServletRequest request, RequestChord requestChord, Model model, BindingResult wrong) {
         HttpSession session = request.getSession();
-        String chordTyped;
+        if (getLogged(request)) return "redirect:/login";
 
-        Boolean logged = getLogged(request);
-        if (logged){
-            return "redirect:/login";
-        } else {
-            // Exibir todas imagens
-            List<ChordImage> listImages = chordRepository.findByImage();
-            List<byte[]> imageDatabase = listImages.stream().map(ChordImage::getImage).toList();
-            List<String> listImg = new ArrayList<>();
-            // Itera a lista de imagem para fazer a conversão para Base64 e atribui as imagens para listImg
-            for (int i = 0; i < imageDatabase.toArray().length; i++){
-                String imagem  = Base64.getMimeEncoder().encodeToString(imageDatabase.get(i));
-                listImg.add(imagem);
-            }
-            // Mostra todas as imagens atribuídas
-            session.setAttribute("listImg", listImg);
-            // Exibir a imagem pesquisada
-            if (request.getParameter("chord") != null) {
-                // Recebe o valor do campo digitado
-                chordTyped = request.getParameter("chord");
-                // Faz concatenação
-                String chord = "[" + chordTyped + "]";
-                // Deixa o valor gravado no campo
-                session.setAttribute("chord", chordTyped);
-                // Optional retorna string chord do banco de dados
-                Optional<ChordImage> chordImage = chordRepository.findByChordName(requestChord.getChordName(chordTyped));
-                String chordDatabase = String.valueOf(chordImage.stream().map(ChordImage::getChordName).toList());
+        // Mostra todas as imagens atribuídas
+        session.setAttribute("listImg", chordImageService.findAllChordImagesBase64());
 
-                if (chord.equals(chordDatabase)) {
-                    // Ao encontrar o string chord conforme pesquisado, busca a imagem
-                    List<byte[]> image = chordImage.stream().map(ChordImage::getImage).toList();
-                    // Faz conversão para Base64
-                    String img = Base64.getMimeEncoder().encodeToString(image.iterator().next());
-                    // Mostra a imagem pesquisada
-                    session.setAttribute("img", img);
-                } else {
-                    model.addAttribute("wrong", wrong);
-                    // Limpa valor do campo quando ocorre alerta
-                    clear(session);
-                }
+        // Exibir a imagem pesquisada
+        String chord = request.getParameter("chord");
+        if (request.getParameter("chord") != null) {
+            // Deixa o valor gravado no campo
+            session.setAttribute("chord", chord);
+            // Optional retorna string chord do banco de dados
+            Optional<String> img = chordImageService.findChordImageByName(chord);
+            if (img.isPresent()) {
+                // Mostra a imagem pesquisada
+                session.setAttribute("img", img.get());
             } else {
-                // Limpa os campos ao clicar botão "Voltar"
+                model.addAttribute("wrong", wrong);
                 clear(session);
             }
-            return "consultas/acordes";
+        } else {
+            clear(session);
         }
-    }
 
-    @GetMapping("transposicao")
-    public String transposition(HttpServletRequest request, Model model, Object errorsChord){
-        int semitone;
-        String chord;
-        TranspositionService transp = new TranspositionService();
-        HttpSession session = request.getSession();
-
-        Boolean logged = getLogged(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            if ((request.getParameter("chordNote") != null) || (request.getParameter("semitone") != null)) {
-                // Recebe o valor do campo digitado
-                semitone = Integer.parseInt(request.getParameter("semitone"));
-                // Deixa o valor gravado no campo
-                session.setAttribute("semitone", semitone);
-                // Recebe o valor do campo digitado
-                chord = request.getParameter("chord");
-                // Deixa o valor gravado no campo
-                session.setAttribute("chord", chord);
-                // Faz validação de String chord
-                ValidationChordService val = new ValidationChordService();
-                boolean validation = val.validation(chord);
-                if (!validation) {
-                    model.addAttribute("errorsChord", errorsChord);
-                } else {
-                    // Se passar validação, chama método da classe para calcular a trasnposição
-                    model.addAttribute("resultTransp", transp.transposition(semitone, chord));
-                }
-            }else {
-                // Limpa os campos ao clicar botão "Voltar"
-                clear(session);
-            }
-            return "consultas/transposicao";
-        }
+        return "consultas/acordes";
     }
 
     // Faz a remoção de valores do campo
     @PostMapping("voltar")
-    public String clear(HttpSession session) {
+    public void clear(HttpSession session) {
         session.removeAttribute("chord");
         session.removeAttribute("semitone");
         session.removeAttribute("img");
-        return "redirect:/home";
     }
 
     // Fax logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
@@ -191,7 +108,7 @@ public class QueriesController {
     }
 
     // Caso o usuário não esteja logado, retorna false
-    private Boolean getLogged(HttpServletRequest request) {
+    Boolean getLogged(HttpServletRequest request) {
         ExistsSessionService userExist = new ExistsSessionService();
         return userExist.existsUsers(request);
     }
