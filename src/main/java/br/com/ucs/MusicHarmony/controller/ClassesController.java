@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.controller;
 
+import br.com.ucs.MusicHarmony.enums.ClassModule;
 import br.com.ucs.MusicHarmony.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,44 +23,31 @@ public class ClassesController {
 
     @GetMapping
     public String aulas(HttpServletRequest request){
-        return getRedirect(request, "aulas");
+        return redirectToLoginIfNotAuthenticated(request, "aulas");
     }
 
     @GetMapping("moduloConceito")
     public String conceptModule(HttpServletRequest request){
-        return getRedirect(request, "aulas/moduloConceito");
+        return redirectToLoginIfNotAuthenticated(request, ClassModule.CONCEPT.getView());
     }
 
     @GetMapping("moduloTetrade")
     public String tetradModule(HttpServletRequest request){
-        return getRedirect(request, "aulas/moduloTetrade");
+        return redirectToLoginIfNotAuthenticated(request, ClassModule.TETRAD.getView());
     }
 
     @GetMapping("moduloTriade")
     public String triadModule(HttpServletRequest request){
-        return getRedirect(request, "aulas/moduloTriade");
+        return redirectToLoginIfNotAuthenticated(request, ClassModule.TRIAD.getView());
     }
 
     @GetMapping("moduloTransposicao")
     public String transpositionModule(HttpServletRequest request){
-        return getRedirect(request, "aulas/moduloTransposicao");
+        return redirectToLoginIfNotAuthenticated(request, ClassModule.TRANSPOSITION.getView());
     }
 
-    private String getRedirect(HttpServletRequest request, String redirect) {
-        UserSessionService userExist = new UserSessionService ();
-        boolean logged = userExist.isUserNotLogged(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            return redirect;
-        }
-    }
-
-    private Boolean getExistsUser(HttpServletRequest request) {
-        UserSessionService userExist = new UserSessionService ();
-        // Retorna se existe a chave da sessão, ou seja, se o usuário está logado
-        // Caso não esteja logado, o sistema não permite acessar a página diretamente sem fazer login
-        return userExist.isUserNotLogged(request);
+    private String redirectToLoginIfNotAuthenticated(HttpServletRequest request, String viewName) {
+        return userSessionService.isUserNotLogged(request) ? "redirect:/login" : viewName;
     }
 
     // Faz logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
