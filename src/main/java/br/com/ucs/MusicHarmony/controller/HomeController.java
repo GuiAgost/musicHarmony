@@ -1,29 +1,27 @@
 package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.service.UserSessionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /*
- *  Classe que redireciona para página /home
+ *  Classe responsável por redirecionar para a página /home.
+ *  Antes do redirecionamento, verifica se a chave da sessão está presente, indicando que o usuário está logado.
+ *  Se a chave da sessão não estiver presente, o acesso à página será bloqueado até que o usuário realize o login.
  */
 
 @Controller
 @RequestMapping("/home")
 public class HomeController {
 
+    @Autowired
+    private UserSessionService userSessionService;
+
     @GetMapping
     public String home(HttpServletRequest request) {
-        UserSessionService userExist = new UserSessionService ();
-        // Retorna se existe a chave da sessão, ou seja, se o usuário está logado
-        // Caso não esteja logado, o sistema não permite acessar a página diretamente sem fazer login
-        boolean logged = userExist.isUserNotLogged(request);
-        if (logged){
-            return "redirect:/login";
-        } else{
-            return "home";
-        }
+        return userSessionService.isUserNotLogged(request) ? "redirect:/login" : "home";
     }
 }
