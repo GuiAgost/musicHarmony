@@ -5,16 +5,11 @@ import javax.validation.constraints.NotBlank;
 
 public class RequestLogin {
 
-    @NotBlank
+    @NotBlank(message = "Usuário é obrigatório")
     private String username;
-    @NotBlank
-    private String password;
-    @NotBlank
-    private final RequestLogin request;
 
-    public RequestLogin(RequestLogin request) {
-        this.request = request;
-    }
+    @NotBlank(message = "Senha é obrigatória")
+    private String password;
 
     public String getUsername() {
         return username;
@@ -30,11 +25,5 @@ public class RequestLogin {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    // Compara o usuário e a senha digitado com o do banco de dados, se forem iguais retorna true
-    public boolean logado(User user) {
-        return user != null && (request.getUsername().equals(user.getUsername()) &&
-                (request.getPassword().equals(user.getPassword())));
     }
 }

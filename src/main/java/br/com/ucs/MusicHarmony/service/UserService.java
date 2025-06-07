@@ -1,5 +1,6 @@
 package br.com.ucs.MusicHarmony.service;
 
+import br.com.ucs.MusicHarmony.dto.RequestLogin;
 import br.com.ucs.MusicHarmony.dto.RequestRegistration;
 import br.com.ucs.MusicHarmony.model.User;
 import br.com.ucs.MusicHarmony.repository.UserRepository;
@@ -22,5 +23,13 @@ public class UserService {
     public void saveNewuser (RequestRegistration request) {
         User newUser = request.toUsuario();
         userRepository.save(newUser);
+    }
+
+    public User userAuth(RequestLogin request) {
+        User user = userRepository.findByUsername(request.getUsername());
+        if (user != null && request.getPassword().equals(user.getPassword())) {
+            return user;
+        }
+        return null;
     }
 }
