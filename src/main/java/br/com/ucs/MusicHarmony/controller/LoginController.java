@@ -19,9 +19,6 @@ import javax.validation.Valid;
 @Controller
 public class LoginController {
 
-    @Autowired // Ao invés de usar o @Autowired, usa construtor
-    private UserRepository userRepository;
-
     @Autowired
     private UserService userService;
 
@@ -35,22 +32,16 @@ public class LoginController {
 
     @PostMapping("/login")
     public String auth(Model model, @Valid RequestLogin request, HttpServletRequest requestSession, BindingResult errors) {
+        User user = userService.userAuth(request);
 
-        if (errors.hasErrors()) {
+        if (errors.hasErrors() || user == null) {
             model.addAttribute("errors", errors);
             return "login";
         }
 
-        User user = userService.userAuth(request);
-
-        if (user != null) {
-            HttpSession session = requestSession.getSession();
-            session.setAttribute("userIsLogged", user);
-            return "redirect:/home";
-        } else {
-            model.addAttribute("errors", errors);
-        }
-        return "login";
+        HttpSession session = requestSession.getSession();
+        session.setAttribute("userIsLogged", user);
+        return "redirect:/home";
     }
 
     // Faz logout quando o usuário clicar link "Logout". Além disso, exclui a chave da sessão
