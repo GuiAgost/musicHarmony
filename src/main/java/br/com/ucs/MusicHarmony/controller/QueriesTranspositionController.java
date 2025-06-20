@@ -2,6 +2,7 @@ package br.com.ucs.MusicHarmony.controller;
 
 import br.com.ucs.MusicHarmony.service.TranspositionService;
 import br.com.ucs.MusicHarmony.service.ValidationChordService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("consultas")
 public class QueriesTranspositionController {
 
-    QueriesController quitClear = new QueriesController();
+    @Autowired
+    QueriesController queriesController;
 
     @GetMapping("transposicao")
     public String transposition(HttpServletRequest request, Model model, Object errorsChord){
@@ -22,7 +24,7 @@ public class QueriesTranspositionController {
         TranspositionService transp = new TranspositionService();
         HttpSession session = request.getSession();
 
-        Boolean logged = quitClear.getLogged(request);
+        Boolean logged = queriesController.getLogged(request);
         if (logged){
             return "redirect:/login";
         } else{
@@ -46,7 +48,7 @@ public class QueriesTranspositionController {
                 }
             }else {
                 // Limpa os campos ao clicar botão "Voltar"
-                quitClear.clear(session);
+                queriesController.clear(session);
             }
             return "consultas/transposicao";
         }
