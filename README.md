@@ -115,9 +115,5 @@ mvn test
 
 ## 🙌 Conclusão
 
-O MusicHarmony foi desenvolvido com base em conceitos de modelagem de software e arquitetura em camadas, utilizando frameworks da linguagem Java para atender aos requisitos propostos. O sistema contempla regras de negócio como transposição de acordes, validações utilizando expressões regulares (Regex), autenticação de usuários e a construção de estruturas musicais como tríades e tétrades.
-
-O mapeamento objeto-relacional foi realizado com JPA Hibernate, permitindo uma integração eficiente com o banco de dados relacional. As imagens dos diagramas de acordes foram obtidas a partir de materiais educacionais (e-books e tutoriais do Cifra Club), sendo utilizadas exclusivamente para fins acadêmicos.
-
-Como melhorias futuras, destacam-se a aplicação de padrões de projeto, refatorações no front-end (HTML e JavaScript).
+O MusicHarmony aplica arquitetura em camadas e boas práticas de desenvolvimento backend com Java e Spring Boot, contemplando regras de negócio e persistência com JPA/Hibernate. Como próximos passos, prevê-se a aplicação de padrões de projeto e melhorias no front-end.
 
