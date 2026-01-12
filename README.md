@@ -117,3 +117,6 @@ mvn test
 
 O MusicHarmony aplica arquitetura em camadas e boas práticas de desenvolvimento backend com Java e Spring Boot, contemplando regras de negócio e persistência com JPA/Hibernate. Como próximos passos, prevê-se a aplicação de padrões de projeto e melhorias no front-end.
 
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
